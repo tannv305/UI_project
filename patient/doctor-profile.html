@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Doctor Profile - HealHub</title>
+        <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <style>
+            body { background-color: #f6f7fb; }
+            .container-wide { max-width: 1200px; }
+            .card { border-radius: 1rem; box-shadow: 0 2px 12px #0001; }
+            .profile-header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; }
+            .specialty-badge { font-size: 0.8rem; }
+            .rating-stars { color: #ffc107; }
+            .availability-badge { font-size: 0.75rem; }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-light bg-white border-bottom sticky-top shadow-sm">
+            <div class="container-fluid">
+                <a class="navbar-brand fw-bold text-primary" href="patient-dashboard.html"><i class="fa-solid fa-heart-pulse me-2"></i>HealHub Patient</a>
+                <div class="d-flex align-items-center gap-2">
+                    <a class="btn btn-outline-primary btn-sm" href="appointment-list.html"><i class="fa-solid fa-calendar me-1"></i>Appointments</a>
+                    <a class="btn btn-outline-primary btn-sm" href="medical-record-list.html"><i class="fa-solid fa-file-medical me-1"></i>Medical Records</a>
+                    <a class="btn btn-outline-primary btn-sm" href="feedback-management.html"><i class="fa-solid fa-comments me-1"></i>Feedback</a>
+                    <a class="btn btn-outline-danger btn-sm" href="../auth/login.html"><i class="fa-solid fa-arrow-right-from-bracket me-1"></i>Logout</a>
+                </div>
+            </div>
+        </nav>
+        <main class="container container-wide py-4">
+            <div class="card profile-header p-4 mb-4">
+                <div class="row align-items-center">
+                    <div class="col-md-3 text-center">
+                        <i class="fa-solid fa-user-doctor" style="font-size: 4rem; opacity: 0.9;"></i>
+                    </div>
+                    <div class="col-md-6">
+                        <h1 class="h3 mb-2">Dr. Nguyen Van A</h1>
+                        <p class="h5 mb-3">Cardiologist</p>
+                        <div class="mb-3">
+                            <span class="badge bg-light text-dark specialty-badge me-2">Heart Disease</span>
+                            <span class="badge bg-light text-dark specialty-badge me-2">Hypertension</span>
+                            <span class="badge bg-light text-dark specialty-badge">Arrhythmia</span>
+                        </div>
+                        <div class="d-flex align-items-center gap-4">
+                            <div>
+                                <span class="rating-stars">★★★★★</span>
+                                <span class="ms-1">(4.8/5)</span>
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-map-marker-alt me-1"></i>
+                                Floor 2, Room 201
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-clock me-1"></i>
+                                15 years experience
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <div class="mb-3">
+                            <span class="badge bg-success availability-badge p-2">Available Today</span>
+                        </div>
+                        <a href="make-appointment.html?doctor=1" class="btn btn-light btn-lg">Book Appointment</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-8">
+                    <div class="card p-4 mb-4">
+                        <h5 class="mb-3"><i class="fa-solid fa-user me-2 text-primary"></i>About Dr. Nguyen Van A</h5>
+                        <p class="mb-3">Dr. Nguyen Van A is a highly experienced cardiologist with over 15 years of practice in cardiovascular medicine. He specializes in the diagnosis and treatment of heart diseases, hypertension, and cardiac arrhythmias.</p>
+                        <p class="mb-3">Dr. Nguyen completed his medical degree at Ho Chi Minh City University of Medicine and Pharmacy, followed by specialized training in cardiology at the National Heart Institute. He has published numerous research papers in international medical journals and is recognized as one of the leading cardiologists in Vietnam.</p>
+                        <p class="mb-0">He is known for his compassionate approach to patient care and his expertise in both invasive and non-invasive cardiac procedures.</p>
+                    </div>
+
+                    <div class="card p-4 mb-4">
+                        <h5 class="mb-3"><i class="fa-solid fa-graduation-cap me-2 text-primary"></i>Education & Qualifications</h5>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fa-solid fa-check text-success me-2"></i>MD - Ho Chi Minh City University of Medicine and Pharmacy (2008)</li>
+                            <li class="mb-2"><i class="fa-solid fa-check text-success me-2"></i>Specialization in Cardiology - National Heart Institute (2012)</li>
+                            <li class="mb-2"><i class="fa-solid fa-check text-success me-2"></i>Fellowship in Interventional Cardiology - Singapore General Hospital (2015)</li>
+                            <li class="mb-2"><i class="fa-solid fa-check text-success me-2"></i>Board Certified in Cardiovascular Medicine</li>
+                            <li class="mb-0"><i class="fa-solid fa-check text-success me-2"></i>Member of Vietnam Cardiology Association</li>
+                        </ul>
+                    </div>
+
+                    <div class="card p-4 mb-4">
+                        <h5 class="mb-3"><i class="fa-solid fa-star me-2 text-primary"></i>Patient Reviews</h5>
+                        <div class="mb-3">
+                            <div class="d-flex align-items-center mb-2">
+                                <span class="rating-stars me-2">★★★★★</span>
+                                <span class="fw-bold">4.8 out of 5</span>
+                                <span class="text-muted ms-2">(128 reviews)</span>
+                            </div>
+                        </div>
+                        <div class="border-bottom pb-3 mb-3">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <div>
+                                    <strong>Patient A</strong>
+                                    <span class="rating-stars ms-2">★★★★★</span>
+                                </div>
+                                <small class="text-muted">2 days ago</small>
+                            </div>
+                            <p class="mb-0">"Dr. Nguyen is an excellent cardiologist. He explained my condition clearly and made me feel comfortable throughout the treatment. Highly recommended!"</p>
+                        </div>
+                        <div class="border-bottom pb-3 mb-3">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <div>
+                                    <strong>Patient B</strong>
+                                    <span class="rating-stars ms-2">★★★★☆</span>
+                                </div>
+                                <small class="text-muted">1 week ago</small>
+                            </div>
+                            <p class="mb-0">"Professional and knowledgeable. The waiting time was reasonable and the staff was helpful."</p>
+                        </div>
+                        <div class="text-center">
+                            <a href="#" class="btn btn-outline-primary">View All Reviews</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card p-4 mb-4">
+                        <h5 class="mb-3"><i class="fa-solid fa-calendar me-2 text-primary"></i>Availability</h5>
+                        <div class="mb-3">
+                            <h6 class="small text-muted mb-2">Today (Sep 27, 2025)</h6>
+                            <div class="d-flex flex-wrap gap-1">
+                                <span class="badge bg-success availability-badge">9:00 AM</span>
+                                <span class="badge bg-success availability-badge">10:30 AM</span>
+                                <span class="badge bg-success availability-badge">2:00 PM</span>
+                                <span class="badge bg-success availability-badge">3:30 PM</span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <h6 class="small text-muted mb-2">Tomorrow (Sep 28, 2025)</h6>
+                            <div class="d-flex flex-wrap gap-1">
+                                <span class="badge bg-success availability-badge">8:30 AM</span>
+                                <span class="badge bg-success availability-badge">11:00 AM</span>
+                                <span class="badge bg-success availability-badge">1:30 PM</span>
+                                <span class="badge bg-success availability-badge">4:00 PM</span>
+                            </div>
+                        </div>
+                        <a href="make-appointment.html?doctor=1" class="btn btn-primary w-100">Book Appointment</a>
+                    </div>
+
+                    <div class="card p-4 mb-4">
+                        <h5 class="mb-3"><i class="fa-solid fa-map-marker-alt me-2 text-primary"></i>Location</h5>
+                        <p class="mb-2"><strong>Floor 2, Room 201</strong></p>
+                        <p class="small text-muted mb-3">Cardiology Department<br>HealHub Medical Center<br>123 Medical Street, HCMC</p>
+                        <a href="#" class="btn btn-outline-primary btn-sm">Get Directions</a>
+                    </div>
+
+                    <div class="card p-4">
+                        <h5 class="mb-3"><i class="fa-solid fa-phone me-2 text-primary"></i>Contact</h5>
+                        <div class="mb-2">
+                            <i class="fa-solid fa-phone me-2 text-muted"></i>
+                            <span>+84 28 1234 5678</span>
+                        </div>
+                        <div class="mb-2">
+                            <i class="fa-solid fa-envelope me-2 text-muted"></i>
+                            <span>dr.nguyen@healhub.com</span>
+                        </div>
+                        <div class="mb-0">
+                            <i class="fa-solid fa-clock me-2 text-muted"></i>
+                            <span>Mon-Fri: 8AM-5PM</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <script src="../assets/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>

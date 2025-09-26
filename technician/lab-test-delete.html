@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Delete Lab Test</title>
+        <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+        <style>body { background-color: #f6f7fb; } .card { max-width: 720px; margin: 10vh auto; }</style>
+    </head>
+    <body>
+        <main class="w-100">
+            <div class="card shadow-sm border-0">
+                <div class="card-body p-4 p-md-5">
+                    <h1 class="h4 mb-3">Delete Lab Test</h1>
+                    <p>Are you sure you want to delete lab test <strong>SMP-002</strong>? This action cannot be undone.</p>
+                    <div class="d-flex gap-2">
+                        <form method="post" action="/lab-tests/delete">
+                            <input type="hidden" name="sampleId" value="SMP-002">
+                            <button class="btn btn-danger" type="submit">Delete</button>
+                        </form>
+                        <a class="btn btn-outline-secondary" href="lab-test-detail.html">Cancel</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <script src="../assets/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>
+

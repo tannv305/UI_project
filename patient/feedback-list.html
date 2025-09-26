@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Feedback List - HealHub</title>
+        <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <style>
+            body { background-color: #f6f7fb; }
+            .container-wide { max-width: 1200px; }
+            .card { border-radius: 1rem; box-shadow: 0 2px 12px #0001; }
+            .feedback-card { border-left: 4px solid #007bff; }
+            .rating-stars { color: #ffc107; }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-light bg-white border-bottom sticky-top shadow-sm">
+            <div class="container-fluid">
+                <a class="navbar-brand fw-bold text-primary" href="patient-dashboard.html"><i class="fa-solid fa-heart-pulse me-2"></i>HealHub Patient</a>
+                <div class="d-flex align-items-center gap-2">
+                    <a class="btn btn-outline-primary btn-sm" href="appointment-list.html"><i class="fa-solid fa-calendar me-1"></i>Appointments</a>
+                    <a class="btn btn-outline-primary btn-sm" href="medical-record-list.html"><i class="fa-solid fa-file-medical me-1"></i>Medical Records</a>
+                    <a class="btn btn-outline-primary btn-sm" href="feedback-management.html"><i class="fa-solid fa-comments me-1"></i>Feedback</a>
+                    <a class="btn btn-outline-danger btn-sm" href="../auth/login.html"><i class="fa-solid fa-arrow-right-from-bracket me-1"></i>Logout</a>
+                </div>
+            </div>
+        </nav>
+        <main class="container container-wide py-4">
+            <div class="d-flex align-items-center mb-4">
+                <h1 class="h3 mb-0 me-3"><i class="fa-solid fa-list text-primary me-2"></i>All Feedback</h1>
+                <a class="btn btn-primary btn-sm" href="give-feedback.html"><i class="fa-solid fa-plus me-1"></i>Give Feedback</a>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-8">
+                    <div class="card p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h5 class="mb-0">Feedback History</h5>
+                            <div class="d-flex gap-2">
+                                <select class="form-select form-select-sm" style="width: auto;">
+                                    <option>All Types</option>
+                                    <option>Doctor</option>
+                                    <option>Service</option>
+                                    <option>Facility</option>
+                                </select>
+                                <select class="form-select form-select-sm" style="width: auto;">
+                                    <option>All Ratings</option>
+                                    <option>5 Stars</option>
+                                    <option>4 Stars</option>
+                                    <option>3 Stars</option>
+                                    <option>2 Stars</option>
+                                    <option>1 Star</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="card feedback-card p-3 mb-3">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <div>
+                                    <h6 class="mb-1">Dr. Nguyen Van A - Cardiology</h6>
+                                    <span class="rating-stars">★★★★★</span>
+                                    <span class="text-muted ms-2">(5.0)</span>
+                                    <span class="badge bg-primary bg-opacity-10 text-primary ms-2">Doctor</span>
+                                </div>
+                                <div class="text-end">
+                                    <small class="text-muted">Sep 25, 2025</small>
+                                    <div class="mt-1">
+                                        <a href="feedback-detail.html?id=1" class="btn btn-sm btn-outline-primary me-1">View</a>
+                                        <a href="remove-feedback.html?id=1" class="btn btn-sm btn-outline-danger">Remove</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="mb-0">"Excellent doctor! Very professional and caring. Explained everything clearly and made me feel comfortable."</p>
+                        </div>
+
+                        <div class="card feedback-card p-3 mb-3">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <div>
+                                    <h6 class="mb-1">HealHub Medical Center</h6>
+                                    <span class="rating-stars">★★★★☆</span>
+                                    <span class="text-muted ms-2">(4.0)</span>
+                                    <span class="badge bg-success bg-opacity-10 text-success ms-2">Service</span>
+                                </div>
+                                <div class="text-end">
+                                    <small class="text-muted">Sep 20, 2025</small>
+                                    <div class="mt-1">
+                                        <a href="feedback-detail.html?id=2" class="btn btn-sm btn-outline-primary me-1">View</a>
+                                        <a href="remove-feedback.html?id=2" class="btn btn-sm btn-outline-danger">Remove</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="mb-0">"Good service overall, but waiting time was a bit long. Staff was friendly and helpful."</p>
+                        </div>
+
+                        <div class="card feedback-card p-3 mb-3">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <div>
+                                    <h6 class="mb-1">Dr. Tran Thi B - Neurology</h6>
+                                    <span class="rating-stars">★★★★★</span>
+                                    <span class="text-muted ms-2">(5.0)</span>
+                                    <span class="badge bg-primary bg-opacity-10 text-primary ms-2">Doctor</span>
+                                </div>
+                                <div class="text-end">
+                                    <small class="text-muted">Sep 15, 2025</small>
+                                    <div class="mt-1">
+                                        <a href="feedback-detail.html?id=3" class="btn btn-sm btn-outline-primary me-1">View</a>
+                                        <a href="remove-feedback.html?id=3" class="btn btn-sm btn-outline-danger">Remove</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="mb-0">"Outstanding care and attention to detail. Highly recommend Dr. Tran for neurological issues."</p>
+                        </div>
+
+                        <div class="card feedback-card p-3 mb-3">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <div>
+                                    <h6 class="mb-1">Laboratory Services</h6>
+                                    <span class="rating-stars">★★★☆☆</span>
+                                    <span class="text-muted ms-2">(3.0)</span>
+                                    <span class="badge bg-warning bg-opacity-10 text-warning ms-2">Facility</span>
+                                </div>
+                                <div class="text-end">
+                                    <small class="text-muted">Sep 10, 2025</small>
+                                    <div class="mt-1">
+                                        <a href="feedback-detail.html?id=4" class="btn btn-sm btn-outline-primary me-1">View</a>
+                                        <a href="remove-feedback.html?id=4" class="btn btn-sm btn-outline-danger">Remove</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="mb-0">"Lab results took longer than expected, but the staff was professional and the facility was clean."</p>
+                        </div>
+
+                        <div class="text-center mt-4">
+                            <button class="btn btn-outline-primary">Load More</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card p-4">
+                        <h5 class="mb-3">Filter Options</h5>
+                        <div class="mb-3">
+                            <label class="form-label small">Feedback Type</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="type-doctor" checked>
+                                <label class="form-check-label small" for="type-doctor">Doctor</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="type-service" checked>
+                                <label class="form-check-label small" for="type-service">Service</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="type-facility" checked>
+                                <label class="form-check-label small" for="type-facility">Facility</label>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label small">Date Range</label>
+                            <select class="form-select form-select-sm">
+                                <option>All Time</option>
+                                <option>Last 30 days</option>
+                                <option>Last 3 months</option>
+                                <option>Last year</option>
+                            </select>
+                        </div>
+                        <div class="mb-0">
+                            <label class="form-label small">Rating</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="rating-5" checked>
+                                <label class="form-check-label small" for="rating-5">★★★★★ (5 stars)</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="rating-4" checked>
+                                <label class="form-check-label small" for="rating-4">★★★★☆ (4+ stars)</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="rating-3" checked>
+                                <label class="form-check-label small" for="rating-3">★★★☆☆ (3+ stars)</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card p-4 mt-3">
+                        <h5 class="mb-3">Summary</h5>
+                        <div class="mb-2">
+                            <div class="d-flex justify-content-between">
+                                <span>Total Feedback:</span>
+                                <strong>4</strong>
+                            </div>
+                        </div>
+                        <div class="mb-2">
+                            <div class="d-flex justify-content-between">
+                                <span>Average Rating:</span>
+                                <strong>4.25/5</strong>
+                            </div>
+                        </div>
+                        <div class="mb-0">
+                            <div class="d-flex justify-content-between">
+                                <span>This Month:</span>
+                                <strong>3</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <script src="../assets/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>

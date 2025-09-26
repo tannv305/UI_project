@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Test Request List</title>
+        <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+        <style>body { background-color: #f6f7fb; } .container-wide { max-width: 1200px; }</style>
+    </head>
+    <body>
+        <nav class="navbar navbar-light bg-white border-bottom sticky-top">
+            <div class="container-fluid">
+                <a class="navbar-brand fw-bold text-primary" href="technician-dashboard.html"><i class="fa-solid fa-heart-pulse me-2"></i>HealHub</a>
+                <div class="d-flex gap-2">
+                    <a class="btn btn-outline-primary btn-sm" href="lab-test-list.html">Lab Tests</a>
+                    <a class="btn btn-outline-secondary btn-sm" href="test-request-management.html">Manage</a>
+                </div>
+            </div>
+        </nav>
+        <main class="container container-wide py-4">
+            <h1 class="h4 mb-3">Test Request List</h1>
+            <div class="card shadow-sm border-0 mb-3">
+                <div class="card-body">
+                    <form class="row g-2">
+                        <div class="col-12 col-md-3"><label class="form-label">Patient ID</label><input class="form-control form-control-sm" placeholder="HS00124"></div>
+                        <div class="col-12 col-md-3"><label class="form-label">Test</label><input class="form-control form-control-sm" placeholder="CBC"></div>
+                        <div class="col-6 col-md-3"><label class="form-label">From</label><input type="date" class="form-control form-control-sm"></div>
+                        <div class="col-6 col-md-3"><label class="form-label">To</label><input type="date" class="form-control form-control-sm"></div>
+                        <div class="col-12 d-flex gap-2"><button class="btn btn-sm btn-primary" type="button">Filter</button><button class="btn btn-sm btn-outline-secondary" type="reset">Reset</button></div>
+                    </form>
+                </div>
+            </div>
+            <div class="card shadow-sm border-0">
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table align-middle mb-0">
+                            <thead class="table-light"><tr><th>ID</th><th>Patient</th><th>Test</th><th>Priority</th><th>Requested</th><th>Status</th><th></th></tr></thead>
+                            <tbody>
+                                <tr><td>REQ-001</td><td>HS00124</td><td>CBC</td><td><span class="badge text-bg-warning">High</span></td><td>2025-09-26 08:20</td><td>Queued</td><td><a class="btn btn-sm btn-outline-secondary" href="test-request-detail.html">Open</a></td></tr>
+                                <tr><td>REQ-002</td><td>HS00421</td><td>Glucose</td><td><span class="badge text-bg-secondary">Normal</span></td><td>2025-09-26 08:35</td><td>Queued</td><td><a class="btn btn-sm btn-outline-secondary" href="test-request-detail.html">Open</a></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <script src="../assets/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>
+

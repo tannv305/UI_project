@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Cancel Appointment - HealHub</title>
+        <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <style>
+            body { background-color: #f6f7fb; }
+            .container-narrow { max-width: 600px; }
+            .card { border-radius: 1rem; box-shadow: 0 2px 12px #0001; }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-light bg-white border-bottom sticky-top shadow-sm">
+            <div class="container-fluid">
+                <a class="navbar-brand fw-bold text-primary" href="patient-dashboard.html"><i class="fa-solid fa-heart-pulse me-2"></i>HealHub Patient</a>
+                <div class="d-flex align-items-center gap-2">
+                    <a class="btn btn-outline-primary btn-sm" href="appointment-list.html"><i class="fa-solid fa-calendar me-1"></i>Appointments</a>
+                    <a class="btn btn-outline-primary btn-sm" href="medical-record-list.html"><i class="fa-solid fa-file-medical me-1"></i>Medical Records</a>
+                    <a class="btn btn-outline-primary btn-sm" href="feedback-management.html"><i class="fa-solid fa-comments me-1"></i>Feedback</a>
+                    <a class="btn btn-outline-danger btn-sm" href="../auth/login.html"><i class="fa-solid fa-arrow-right-from-bracket me-1"></i>Logout</a>
+                </div>
+            </div>
+        </nav>
+        <main class="container container-narrow py-4">
+            <div class="card p-4 mb-4">
+                <h1 class="h4 mb-3"><i class="fa-solid fa-calendar-xmark me-2 text-danger"></i>Cancel Appointment</h1>
+                
+                <div class="alert alert-warning mb-4">
+                    <i class="fa-solid fa-exclamation-triangle me-2"></i>
+                    <strong>Warning:</strong> Cancelling an appointment may result in rescheduling fees if done less than 24 hours before the appointment time.
+                </div>
+
+                <div class="card p-3 mb-4" style="border-left: 4px solid #007bff;">
+                    <div class="d-flex justify-content-between align-items-start mb-2">
+                        <div>
+                            <h6 class="mb-1">Cardiology Consultation</h6>
+                            <p class="text-muted small mb-1">Dr. Nguyen Van A • Oct 15, 2025 at 2:00 PM</p>
+                            <span class="badge bg-success">Upcoming</span>
+                        </div>
+                        <small class="text-muted">Oct 15, 2025</small>
+                    </div>
+                    <p class="mb-0 small">Routine follow-up for hypertension management. Please arrive 15 minutes early.</p>
+                </div>
+
+                <p class="mb-4">Are you sure you want to cancel this appointment? This action cannot be undone.</p>
+
+                <form action="appointment-list.html" method="POST">
+                    <div class="mb-4">
+                        <label class="form-label">Reason for cancellation *</label>
+                        <select class="form-select" required>
+                            <option value="">Select reason</option>
+                            <option value="scheduling-conflict">Scheduling conflict</option>
+                            <option value="illness">Illness</option>
+                            <option value="emergency">Emergency</option>
+                            <option value="no-longer-needed">No longer needed</option>
+                            <option value="found-other-doctor">Found another doctor</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label">Additional comments (optional)</label>
+                        <textarea class="form-control" rows="3" placeholder="Please provide any additional details..."></textarea>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label">Would you like to reschedule instead?</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="reschedule" id="reschedule-yes" value="yes">
+                            <label class="form-check-label" for="reschedule-yes">Yes, I would like to reschedule</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="reschedule" id="reschedule-no" value="no" checked>
+                            <label class="form-check-label" for="reschedule-no">No, I want to cancel completely</label>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-between">
+                        <a href="appointment-detail.html?id=1" class="btn btn-outline-secondary">Back to Appointment</a>
+                        <button type="submit" class="btn btn-danger">Cancel Appointment</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+        <script src="../assets/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Give Feedback - HealHub</title>
+        <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <style>
+            body { background-color: #f6f7fb; }
+            .container-narrow { max-width: 800px; }
+            .card { border-radius: 1rem; box-shadow: 0 2px 12px #0001; }
+            .rating-stars { color: #ffc107; font-size: 1.5rem; cursor: pointer; }
+            .rating-stars:hover { color: #ffb300; }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-light bg-white border-bottom sticky-top shadow-sm">
+            <div class="container-fluid">
+                <a class="navbar-brand fw-bold text-primary" href="patient-dashboard.html"><i class="fa-solid fa-heart-pulse me-2"></i>HealHub Patient</a>
+                <div class="d-flex align-items-center gap-2">
+                    <a class="btn btn-outline-primary btn-sm" href="appointment-list.html"><i class="fa-solid fa-calendar me-1"></i>Appointments</a>
+                    <a class="btn btn-outline-primary btn-sm" href="medical-record-list.html"><i class="fa-solid fa-file-medical me-1"></i>Medical Records</a>
+                    <a class="btn btn-outline-primary btn-sm" href="feedback-management.html"><i class="fa-solid fa-comments me-1"></i>Feedback</a>
+                    <a class="btn btn-outline-danger btn-sm" href="../auth/login.html"><i class="fa-solid fa-arrow-right-from-bracket me-1"></i>Logout</a>
+                </div>
+            </div>
+        </nav>
+        <main class="container container-narrow py-4">
+            <div class="card p-4 mb-4">
+                <h1 class="h3 mb-4"><i class="fa-solid fa-comment-dots me-2 text-primary"></i>Give Feedback</h1>
+                
+                <form>
+                    <div class="mb-4">
+                        <label class="form-label">What are you providing feedback for? *</label>
+                        <select class="form-select" required>
+                            <option value="">Select option</option>
+                            <option value="doctor">Doctor</option>
+                            <option value="service">Medical Service</option>
+                            <option value="facility">Facility/Environment</option>
+                            <option value="staff">Staff</option>
+                            <option value="appointment">Appointment Process</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label">Select specific item (if applicable)</label>
+                        <select class="form-select">
+                            <option value="">Select specific item</option>
+                            <option value="dr-nguyen">Dr. Nguyen Van A - Cardiology</option>
+                            <option value="dr-tran">Dr. Tran Thi B - Neurology</option>
+                            <option value="dr-le">Dr. Le Van C - Pediatrics</option>
+                            <option value="emergency">Emergency Department</option>
+                            <option value="reception">Reception Desk</option>
+                            <option value="lab">Laboratory Services</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label">Overall Rating *</label>
+                        <div class="d-flex align-items-center gap-2">
+                            <div class="rating-stars">
+                                <i class="fa-solid fa-star" data-rating="1"></i>
+                                <i class="fa-solid fa-star" data-rating="2"></i>
+                                <i class="fa-solid fa-star" data-rating="3"></i>
+                                <i class="fa-solid fa-star" data-rating="4"></i>
+                                <i class="fa-solid fa-star" data-rating="5"></i>
+                            </div>
+                            <span class="text-muted">Click to rate</span>
+                        </div>
+                        <input type="hidden" name="rating" id="rating" required>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label">Detailed Feedback *</label>
+                        <textarea class="form-control" rows="5" placeholder="Please share your experience in detail..." required></textarea>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label">What went well?</label>
+                        <textarea class="form-control" rows="3" placeholder="Tell us about the positive aspects of your experience..."></textarea>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label">What could be improved?</label>
+                        <textarea class="form-control" rows="3" placeholder="Share suggestions for improvement..."></textarea>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label">Would you recommend this service to others?</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="recommend" id="recommend-yes" value="yes">
+                            <label class="form-check-label" for="recommend-yes">Yes, definitely</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="recommend" id="recommend-maybe" value="maybe">
+                            <label class="form-check-label" for="recommend-maybe">Maybe</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="recommend" id="recommend-no" value="no">
+                            <label class="form-check-label" for="recommend-no">No, probably not</label>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label">Contact Information (Optional)</label>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" placeholder="Your name">
+                            </div>
+                            <div class="col-md-6">
+                                <input type="email" class="form-control" placeholder="Email address">
+                            </div>
+                        </div>
+                        <small class="text-muted">We may contact you for follow-up questions about your feedback.</small>
+                    </div>
+
+                    <div class="d-flex justify-content-between">
+                        <a href="feedback-management.html" class="btn btn-outline-secondary">Cancel</a>
+                        <button type="submit" class="btn btn-primary">Submit Feedback</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+        <script src="../assets/js/bootstrap.bundle.min.js"></script>
+        <script>
+            // Star rating functionality
+            document.querySelectorAll('.rating-stars i').forEach(star => {
+                star.addEventListener('click', function() {
+                    const rating = this.getAttribute('data-rating');
+                    document.getElementById('rating').value = rating;
+                    
+                    // Update visual stars
+                    document.querySelectorAll('.rating-stars i').forEach((s, index) => {
+                        if (index < rating) {
+                            s.classList.add('fa-solid');
+                            s.classList.remove('fa-regular');
+                        } else {
+                            s.classList.add('fa-regular');
+                            s.classList.remove('fa-solid');
+                        }
+                    });
+                });
+
+                star.addEventListener('mouseover', function() {
+                    const rating = this.getAttribute('data-rating');
+                    document.querySelectorAll('.rating-stars i').forEach((s, index) => {
+                        if (index < rating) {
+                            s.classList.add('fa-solid');
+                            s.classList.remove('fa-regular');
+                        } else {
+                            s.classList.add('fa-regular');
+                            s.classList.remove('fa-solid');
+                        }
+                    });
+                });
+            });
+
+            document.querySelector('.rating-stars').addEventListener('mouseleave', function() {
+                const currentRating = document.getElementById('rating').value;
+                document.querySelectorAll('.rating-stars i').forEach((s, index) => {
+                    if (index < currentRating) {
+                        s.classList.add('fa-solid');
+                        s.classList.remove('fa-regular');
+                    } else {
+                        s.classList.add('fa-regular');
+                        s.classList.remove('fa-solid');
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>

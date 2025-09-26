@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Update Lab Test</title>
+        <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+        <style>body { background-color: #f6f7fb; } .container-narrow { max-width: 1080px; }</style>
+    </head>
+    <body>
+        <nav class="navbar navbar-light bg-white border-bottom sticky-top">
+            <div class="container-fluid">
+                <a class="navbar-brand fw-bold text-primary" href="technician-dashboard.html"><i class="fa-solid fa-heart-pulse me-2"></i>HealHub</a>
+                <a class="btn btn-outline-secondary btn-sm" href="lab-test-detail.html">Cancel</a>
+            </div>
+        </nav>
+        <main class="container container-narrow py-4">
+            <h1 class="h4 mb-3">Update Lab Test SMP-002</h1>
+            <form method="post" action="/lab-tests/update" novalidate>
+                <div class="row g-3">
+                    <div class="col-12 col-md-6"><label class="form-label">Test</label><input class="form-control" value="Glucose" required></div>
+                    <div class="col-12 col-md-3"><label class="form-label">Priority</label><select class="form-select"><option>Normal</option><option>High</option><option>Urgent</option></select></div>
+                    <div class="col-12 col-md-3"><label class="form-label">Status</label><select class="form-select"><option>Queued</option><option>Running</option><option selected>Completed</option><option>Failed</option></select></div>
+                    <div class="col-12"><label class="form-label">Notes</label><textarea class="form-control" rows="3" placeholder="Notes..."></textarea></div>
+                </div>
+                <div class="mt-3 d-flex gap-2"><button class="btn btn-primary" type="submit">Save</button><a class="btn btn-outline-secondary" href="lab-test-detail.html">Cancel</a></div>
+            </form>
+        </main>
+        <script src="../assets/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>
+

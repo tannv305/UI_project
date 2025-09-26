@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Lab Test List</title>
+        <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <style>
+            body { background-color: #f6f7fb; }
+            .container-wide { max-width: 1200px; }
+            .card { border-radius: 1rem; }
+            .table thead th { font-size: 1rem; letter-spacing: 0.03em; }
+            .table td, .table th { vertical-align: middle; }
+            .badge { font-size: 0.95em; }
+            .filter-label { font-weight: 500; }
+            .table-hover tbody tr:hover { background-color: #f0f4fa; }
+            .status-dot { height: 10px; width: 10px; border-radius: 50%; display: inline-block; margin-right: 6px; }
+            .status-Queued { background: #ffc107; }
+            .status-Running { background: #17a2b8; }
+            .status-Completed { background: #28a745; }
+            .status-Failed { background: #dc3545; }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top shadow-sm">
+            <div class="container-fluid">
+                <a class="navbar-brand fw-bold text-primary" href="technician-dashboard.html"><i class="fa-solid fa-heart-pulse me-2"></i>HealHub</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="test-request-list.html"><i class="fa-solid fa-list-check me-1"></i>Requests</a></li>
+                        <li class="nav-item"><a class="nav-link" href="lab-test-management.html"><i class="fa-solid fa-gears me-1"></i>Manage</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <main class="container container-wide py-4">
+            <div class="d-flex align-items-center mb-4">
+                <h1 class="h3 mb-0 me-3"><i class="fa-solid fa-vials text-primary me-2"></i>Lab Test List</h1>
+                <span class="badge bg-primary bg-opacity-10 text-primary fw-normal">Today: 26/09/2025</span>
+            </div>
+            <div class="card shadow-sm border-0 mb-4">
+                <div class="card-body">
+                    <form class="row g-3 align-items-end">
+                        <div class="col-12 col-md-3">
+                            <label class="form-label filter-label"><i class="fa-solid fa-barcode me-1"></i>Sample ID</label>
+                            <input class="form-control form-control-sm" placeholder="SMP-001">
+                        </div>
+                        <div class="col-12 col-md-3">
+                            <label class="form-label filter-label"><i class="fa-solid fa-flask me-1"></i>Test</label>
+                            <input class="form-control form-control-sm" placeholder="CBC, PCR">
+                        </div>
+                        <div class="col-12 col-md-3">
+                            <label class="form-label filter-label"><i class="fa-solid fa-circle-half-stroke me-1"></i>Status</label>
+                            <select class="form-select form-select-sm">
+                                <option>Any</option>
+                                <option>Queued</option>
+                                <option>Running</option>
+                                <option>Completed</option>
+                                <option>Failed</option>
+                            </select>
+                        </div>
+                        <div class="col-12 col-md-3">
+                            <label class="form-label filter-label"><i class="fa-solid fa-calendar-days me-1"></i>Date</label>
+                            <input type="date" class="form-control form-control-sm">
+                        </div>
+                        <div class="col-12 d-flex gap-2 mt-2">
+                            <button class="btn btn-sm btn-primary px-3" type="button"><i class="fa-solid fa-filter me-1"></i>Filter</button>
+                            <button class="btn btn-sm btn-outline-secondary px-3" type="reset"><i class="fa-solid fa-rotate-left me-1"></i>Reset</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="card shadow-sm border-0">
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle mb-0">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Sample</th>
+                                    <th>Patient</th>
+                                    <th>Test</th>
+                                    <th>Started</th>
+                                    <th>ETA/Completed</th>
+                                    <th>Status</th>
+                                    <th>Technician</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><span class="fw-semibold">SMP-001</span></td>
+                                    <td>HS00124<br><span class="text-muted small">Nguyen Van A</span></td>
+                                    <td>CBC<br><span class="text-muted small">Blood count</span></td>
+                                    <td>2025-09-26 09:05</td>
+                                    <td>09:20</td>
+                                    <td><span class="status-dot status-Running"></span><span class="badge bg-info text-dark">Running</span></td>
+                                    <td><i class="fa-solid fa-user me-1 text-secondary"></i>Trinh T.</td>
+                                    <td>
+                                        <a class="btn btn-sm btn-outline-primary me-1" href="lab-test-detail.html"><i class="fa-solid fa-eye"></i></a>
+                                        <a class="btn btn-sm btn-outline-success me-1" href="lab-test-update.html"><i class="fa-solid fa-pen"></i></a>
+                                        <a class="btn btn-sm btn-outline-danger" href="lab-test-delete.html"><i class="fa-solid fa-trash"></i></a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><span class="fw-semibold">SMP-002</span></td>
+                                    <td>HS00421<br><span class="text-muted small">Le Thi B</span></td>
+                                    <td>Glucose<br><span class="text-muted small">Blood sugar</span></td>
+                                    <td>2025-09-26 08:55</td>
+                                    <td>09:10</td>
+                                    <td><span class="status-dot status-Completed"></span><span class="badge bg-success">Completed</span></td>
+                                    <td><i class="fa-solid fa-user me-1 text-secondary"></i>Pham H.</td>
+                                    <td>
+                                        <a class="btn btn-sm btn-outline-primary me-1" href="lab-test-detail.html"><i class="fa-solid fa-eye"></i></a>
+                                        <a class="btn btn-sm btn-outline-success me-1" href="lab-test-update.html"><i class="fa-solid fa-pen"></i></a>
+                                        <a class="btn btn-sm btn-outline-danger" href="lab-test-delete.html"><i class="fa-solid fa-trash"></i></a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <script src="../assets/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>
+

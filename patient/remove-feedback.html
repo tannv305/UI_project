@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Remove Feedback - HealHub</title>
+        <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <style>
+            body { background-color: #f6f7fb; }
+            .container-narrow { max-width: 600px; }
+            .card { border-radius: 1rem; box-shadow: 0 2px 12px #0001; }
+            .rating-stars { color: #ffc107; }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-light bg-white border-bottom sticky-top shadow-sm">
+            <div class="container-fluid">
+                <a class="navbar-brand fw-bold text-primary" href="patient-dashboard.html"><i class="fa-solid fa-heart-pulse me-2"></i>HealHub Patient</a>
+                <div class="d-flex align-items-center gap-2">
+                    <a class="btn btn-outline-primary btn-sm" href="appointment-list.html"><i class="fa-solid fa-calendar me-1"></i>Appointments</a>
+                    <a class="btn btn-outline-primary btn-sm" href="medical-record-list.html"><i class="fa-solid fa-file-medical me-1"></i>Medical Records</a>
+                    <a class="btn btn-outline-primary btn-sm" href="feedback-management.html"><i class="fa-solid fa-comments me-1"></i>Feedback</a>
+                    <a class="btn btn-outline-danger btn-sm" href="../auth/login.html"><i class="fa-solid fa-arrow-right-from-bracket me-1"></i>Logout</a>
+                </div>
+            </div>
+        </nav>
+        <main class="container container-narrow py-4">
+            <div class="card p-4 mb-4">
+                <h1 class="h4 mb-3"><i class="fa-solid fa-trash me-2 text-danger"></i>Remove Feedback</h1>
+                
+                <div class="alert alert-warning mb-4">
+                    <i class="fa-solid fa-exclamation-triangle me-2"></i>
+                    <strong>Warning:</strong> This action cannot be undone. Your feedback will be permanently removed.
+                </div>
+
+                <div class="card p-3 mb-4" style="border-left: 4px solid #007bff;">
+                    <div class="d-flex justify-content-between align-items-start mb-2">
+                        <div>
+                            <h6 class="mb-1">Dr. Nguyen Van A - Cardiology</h6>
+                            <span class="rating-stars">★★★★★</span>
+                            <span class="text-muted ms-2">(5.0)</span>
+                        </div>
+                        <small class="text-muted">Sep 25, 2025</small>
+                    </div>
+                    <p class="mb-0">"Excellent doctor! Very professional and caring. Explained everything clearly and made me feel comfortable."</p>
+                </div>
+
+                <p class="mb-4">Are you sure you want to remove this feedback? This action cannot be undone.</p>
+
+                <form action="feedback-management.html" method="POST">
+                    <div class="mb-4">
+                        <label class="form-label">Reason for removal (optional)</label>
+                        <select class="form-select">
+                            <option value="">Select reason</option>
+                            <option value="duplicate">Duplicate feedback</option>
+                            <option value="incorrect">Incorrect information</option>
+                            <option value="changed-mind">Changed my mind</option>
+                            <option value="privacy">Privacy concerns</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="d-flex justify-content-between">
+                        <a href="feedback-management.html" class="btn btn-outline-secondary">Cancel</a>
+                        <button type="submit" class="btn btn-danger">Remove Feedback</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+        <script src="../assets/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>

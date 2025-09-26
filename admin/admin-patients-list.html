@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Admin - Patients</title>
+        <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <style>
+            body { background-color: #f6f7fb; }
+            .container-wide { max-width: 1200px; }
+            .table thead th { background-color: #f8f9fa; }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-light bg-white border-bottom sticky-top shadow-sm">
+            <div class="container-fluid">
+                <a class="navbar-brand fw-bold text-primary" href="admin-dashboard.html"><i class="fa-solid fa-heart-pulse me-2"></i>HealHub Admin</a>
+                <div class="d-flex align-items-center gap-2">
+                    <a class="btn btn-outline-secondary btn-sm" href="admin-dashboard.html">Dashboard</a>
+                    <a class="btn btn-primary btn-sm" href="admin-patient-create.html"><i class="fa-solid fa-plus me-1"></i>New Patient</a>
+                    <a class="btn btn-outline-danger btn-sm" href="../auth/login.html">Logout</a>
+                </div>
+            </div>
+        </nav>
+        <main class="container container-wide py-4">
+            <div class="d-flex align-items-center mb-4">
+                <h1 class="h3 mb-0 me-3"><i class="fa-solid fa-users text-primary me-2"></i>Patients</h1>
+                <span class="badge bg-primary bg-opacity-10 text-primary fw-normal">Total: 523</span>
+            </div>
+            <div class="card shadow-sm border-0">
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle mb-0">
+                            <thead class="table-light">
+                                <tr><th>ID</th><th>Name</th><th>DOB</th><th>Phone</th><th></th></tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>HS00124</td><td>Nguyen Van A</td><td>1990-03-12</td><td>0901 234 567</td>
+                                    <td>
+                                        <a class="btn btn-sm btn-outline-primary" href="admin-patient-detail.html">View</a>
+                                        <a class="btn btn-sm btn-outline-success" href="admin-patient-update.html">Edit</a>
+                                        <a class="btn btn-sm btn-outline-danger" href="admin-patient-delete.html">Delete</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>HS00421</td><td>Le Thi B</td><td>1987-11-02</td><td>0902 345 678</td>
+                                    <td>
+                                        <a class="btn btn-sm btn-outline-primary" href="admin-patient-detail.html">View</a>
+                                        <a class="btn btn-sm btn-outline-success" href="admin-patient-update.html">Edit</a>
+                                        <a class="btn btn-sm btn-outline-danger" href="admin-patient-delete.html">Delete</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <script src="../assets/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>

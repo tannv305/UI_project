@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Find Doctors - HealHub</title>
+        <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <style>
+            body { background-color: #f6f7fb; }
+            .container-wide { max-width: 1200px; }
+            .card { border-radius: 1rem; box-shadow: 0 2px 12px #0001; }
+            .doctor-card { transition: transform 0.2s; }
+            .doctor-card:hover { transform: translateY(-2px); }
+            .specialty-badge { font-size: 0.8rem; }
+            .rating-stars { color: #ffc107; }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-light bg-white border-bottom sticky-top shadow-sm">
+            <div class="container-fluid">
+                <a class="navbar-brand fw-bold text-primary" href="patient-dashboard.html"><i class="fa-solid fa-heart-pulse me-2"></i>HealHub Patient</a>
+                <div class="d-flex align-items-center gap-2">
+                    <a class="btn btn-outline-primary btn-sm" href="appointment-list.html"><i class="fa-solid fa-calendar me-1"></i>Appointments</a>
+                    <a class="btn btn-outline-primary btn-sm" href="medical-record-list.html"><i class="fa-solid fa-file-medical me-1"></i>Medical Records</a>
+                    <a class="btn btn-outline-primary btn-sm" href="feedback-management.html"><i class="fa-solid fa-comments me-1"></i>Feedback</a>
+                    <a class="btn btn-outline-danger btn-sm" href="../auth/login.html"><i class="fa-solid fa-arrow-right-from-bracket me-1"></i>Logout</a>
+                </div>
+            </div>
+        </nav>
+        <main class="container container-wide py-4">
+            <div class="d-flex align-items-center mb-4">
+                <h1 class="h3 mb-0 me-3"><i class="fa-solid fa-user-doctor text-primary me-2"></i>Find Doctors</h1>
+                <a class="btn btn-primary btn-sm" href="make-appointment.html"><i class="fa-solid fa-calendar-plus me-1"></i>Book Appointment</a>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-8">
+                    <div class="card p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h5 class="mb-0">Available Doctors</h5>
+                            <div class="d-flex gap-2">
+                                <select class="form-select form-select-sm" style="width: auto;">
+                                    <option>All Specialties</option>
+                                    <option>Cardiology</option>
+                                    <option>Neurology</option>
+                                    <option>Pediatrics</option>
+                                    <option>Dermatology</option>
+                                </select>
+                                <select class="form-select form-select-sm" style="width: auto;">
+                                    <option>All Locations</option>
+                                    <option>Floor 1</option>
+                                    <option>Floor 2</option>
+                                    <option>Floor 3</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="card doctor-card h-100">
+                                    <div class="card-body text-center">
+                                        <div class="mb-3">
+                                            <i class="fa-solid fa-user-doctor text-primary" style="font-size: 3rem;"></i>
+                                        </div>
+                                        <h5 class="card-title">Dr. Nguyen Van A</h5>
+                                        <p class="text-muted mb-2">Cardiologist</p>
+                                        <div class="mb-3">
+                                            <span class="rating-stars">★★★★★</span>
+                                            <span class="text-muted ms-1">(4.8)</span>
+                                        </div>
+                                        <div class="mb-3">
+                                            <span class="badge bg-primary bg-opacity-10 text-primary specialty-badge me-1">Heart Disease</span>
+                                            <span class="badge bg-primary bg-opacity-10 text-primary specialty-badge">Hypertension</span>
+                                        </div>
+                                        <p class="card-text small text-muted mb-3">15 years experience in cardiovascular medicine</p>
+                                        <div class="d-flex justify-content-center gap-2">
+                                            <a href="doctor-profile.html?id=1" class="btn btn-outline-primary btn-sm">View Profile</a>
+                                            <a href="make-appointment.html?doctor=1" class="btn btn-primary btn-sm">Book Now</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="card doctor-card h-100">
+                                    <div class="card-body text-center">
+                                        <div class="mb-3">
+                                            <i class="fa-solid fa-user-doctor text-success" style="font-size: 3rem;"></i>
+                                        </div>
+                                        <h5 class="card-title">Dr. Tran Thi B</h5>
+                                        <p class="text-muted mb-2">Neurologist</p>
+                                        <div class="mb-3">
+                                            <span class="rating-stars">★★★★☆</span>
+                                            <span class="text-muted ms-1">(4.6)</span>
+                                        </div>
+                                        <div class="mb-3">
+                                            <span class="badge bg-success bg-opacity-10 text-success specialty-badge me-1">Brain Disorders</span>
+                                            <span class="badge bg-success bg-opacity-10 text-success specialty-badge">Epilepsy</span>
+                                        </div>
+                                        <p class="card-text small text-muted mb-3">12 years experience in neurology</p>
+                                        <div class="d-flex justify-content-center gap-2">
+                                            <a href="doctor-profile.html?id=2" class="btn btn-outline-primary btn-sm">View Profile</a>
+                                            <a href="make-appointment.html?doctor=2" class="btn btn-primary btn-sm">Book Now</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="card doctor-card h-100">
+                                    <div class="card-body text-center">
+                                        <div class="mb-3">
+                                            <i class="fa-solid fa-user-doctor text-info" style="font-size: 3rem;"></i>
+                                        </div>
+                                        <h5 class="card-title">Dr. Le Van C</h5>
+                                        <p class="text-muted mb-2">Pediatrician</p>
+                                        <div class="mb-3">
+                                            <span class="rating-stars">★★★★★</span>
+                                            <span class="text-muted ms-1">(4.9)</span>
+                                        </div>
+                                        <div class="mb-3">
+                                            <span class="badge bg-info bg-opacity-10 text-info specialty-badge me-1">Child Health</span>
+                                            <span class="badge bg-info bg-opacity-10 text-info specialty-badge">Vaccination</span>
+                                        </div>
+                                        <p class="card-text small text-muted mb-3">18 years experience in pediatrics</p>
+                                        <div class="d-flex justify-content-center gap-2">
+                                            <a href="doctor-profile.html?id=3" class="btn btn-outline-primary btn-sm">View Profile</a>
+                                            <a href="make-appointment.html?doctor=3" class="btn btn-primary btn-sm">Book Now</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="card doctor-card h-100">
+                                    <div class="card-body text-center">
+                                        <div class="mb-3">
+                                            <i class="fa-solid fa-user-doctor text-warning" style="font-size: 3rem;"></i>
+                                        </div>
+                                        <h5 class="card-title">Dr. Pham Thi D</h5>
+                                        <p class="text-muted mb-2">Dermatologist</p>
+                                        <div class="mb-3">
+                                            <span class="rating-stars">★★★★☆</span>
+                                            <span class="text-muted ms-1">(4.4)</span>
+                                        </div>
+                                        <div class="mb-3">
+                                            <span class="badge bg-warning bg-opacity-10 text-warning specialty-badge me-1">Skin Care</span>
+                                            <span class="badge bg-warning bg-opacity-10 text-warning specialty-badge">Acne Treatment</span>
+                                        </div>
+                                        <p class="card-text small text-muted mb-3">10 years experience in dermatology</p>
+                                        <div class="d-flex justify-content-center gap-2">
+                                            <a href="doctor-profile.html?id=4" class="btn btn-outline-primary btn-sm">View Profile</a>
+                                            <a href="make-appointment.html?doctor=4" class="btn btn-primary btn-sm">Book Now</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="text-center mt-4">
+                            <button class="btn btn-outline-primary">Load More Doctors</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card p-4">
+                        <h5 class="mb-3">Search & Filter</h5>
+                        <div class="mb-3">
+                            <label class="form-label small">Search by Name</label>
+                            <input type="text" class="form-control form-control-sm" placeholder="Doctor's name...">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label small">Specialty</label>
+                            <select class="form-select form-select-sm">
+                                <option>All Specialties</option>
+                                <option>Cardiology</option>
+                                <option>Neurology</option>
+                                <option>Pediatrics</option>
+                                <option>Dermatology</option>
+                                <option>Orthopedics</option>
+                                <option>Gynecology</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label small">Experience</label>
+                            <select class="form-select form-select-sm">
+                                <option>Any Experience</option>
+                                <option>1-5 years</option>
+                                <option>5-10 years</option>
+                                <option>10-15 years</option>
+                                <option>15+ years</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label small">Rating</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="rating-5" checked>
+                                <label class="form-check-label small" for="rating-5">★★★★★ (5 stars)</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="rating-4" checked>
+                                <label class="form-check-label small" for="rating-4">★★★★☆ (4+ stars)</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="rating-3">
+                                <label class="form-check-label small" for="rating-3">★★★☆☆ (3+ stars)</label>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary btn-sm w-100">Apply Filters</button>
+                    </div>
+
+                    <div class="card p-4 mt-3">
+                        <h5 class="mb-3">Quick Actions</h5>
+                        <div class="d-grid gap-2">
+                            <a href="make-appointment.html" class="btn btn-primary">
+                                <i class="fa-solid fa-calendar-plus me-2"></i>Book Appointment
+                            </a>
+                            <a href="appointment-list.html" class="btn btn-outline-primary">
+                                <i class="fa-solid fa-calendar me-2"></i>My Appointments
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <script src="../assets/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>

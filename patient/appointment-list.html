@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Appointments - HealHub</title>
+        <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <style>
+            body { background-color: #f6f7fb; }
+            .container-wide { max-width: 1200px; }
+            .card { border-radius: 1rem; box-shadow: 0 2px 12px #0001; }
+            .appointment-card { border-left: 4px solid #007bff; }
+            .status-badge { font-size: 0.8rem; }
+            .upcoming { border-left-color: #28a745; }
+            .completed { border-left-color: #6c757d; }
+            .cancelled { border-left-color: #dc3545; }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-light bg-white border-bottom sticky-top shadow-sm">
+            <div class="container-fluid">
+                <a class="navbar-brand fw-bold text-primary" href="patient-dashboard.html"><i class="fa-solid fa-heart-pulse me-2"></i>HealHub Patient</a>
+                <div class="d-flex align-items-center gap-2">
+                    <a class="btn btn-outline-primary btn-sm" href="appointment-list.html"><i class="fa-solid fa-calendar me-1"></i>Appointments</a>
+                    <a class="btn btn-outline-primary btn-sm" href="medical-record-list.html"><i class="fa-solid fa-file-medical me-1"></i>Medical Records</a>
+                    <a class="btn btn-outline-primary btn-sm" href="feedback-management.html"><i class="fa-solid fa-comments me-1"></i>Feedback</a>
+                    <a class="btn btn-outline-danger btn-sm" href="../auth/login.html"><i class="fa-solid fa-arrow-right-from-bracket me-1"></i>Logout</a>
+                </div>
+            </div>
+        </nav>
+        <main class="container container-wide py-4">
+            <div class="d-flex align-items-center mb-4">
+                <h1 class="h3 mb-0 me-3"><i class="fa-solid fa-calendar text-primary me-2"></i>My Appointments</h1>
+                <a class="btn btn-primary btn-sm" href="make-appointment.html"><i class="fa-solid fa-plus me-1"></i>Book Appointment</a>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-8">
+                    <div class="card p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h5 class="mb-0">Appointment History</h5>
+                            <div class="d-flex gap-2">
+                                <select class="form-select form-select-sm" style="width: auto;">
+                                    <option>All Status</option>
+                                    <option>Upcoming</option>
+                                    <option>Completed</option>
+                                    <option>Cancelled</option>
+                                </select>
+                                <select class="form-select form-select-sm" style="width: auto;">
+                                    <option>All Doctors</option>
+                                    <option>Dr. Nguyen Van A</option>
+                                    <option>Dr. Tran Thi B</option>
+                                    <option>Dr. Le Van C</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="card appointment-card upcoming p-3 mb-3">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <div>
+                                    <h6 class="mb-1">Cardiology Consultation</h6>
+                                    <p class="text-muted small mb-1">Dr. Nguyen Van A • Oct 15, 2025 at 2:00 PM</p>
+                                    <span class="badge bg-success status-badge">Upcoming</span>
+                                </div>
+                                <div class="text-end">
+                                    <small class="text-muted">Oct 15, 2025</small>
+                                    <div class="mt-1">
+                                        <a href="appointment-detail.html?id=1" class="btn btn-sm btn-outline-primary me-1">View</a>
+                                        <a href="update-appointment.html?id=1" class="btn btn-sm btn-outline-warning me-1">Reschedule</a>
+                                        <a href="cancel-appointment.html?id=1" class="btn btn-sm btn-outline-danger">Cancel</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="mb-0 small">Routine follow-up for hypertension management. Please arrive 15 minutes early.</p>
+                        </div>
+
+                        <div class="card appointment-card completed p-3 mb-3">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <div>
+                                    <h6 class="mb-1">Cardiology Consultation</h6>
+                                    <p class="text-muted small mb-1">Dr. Nguyen Van A • Sep 25, 2025 at 2:00 PM</p>
+                                    <span class="badge bg-secondary status-badge">Completed</span>
+                                </div>
+                                <div class="text-end">
+                                    <small class="text-muted">Sep 25, 2025</small>
+                                    <div class="mt-1">
+                                        <a href="appointment-detail.html?id=2" class="btn btn-sm btn-outline-primary me-1">View</a>
+                                        <a href="medical-record-detail.html?id=1" class="btn btn-sm btn-outline-info">Records</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="mb-0 small">Blood pressure stable, medication adjusted. Next appointment scheduled for Oct 15.</p>
+                        </div>
+
+                        <div class="card appointment-card completed p-3 mb-3">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <div>
+                                    <h6 class="mb-1">Neurology Consultation</h6>
+                                    <p class="text-muted small mb-1">Dr. Tran Thi B • Sep 10, 2025 at 10:30 AM</p>
+                                    <span class="badge bg-secondary status-badge">Completed</span>
+                                </div>
+                                <div class="text-end">
+                                    <small class="text-muted">Sep 10, 2025</small>
+                                    <div class="mt-1">
+                                        <a href="appointment-detail.html?id=3" class="btn btn-sm btn-outline-primary me-1">View</a>
+                                        <a href="medical-record-detail.html?id=4" class="btn btn-sm btn-outline-info">Records</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="mb-0 small">Migraine symptoms improved with current treatment. Continue current medication.</p>
+                        </div>
+
+                        <div class="card appointment-card cancelled p-3 mb-3">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <div>
+                                    <h6 class="mb-1">Lab Test Appointment</h6>
+                                    <p class="text-muted small mb-1">Laboratory • Sep 5, 2025 at 9:00 AM</p>
+                                    <span class="badge bg-danger status-badge">Cancelled</span>
+                                </div>
+                                <div class="text-end">
+                                    <small class="text-muted">Sep 5, 2025</small>
+                                    <div class="mt-1">
+                                        <a href="appointment-detail.html?id=4" class="btn btn-sm btn-outline-primary">View</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="mb-0 small">Cancelled due to scheduling conflict. Rescheduled for Sep 8.</p>
+                        </div>
+
+                        <div class="card appointment-card completed p-3 mb-3">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <div>
+                                    <h6 class="mb-1">Lab Test Appointment</h6>
+                                    <p class="text-muted small mb-1">Laboratory • Sep 8, 2025 at 9:00 AM</p>
+                                    <span class="badge bg-secondary status-badge">Completed</span>
+                                </div>
+                                <div class="text-end">
+                                    <small class="text-muted">Sep 8, 2025</small>
+                                    <div class="mt-1">
+                                        <a href="appointment-detail.html?id=5" class="btn btn-sm btn-outline-primary me-1">View</a>
+                                        <a href="medical-record-detail.html?id=2" class="btn btn-sm btn-outline-info">Records</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="mb-0 small">Blood test completed successfully. Results available in patient portal.</p>
+                        </div>
+
+                        <div class="text-center mt-4">
+                            <button class="btn btn-outline-primary">Load More Appointments</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card p-4">
+                        <h5 class="mb-3">Quick Actions</h5>
+                        <div class="d-grid gap-2">
+                            <a href="make-appointment.html" class="btn btn-primary">
+                                <i class="fa-solid fa-calendar-plus me-2"></i>Book New Appointment
+                            </a>
+                            <a href="doctor-list.html" class="btn btn-outline-primary">
+                                <i class="fa-solid fa-user-doctor me-2"></i>Find Doctors
+                            </a>
+                            <a href="doctor-search.html" class="btn btn-outline-secondary">
+                                <i class="fa-solid fa-search me-2"></i>Search Doctors
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="card p-4 mt-3">
+                        <h5 class="mb-3">Appointment Summary</h5>
+                        <div class="mb-2">
+                            <div class="d-flex justify-content-between">
+                                <span>Upcoming:</span>
+                                <strong class="text-success">1</strong>
+                            </div>
+                        </div>
+                        <div class="mb-2">
+                            <div class="d-flex justify-content-between">
+                                <span>Completed:</span>
+                                <strong class="text-secondary">3</strong>
+                            </div>
+                        </div>
+                        <div class="mb-2">
+                            <div class="d-flex justify-content-between">
+                                <span>Cancelled:</span>
+                                <strong class="text-danger">1</strong>
+                            </div>
+                        </div>
+                        <div class="mb-0">
+                            <div class="d-flex justify-content-between">
+                                <span>Next Appointment:</span>
+                                <strong>Oct 15, 2025</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card p-4 mt-3">
+                        <h5 class="mb-3">Filter Options</h5>
+                        <div class="mb-3">
+                            <label class="form-label small">Status</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="status-upcoming" checked>
+                                <label class="form-check-label small" for="status-upcoming">Upcoming</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="status-completed" checked>
+                                <label class="form-check-label small" for="status-completed">Completed</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="status-cancelled">
+                                <label class="form-check-label small" for="status-cancelled">Cancelled</label>
+                            </div>
+                        </div>
+                        <div class="mb-0">
+                            <label class="form-label small">Date Range</label>
+                            <select class="form-select form-select-sm">
+                                <option>All Time</option>
+                                <option>Next 30 days</option>
+                                <option>Next 3 months</option>
+                                <option>This year</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <script src="../assets/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>

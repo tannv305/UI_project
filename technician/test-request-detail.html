@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Test Request Detail</title>
+        <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+        <style>body { background-color: #f6f7fb; } .container-narrow { max-width: 1080px; }</style>
+    </head>
+    <body>
+        <nav class="navbar navbar-light bg-white border-bottom sticky-top">
+            <div class="container-fluid">
+                <a class="navbar-brand fw-bold text-primary" href="technician-dashboard.html"><i class="fa-solid fa-heart-pulse me-2"></i>HealHub</a>
+                <div class="d-flex gap-2">
+                    <a class="btn btn-outline-secondary btn-sm" href="test-request-list.html">Back to list</a>
+                    <a class="btn btn-outline-primary btn-sm" href="test-request-update.html">Update</a>
+                </div>
+            </div>
+        </nav>
+        <main class="container container-narrow py-4">
+            <h1 class="h4 mb-3">Request REQ-002</h1>
+            <div class="row g-3">
+                <div class="col-12 col-lg-6">
+                    <div class="card shadow-sm border-0 h-100">
+                        <div class="card-header bg-white">Patient</div>
+                        <div class="card-body">
+                            <dl class="row">
+                                <dt class="col-4">ID</dt><dd class="col-8">HS00421</dd>
+                                <dt class="col-4">Name</dt><dd class="col-8">Le Hong D</dd>
+                                <dt class="col-4">Phone</dt><dd class="col-8">0901 234 567</dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6">
+                    <div class="card shadow-sm border-0 h-100">
+                        <div class="card-header bg-white">Request info</div>
+                        <div class="card-body">
+                            <dl class="row">
+                                <dt class="col-4">Test</dt><dd class="col-8">Glucose</dd>
+                                <dt class="col-4">Priority</dt><dd class="col-8"><span class="badge text-bg-secondary">Normal</span></dd>
+                                <dt class="col-4">Requested</dt><dd class="col-8">2025-09-26 08:35</dd>
+                                <dt class="col-4">Status</dt><dd class="col-8">Queued</dd>
+                            </dl>
+                            <div class="d-flex gap-2">
+                                <a class="btn btn-primary" href="lab-test-create.html">Create Lab Test</a>
+                                <a class="btn btn-outline-secondary" href="test-request-update.html">Update</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <script src="../assets/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>
+

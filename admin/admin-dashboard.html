@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Admin Dashboard</title>
+        <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <style>
+            body { background-color: #f6f7fb; }
+            .container-wide { max-width: 1200px; }
+            .card { border-radius: 1rem; box-shadow: 0 2px 12px #0001; }
+            .dashboard-summary { display: flex; gap: 1.5rem; margin-bottom: 2rem; flex-wrap: wrap; }
+            .summary-card { flex: 1 1 200px; background: #fff; border-radius: 1rem; box-shadow: 0 2px 12px #0001; padding: 1.2rem 1rem; display: flex; align-items: center; gap: 1rem; min-width: 220px; }
+            .summary-icon { font-size: 1.8rem; opacity: 0.9; }
+            .summary-label { color: #6c757d; font-size: 0.98em; }
+            .summary-value { font-size: 1.4rem; font-weight: 600; }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-light bg-white border-bottom sticky-top shadow-sm">
+            <div class="container-fluid">
+                <a class="navbar-brand fw-bold text-primary" href="admin-dashboard.html"><i class="fa-solid fa-heart-pulse me-2"></i>HealHub Admin</a>
+                <div class="d-flex align-items-center gap-2">
+                    <a class="btn btn-outline-primary btn-sm" href="admin-patients-list.html"><i class="fa-solid fa-users me-1"></i>Patients</a>
+                    <a class="btn btn-outline-primary btn-sm" href="admin-doctors-list.html"><i class="fa-solid fa-user-doctor me-1"></i>Doctors</a>
+                    <a class="btn btn-outline-primary btn-sm" href="admin-receptionists-list.html"><i class="fa-solid fa-bell-concierge me-1"></i>Receptionists</a>
+                    <a class="btn btn-outline-primary btn-sm" href="admin-cashiers-list.html"><i class="fa-solid fa-cash-register me-1"></i>Cashiers</a>
+                    <a class="btn btn-outline-primary btn-sm" href="admin-technicians-list.html"><i class="fa-solid fa-vials me-1"></i>Technicians</a>
+                    <a class="btn btn-outline-secondary btn-sm" href="admin-reports.html"><i class="fa-solid fa-chart-line me-1"></i>Reports</a>
+                    <a class="btn btn-outline-secondary btn-sm" href="admin-feedback-list.html"><i class="fa-solid fa-comments me-1"></i>Feedback</a>
+                    <a class="btn btn-outline-danger btn-sm" href="../auth/login.html"><i class="fa-solid fa-arrow-right-from-bracket me-1"></i>Logout</a>
+                </div>
+            </div>
+        </nav>
+        <main class="container container-wide py-3 py-lg-4">
+            <h1 class="h3 mb-4"><i class="fa-solid fa-house-medical me-2 text-primary"></i>Admin Dashboard</h1>
+            <div class="dashboard-summary">
+                <div class="summary-card">
+                    <span class="summary-icon text-primary"><i class="fa-solid fa-users"></i></span>
+                    <div>
+                        <div class="summary-label">Patients</div>
+                        <div class="summary-value">523</div>
+                    </div>
+                </div>
+                <div class="summary-card">
+                    <span class="summary-icon text-success"><i class="fa-solid fa-user-doctor"></i></span>
+                    <div>
+                        <div class="summary-label">Doctors</div>
+                        <div class="summary-value">42</div>
+                    </div>
+                </div>
+                <div class="summary-card">
+                    <span class="summary-icon text-info"><i class="fa-solid fa-vials"></i></span>
+                    <div>
+                        <div class="summary-label">Technicians</div>
+                        <div class="summary-value">18</div>
+                    </div>
+                </div>
+                <div class="summary-card">
+                    <span class="summary-icon text-warning"><i class="fa-solid fa-file-invoice-dollar"></i></span>
+                    <div>
+                        <div class="summary-label">Revenue (Today)</div>
+                        <div class="summary-value">$12,450</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-3">
+                <div class="col-12 col-xl-6">
+                    <div class="card shadow-sm border-0">
+                        <div class="card-header bg-white d-flex justify-content-between align-items-center">
+                            <span class="fw-semibold"><i class="fa-solid fa-users me-1 text-primary"></i>Recent Patients</span>
+                            <a class="btn btn-sm btn-outline-primary" href="admin-patients-list.html">Open</a>
+                        </div>
+                        <div class="card-body p-0">
+                            <div class="table-responsive">
+                                <table class="table align-middle mb-0">
+                                    <thead>
+                                        <tr><th>ID</th><th>Name</th><th>Updated</th></tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td>HS01001</td><td>Nguyen Van A</td><td>Today</td></tr>
+                                        <tr><td>HS01002</td><td>Tran Thi B</td><td>Yesterday</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-xl-6">
+                    <div class="card shadow-sm border-0">
+                        <div class="card-header bg-white d-flex justify-content-between align-items-center">
+                            <span class="fw-semibold"><i class="fa-solid fa-chart-line me-1 text-success"></i>KPIs</span>
+                            <a class="btn btn-sm btn-outline-secondary" href="admin-reports.html">See Reports</a>
+                        </div>
+                        <div class="card-body">
+                            <div class="text-muted">Revenue this month up 12% vs last month.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <script src="../assets/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>

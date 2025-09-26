@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Feedback Detail - HealHub</title>
+        <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <style>
+            body { background-color: #f6f7fb; }
+            .container-narrow { max-width: 800px; }
+            .card { border-radius: 1rem; box-shadow: 0 2px 12px #0001; }
+            .rating-stars { color: #ffc107; }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-light bg-white border-bottom sticky-top shadow-sm">
+            <div class="container-fluid">
+                <a class="navbar-brand fw-bold text-primary" href="patient-dashboard.html"><i class="fa-solid fa-heart-pulse me-2"></i>HealHub Patient</a>
+                <div class="d-flex align-items-center gap-2">
+                    <a class="btn btn-outline-primary btn-sm" href="appointment-list.html"><i class="fa-solid fa-calendar me-1"></i>Appointments</a>
+                    <a class="btn btn-outline-primary btn-sm" href="medical-record-list.html"><i class="fa-solid fa-file-medical me-1"></i>Medical Records</a>
+                    <a class="btn btn-outline-primary btn-sm" href="feedback-management.html"><i class="fa-solid fa-comments me-1"></i>Feedback</a>
+                    <a class="btn btn-outline-danger btn-sm" href="../auth/login.html"><i class="fa-solid fa-arrow-right-from-bracket me-1"></i>Logout</a>
+                </div>
+            </div>
+        </nav>
+        <main class="container container-narrow py-4">
+            <div class="card p-4 mb-4">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h1 class="h4 mb-0"><i class="fa-solid fa-comment-dots me-2 text-primary"></i>Feedback Detail</h1>
+                    <div class="d-flex gap-2">
+                        <a href="feedback-list.html" class="btn btn-outline-secondary btn-sm">Back to List</a>
+                        <a href="remove-feedback.html?id=1" class="btn btn-outline-danger btn-sm">Remove</a>
+                    </div>
+                </div>
+
+                <div class="card p-4 mb-4" style="border-left: 4px solid #007bff;">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <h5 class="mb-2">Dr. Nguyen Van A - Cardiology</h5>
+                            <div class="d-flex align-items-center mb-3">
+                                <span class="rating-stars me-2">★★★★★</span>
+                                <span class="text-muted">(5.0/5)</span>
+                                <span class="badge bg-primary bg-opacity-10 text-primary ms-3">Doctor</span>
+                            </div>
+                            <div class="mb-3">
+                                <strong>Appointment Date:</strong> September 25, 2025<br>
+                                <strong>Service Type:</strong> Cardiology Consultation<br>
+                                <strong>Submitted:</strong> September 25, 2025 at 2:30 PM
+                            </div>
+                        </div>
+                        <div class="col-md-4 text-end">
+                            <div class="text-muted small">
+                                <i class="fa-solid fa-clock me-1"></i>
+                                Sep 25, 2025
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <h6 class="text-primary mb-3"><i class="fa-solid fa-comment me-2"></i>Your Feedback</h6>
+                    <div class="card p-3 bg-light">
+                        <p class="mb-0">"Excellent doctor! Very professional and caring. Explained everything clearly and made me feel comfortable. The consultation was thorough and Dr. Nguyen took the time to answer all my questions. I would definitely recommend him to others."</p>
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <h6 class="text-primary mb-3"><i class="fa-solid fa-thumbs-up me-2"></i>What Went Well</h6>
+                    <div class="card p-3 bg-light">
+                        <p class="mb-0">"Professional demeanor, clear explanations, comfortable environment, timely appointment, thorough examination."</p>
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <h6 class="text-primary mb-3"><i class="fa-solid fa-lightbulb me-2"></i>Suggestions for Improvement</h6>
+                    <div class="card p-3 bg-light">
+                        <p class="mb-0">"None - everything was perfect!"</p>
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <h6 class="text-primary mb-3"><i class="fa-solid fa-share me-2"></i>Recommendation</h6>
+                    <div class="card p-3 bg-light">
+                        <p class="mb-0"><strong>Yes, definitely</strong> - I would recommend this service to others.</p>
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <h6 class="text-primary mb-3"><i class="fa-solid fa-info-circle me-2"></i>Additional Information</h6>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="card p-3">
+                                <h6 class="small text-muted mb-2">Contact Information Provided</h6>
+                                <p class="mb-0 small">Name: John Doe<br>Email: john.doe@email.com</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card p-3">
+                                <h6 class="small text-muted mb-2">Follow-up Status</h6>
+                                <p class="mb-0 small">No follow-up required</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="alert alert-info">
+                    <i class="fa-solid fa-info-circle me-2"></i>
+                    <strong>Note:</strong> This feedback has been shared with the medical team to help improve our services. Thank you for taking the time to provide your valuable input.
+                </div>
+
+                <div class="d-flex justify-content-between">
+                    <a href="feedback-list.html" class="btn btn-outline-secondary">Back to List</a>
+                    <div class="d-flex gap-2">
+                        <a href="give-feedback.html" class="btn btn-outline-primary">Give New Feedback</a>
+                        <a href="remove-feedback.html?id=1" class="btn btn-outline-danger">Remove This Feedback</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <script src="../assets/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>
