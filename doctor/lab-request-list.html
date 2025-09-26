@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Lab Requests - HealHub Doctor</title>
+        <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <style>
+            body { background-color: #f6f7fb; }
+            .container-wide { max-width: 1200px; }
+            .card { border-radius: 1rem; box-shadow: 0 2px 12px #0001; }
+            .request-card { border-left: 4px solid #17a2b8; }
+            .status-badge { font-size: 0.8rem; }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-light bg-white border-bottom sticky-top shadow-sm">
+            <div class="container-fluid">
+                <a class="navbar-brand fw-bold text-primary" href="doctor-dashboard.html"><i class="fa-solid fa-heart-pulse me-2"></i>HealHub Doctor</a>
+                <div class="d-flex align-items-center gap-2">
+                    <a class="btn btn-outline-primary btn-sm" href="patient-records-list.html"><i class="fa-solid fa-users me-1"></i>Patients</a>
+                    <a class="btn btn-outline-primary btn-sm" href="prescription-list.html"><i class="fa-solid fa-pills me-1"></i>Prescriptions</a>
+                    <a class="btn btn-outline-primary btn-sm" href="lab-request-list.html"><i class="fa-solid fa-vials me-1"></i>Lab Requests</a>
+                    <a class="btn btn-outline-secondary btn-sm" href="profile-view.html"><i class="fa-solid fa-user me-1"></i>Profile</a>
+                    <a class="btn btn-outline-danger btn-sm" href="../auth/login.html"><i class="fa-solid fa-arrow-right-from-bracket me-1"></i>Logout</a>
+                </div>
+            </div>
+        </nav>
+        <main class="container container-wide py-4">
+            <div class="d-flex align-items-center mb-4">
+                <h1 class="h3 mb-0 me-3"><i class="fa-solid fa-vials text-primary me-2"></i>Lab Requests</h1>
+                <a class="btn btn-primary btn-sm" href="send-lab-request.html"><i class="fa-solid fa-plus me-1"></i>New Request</a>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-8">
+                    <div class="card p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h5 class="mb-0">Recent Lab Requests</h5>
+                            <div class="d-flex gap-2">
+                                <input type="text" class="form-control form-control-sm" placeholder="Search requests..." style="width: 200px;">
+                                <select class="form-select form-select-sm" style="width: auto;">
+                                    <option>All Status</option>
+                                    <option>Pending</option>
+                                    <option>In Progress</option>
+                                    <option>Completed</option>
+                                    <option>Delayed</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="card request-card p-3 mb-3">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <div>
+                                    <h6 class="mb-1">LR2025001 - Nguyen Van A</h6>
+                                    <p class="text-muted small mb-1">CBC Blood Test • September 25, 2025</p>
+                                    <span class="badge bg-info status-badge">Pending</span>
+                                </div>
+                                <div class="text-end">
+                                    <small class="text-muted">Expected: Sep 27, 2025</small>
+                                    <div class="mt-1">
+                                        <a href="view-lab-request.html?id=1" class="btn btn-sm btn-outline-primary me-1">View</a>
+                                        <a href="update-lab-request.html?id=1" class="btn btn-sm btn-outline-warning me-1">Edit</a>
+                                        <a href="delay-lab-request.html?id=1" class="btn btn-sm btn-outline-secondary">Delay</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="mb-0 small">Routine follow-up for hypertension management</p>
+                        </div>
+
+                        <div class="card request-card p-3 mb-3">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <div>
+                                    <h6 class="mb-1">LR2025002 - Tran Thi B</h6>
+                                    <p class="text-muted small mb-1">Lipid Panel • September 20, 2025</p>
+                                    <span class="badge bg-warning status-badge">In Progress</span>
+                                </div>
+                                <div class="text-end">
+                                    <small class="text-muted">Expected: Sep 22, 2025</small>
+                                    <div class="mt-1">
+                                        <a href="view-lab-request.html?id=2" class="btn btn-sm btn-outline-primary me-1">View</a>
+                                        <a href="update-lab-request.html?id=2" class="btn btn-sm btn-outline-warning me-1">Edit</a>
+                                        <a href="delay-lab-request.html?id=2" class="btn btn-sm btn-outline-secondary">Delay</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="mb-0 small">Cholesterol monitoring for cardiovascular health</p>
+                        </div>
+
+                        <div class="card request-card p-3 mb-3">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <div>
+                                    <h6 class="mb-1">LR2025003 - Le Van C</h6>
+                                    <p class="text-muted small mb-1">Glucose Test • September 15, 2025</p>
+                                    <span class="badge bg-success status-badge">Completed</span>
+                                </div>
+                                <div class="text-end">
+                                    <small class="text-muted">Completed: Sep 17, 2025</small>
+                                    <div class="mt-1">
+                                        <a href="view-lab-request.html?id=3" class="btn btn-sm btn-outline-primary me-1">View</a>
+                                        <a href="view-lab-request.html?id=3" class="btn btn-sm btn-outline-success">Results</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="mb-0 small">Diabetes monitoring - Results available</p>
+                        </div>
+
+                        <div class="text-center mt-4">
+                            <button class="btn btn-outline-primary">Load More Requests</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card p-4">
+                        <h5 class="mb-3">Quick Actions</h5>
+                        <div class="d-grid gap-2">
+                            <a href="send-lab-request.html" class="btn btn-primary">
+                                <i class="fa-solid fa-plus me-2"></i>New Request
+                            </a>
+                            <a href="patient-records-list.html" class="btn btn-outline-primary">
+                                <i class="fa-solid fa-users me-2"></i>View Patients
+                            </a>
+                            <a href="prescription-list.html" class="btn btn-outline-success">
+                                <i class="fa-solid fa-pills me-2"></i>Prescriptions
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="card p-4 mt-3">
+                        <h5 class="mb-3">Request Summary</h5>
+                        <div class="mb-2">
+                            <div class="d-flex justify-content-between">
+                                <span>Total Requests:</span>
+                                <strong>45</strong>
+                            </div>
+                        </div>
+                        <div class="mb-2">
+                            <div class="d-flex justify-content-between">
+                                <span>Pending:</span>
+                                <strong class="text-info">12</strong>
+                            </div>
+                        </div>
+                        <div class="mb-2">
+                            <div class="d-flex justify-content-between">
+                                <span>In Progress:</span>
+                                <strong class="text-warning">8</strong>
+                            </div>
+                        </div>
+                        <div class="mb-0">
+                            <div class="d-flex justify-content-between">
+                                <span>Completed:</span>
+                                <strong class="text-success">25</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card p-4 mt-3">
+                        <h5 class="mb-3">Filter Options</h5>
+                        <div class="mb-3">
+                            <label class="form-label small">Test Type</label>
+                            <select class="form-select form-select-sm">
+                                <option>All Types</option>
+                                <option>Blood Test</option>
+                                <option>Urine Test</option>
+                                <option>Imaging</option>
+                                <option>Biopsy</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label small">Priority</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="routine" checked>
+                                <label class="form-check-label small" for="routine">Routine</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="urgent" checked>
+                                <label class="form-check-label small" for="urgent">Urgent</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="stat">
+                                <label class="form-check-label small" for="stat">STAT</label>
+                            </div>
+                        </div>
+                        <div class="mb-0">
+                            <label class="form-label small">Date Range</label>
+                            <select class="form-select form-select-sm">
+                                <option>All Time</option>
+                                <option>Last 7 days</option>
+                                <option>Last 30 days</option>
+                                <option>Last 3 months</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <script src="../assets/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Prescriptions - HealHub Doctor</title>
+        <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <style>
+            body { background-color: #f6f7fb; }
+            .container-wide { max-width: 1200px; }
+            .card { border-radius: 1rem; box-shadow: 0 2px 12px #0001; }
+            .prescription-card { border-left: 4px solid #007bff; }
+            .status-badge { font-size: 0.8rem; }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-light bg-white border-bottom sticky-top shadow-sm">
+            <div class="container-fluid">
+                <a class="navbar-brand fw-bold text-primary" href="doctor-dashboard.html"><i class="fa-solid fa-heart-pulse me-2"></i>HealHub Doctor</a>
+                <div class="d-flex align-items-center gap-2">
+                    <a class="btn btn-outline-primary btn-sm" href="patient-records-list.html"><i class="fa-solid fa-users me-1"></i>Patients</a>
+                    <a class="btn btn-outline-primary btn-sm" href="prescription-list.html"><i class="fa-solid fa-pills me-1"></i>Prescriptions</a>
+                    <a class="btn btn-outline-primary btn-sm" href="lab-request-list.html"><i class="fa-solid fa-vials me-1"></i>Lab Requests</a>
+                    <a class="btn btn-outline-secondary btn-sm" href="profile-view.html"><i class="fa-solid fa-user me-1"></i>Profile</a>
+                    <a class="btn btn-outline-danger btn-sm" href="../auth/login.html"><i class="fa-solid fa-arrow-right-from-bracket me-1"></i>Logout</a>
+                </div>
+            </div>
+        </nav>
+        <main class="container container-wide py-4">
+            <div class="d-flex align-items-center mb-4">
+                <h1 class="h3 mb-0 me-3"><i class="fa-solid fa-pills text-primary me-2"></i>Prescriptions</h1>
+                <a class="btn btn-primary btn-sm" href="create-prescription.html"><i class="fa-solid fa-plus me-1"></i>New Prescription</a>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-8">
+                    <div class="card p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h5 class="mb-0">Recent Prescriptions</h5>
+                            <div class="d-flex gap-2">
+                                <input type="text" class="form-control form-control-sm" placeholder="Search prescriptions..." style="width: 200px;">
+                                <select class="form-select form-select-sm" style="width: auto;">
+                                    <option>All Status</option>
+                                    <option>Active</option>
+                                    <option>Expired</option>
+                                    <option>Cancelled</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="card prescription-card p-3 mb-3">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <div>
+                                    <h6 class="mb-1">RX2025001 - Nguyen Van A</h6>
+                                    <p class="text-muted small mb-1">Lisinopril 10mg • September 25, 2025</p>
+                                    <span class="badge bg-success status-badge">Active</span>
+                                </div>
+                                <div class="text-end">
+                                    <small class="text-muted">3 refills remaining</small>
+                                    <div class="mt-1">
+                                        <a href="view-prescription.html?id=1" class="btn btn-sm btn-outline-primary me-1">View</a>
+                                        <a href="update-prescription.html?id=1" class="btn btn-sm btn-outline-warning me-1">Edit</a>
+                                        <a href="delete-prescription.html?id=1" class="btn btn-sm btn-outline-danger">Delete</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="mb-0 small">Essential Hypertension - Once daily for 30 days</p>
+                        </div>
+
+                        <div class="card prescription-card p-3 mb-3">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <div>
+                                    <h6 class="mb-1">RX2025002 - Tran Thi B</h6>
+                                    <p class="text-muted small mb-1">Sumatriptan 50mg • September 20, 2025</p>
+                                    <span class="badge bg-success status-badge">Active</span>
+                                </div>
+                                <div class="text-end">
+                                    <small class="text-muted">2 refills remaining</small>
+                                    <div class="mt-1">
+                                        <a href="view-prescription.html?id=2" class="btn btn-sm btn-outline-primary me-1">View</a>
+                                        <a href="update-prescription.html?id=2" class="btn btn-sm btn-outline-warning me-1">Edit</a>
+                                        <a href="delete-prescription.html?id=2" class="btn btn-sm btn-outline-danger">Delete</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="mb-0 small">Migraine management - As needed for headache</p>
+                        </div>
+
+                        <div class="card prescription-card p-3 mb-3">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <div>
+                                    <h6 class="mb-1">RX2025003 - Le Van C</h6>
+                                    <p class="text-muted small mb-1">Metformin 500mg • September 15, 2025</p>
+                                    <span class="badge bg-warning status-badge">Expires Soon</span>
+                                </div>
+                                <div class="text-end">
+                                    <small class="text-muted">1 refill remaining</small>
+                                    <div class="mt-1">
+                                        <a href="view-prescription.html?id=3" class="btn btn-sm btn-outline-primary me-1">View</a>
+                                        <a href="update-prescription.html?id=3" class="btn btn-sm btn-outline-warning me-1">Edit</a>
+                                        <a href="delete-prescription.html?id=3" class="btn btn-sm btn-outline-danger">Delete</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="mb-0 small">Diabetes Type 2 - Twice daily with meals</p>
+                        </div>
+
+                        <div class="text-center mt-4">
+                            <button class="btn btn-outline-primary">Load More Prescriptions</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card p-4">
+                        <h5 class="mb-3">Quick Actions</h5>
+                        <div class="d-grid gap-2">
+                            <a href="create-prescription.html" class="btn btn-primary">
+                                <i class="fa-solid fa-plus me-2"></i>New Prescription
+                            </a>
+                            <a href="patient-records-list.html" class="btn btn-outline-primary">
+                                <i class="fa-solid fa-users me-2"></i>View Patients
+                            </a>
+                            <a href="lab-request-list.html" class="btn btn-outline-info">
+                                <i class="fa-solid fa-vials me-2"></i>Lab Requests
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="card p-4 mt-3">
+                        <h5 class="mb-3">Prescription Summary</h5>
+                        <div class="mb-2">
+                            <div class="d-flex justify-content-between">
+                                <span>Total Prescriptions:</span>
+                                <strong>89</strong>
+                            </div>
+                        </div>
+                        <div class="mb-2">
+                            <div class="d-flex justify-content-between">
+                                <span>Active:</span>
+                                <strong class="text-success">76</strong>
+                            </div>
+                        </div>
+                        <div class="mb-2">
+                            <div class="d-flex justify-content-between">
+                                <span>Expires Soon:</span>
+                                <strong class="text-warning">8</strong>
+                            </div>
+                        </div>
+                        <div class="mb-0">
+                            <div class="d-flex justify-content-between">
+                                <span>This Month:</span>
+                                <strong>12</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card p-4 mt-3">
+                        <h5 class="mb-3">Filter Options</h5>
+                        <div class="mb-3">
+                            <label class="form-label small">Patient</label>
+                            <select class="form-select form-select-sm">
+                                <option>All Patients</option>
+                                <option>Nguyen Van A</option>
+                                <option>Tran Thi B</option>
+                                <option>Le Van C</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label small">Status</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="active" checked>
+                                <label class="form-check-label small" for="active">Active</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="expired">
+                                <label class="form-check-label small" for="expired">Expired</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="cancelled">
+                                <label class="form-check-label small" for="cancelled">Cancelled</label>
+                            </div>
+                        </div>
+                        <div class="mb-0">
+                            <label class="form-label small">Date Range</label>
+                            <select class="form-select form-select-sm">
+                                <option>All Time</option>
+                                <option>Last 7 days</option>
+                                <option>Last 30 days</option>
+                                <option>Last 3 months</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <script src="../assets/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>

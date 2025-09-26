@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Edit Profile - HealHub Doctor</title>
+        <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <style>
+            body { background-color: #f6f7fb; }
+            .container-wide { max-width: 1000px; }
+            .card { border-radius: 1rem; box-shadow: 0 2px 12px #0001; }
+            .form-section { border-bottom: 1px solid #e9ecef; padding-bottom: 2rem; margin-bottom: 2rem; }
+            .form-section:last-child { border-bottom: none; margin-bottom: 0; }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-light bg-white border-bottom sticky-top shadow-sm">
+            <div class="container-fluid">
+                <a class="navbar-brand fw-bold text-primary" href="doctor-dashboard.html"><i class="fa-solid fa-heart-pulse me-2"></i>HealHub Doctor</a>
+                <div class="d-flex align-items-center gap-2">
+                    <a class="btn btn-outline-primary btn-sm" href="patient-records-list.html"><i class="fa-solid fa-users me-1"></i>Patients</a>
+                    <a class="btn btn-outline-primary btn-sm" href="prescription-list.html"><i class="fa-solid fa-pills me-1"></i>Prescriptions</a>
+                    <a class="btn btn-outline-primary btn-sm" href="lab-request-list.html"><i class="fa-solid fa-vials me-1"></i>Lab Requests</a>
+                    <a class="btn btn-outline-secondary btn-sm" href="profile-view.html"><i class="fa-solid fa-user me-1"></i>Profile</a>
+                    <a class="btn btn-outline-danger btn-sm" href="../auth/login.html"><i class="fa-solid fa-arrow-right-from-bracket me-1"></i>Logout</a>
+                </div>
+            </div>
+        </nav>
+        <main class="container container-wide py-4">
+            <div class="card p-4 mb-4">
+                <h1 class="h3 mb-4"><i class="fa-solid fa-edit me-2 text-primary"></i>Edit Profile</h1>
+                
+                <form>
+                    <div class="form-section">
+                        <h5 class="mb-3 text-primary"><i class="fa-solid fa-user me-2"></i>Personal Information</h5>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Full Name *</label>
+                                <input type="text" class="form-control" value="Dr. Nguyen Van A" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Date of Birth *</label>
+                                <input type="date" class="form-control" value="1980-03-15" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Gender *</label>
+                                <select class="form-select" required>
+                                    <option value="male" selected>Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Phone Number *</label>
+                                <input type="tel" class="form-control" value="+84 901 234 567" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Email Address *</label>
+                                <input type="email" class="form-control" value="dr.nguyen@healhub.com" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Employee ID</label>
+                                <input type="text" class="form-control" value="DOC001" readonly>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label">Address *</label>
+                                <textarea class="form-control" rows="3" required>123 Medical Street, District 1, Ho Chi Minh City</textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h5 class="mb-3 text-primary"><i class="fa-solid fa-stethoscope me-2"></i>Professional Information</h5>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Specialty *</label>
+                                <select class="form-select" required>
+                                    <option value="cardiology" selected>Cardiology</option>
+                                    <option value="neurology">Neurology</option>
+                                    <option value="pediatrics">Pediatrics</option>
+                                    <option value="dermatology">Dermatology</option>
+                                    <option value="orthopedics">Orthopedics</option>
+                                    <option value="gynecology">Gynecology</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">License Number *</label>
+                                <input type="text" class="form-control" value="CARD-2020-001" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Years of Experience *</label>
+                                <input type="number" class="form-control" value="15" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Department *</label>
+                                <select class="form-select" required>
+                                    <option value="cardiology" selected>Cardiology Department</option>
+                                    <option value="neurology">Neurology Department</option>
+                                    <option value="pediatrics">Pediatrics Department</option>
+                                    <option value="dermatology">Dermatology Department</option>
+                                    <option value="orthopedics">Orthopedics Department</option>
+                                    <option value="gynecology">Gynecology Department</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Office Location *</label>
+                                <input type="text" class="form-control" value="Floor 2, Room 201" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Status</label>
+                                <select class="form-select">
+                                    <option value="active" selected>Active</option>
+                                    <option value="inactive">Inactive</option>
+                                    <option value="on-leave">On Leave</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h5 class="mb-3 text-primary"><i class="fa-solid fa-graduation-cap me-2"></i>Education & Qualifications</h5>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Medical Degree *</label>
+                                <input type="text" class="form-control" value="MD - Ho Chi Minh City University of Medicine and Pharmacy (2005)" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Specialization *</label>
+                                <input type="text" class="form-control" value="Cardiology - National Heart Institute (2010)" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Fellowship</label>
+                                <input type="text" class="form-control" value="Interventional Cardiology - Singapore General Hospital (2015)">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Board Certification</label>
+                                <input type="text" class="form-control" value="Cardiovascular Medicine">
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label">Professional Memberships</label>
+                                <textarea class="form-control" rows="3" placeholder="List professional memberships and associations...">Vietnam Cardiology Association
+International Society of Cardiology
+American College of Cardiology</textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h5 class="mb-3 text-primary"><i class="fa-solid fa-clock me-2"></i>Schedule Information</h5>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Working Days *</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="monday" checked>
+                                    <label class="form-check-label" for="monday">Monday</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="tuesday" checked>
+                                    <label class="form-check-label" for="tuesday">Tuesday</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="wednesday" checked>
+                                    <label class="form-check-label" for="wednesday">Wednesday</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="thursday" checked>
+                                    <label class="form-check-label" for="thursday">Thursday</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="friday" checked>
+                                    <label class="form-check-label" for="friday">Friday</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Working Hours *</label>
+                                <div class="row g-2">
+                                    <div class="col-6">
+                                        <label class="form-label small">Start Time</label>
+                                        <input type="time" class="form-control" value="08:00" required>
+                                    </div>
+                                    <div class="col-6">
+                                        <label class="form-label small">End Time</label>
+                                        <input type="time" class="form-control" value="17:00" required>
+                                    </div>
+                                </div>
+                                <div class="mt-2">
+                                    <label class="form-label small">Consultation Duration (minutes)</label>
+                                    <input type="number" class="form-control" value="45" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-between">
+                        <a href="profile-view.html" class="btn btn-outline-secondary">Cancel</a>
+                        <button type="submit" class="btn btn-primary">Update Profile</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+        <script src="../assets/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>

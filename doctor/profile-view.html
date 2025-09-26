@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>View Profile - HealHub Doctor</title>
+        <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <style>
+            body { background-color: #f6f7fb; }
+            .container-wide { max-width: 1000px; }
+            .card { border-radius: 1rem; box-shadow: 0 2px 12px #0001; }
+            .profile-header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; }
+            .section-card { border-left: 4px solid #007bff; }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-light bg-white border-bottom sticky-top shadow-sm">
+            <div class="container-fluid">
+                <a class="navbar-brand fw-bold text-primary" href="doctor-dashboard.html"><i class="fa-solid fa-heart-pulse me-2"></i>HealHub Doctor</a>
+                <div class="d-flex align-items-center gap-2">
+                    <a class="btn btn-outline-primary btn-sm" href="patient-records-list.html"><i class="fa-solid fa-users me-1"></i>Patients</a>
+                    <a class="btn btn-outline-primary btn-sm" href="prescription-list.html"><i class="fa-solid fa-pills me-1"></i>Prescriptions</a>
+                    <a class="btn btn-outline-primary btn-sm" href="lab-request-list.html"><i class="fa-solid fa-vials me-1"></i>Lab Requests</a>
+                    <a class="btn btn-outline-secondary btn-sm" href="profile-view.html"><i class="fa-solid fa-user me-1"></i>Profile</a>
+                    <a class="btn btn-outline-danger btn-sm" href="../auth/login.html"><i class="fa-solid fa-arrow-right-from-bracket me-1"></i>Logout</a>
+                </div>
+            </div>
+        </nav>
+        <main class="container container-wide py-4">
+            <div class="card profile-header p-4 mb-4">
+                <div class="row align-items-center">
+                    <div class="col-md-3 text-center">
+                        <i class="fa-solid fa-user-doctor" style="font-size: 4rem; opacity: 0.9;"></i>
+                    </div>
+                    <div class="col-md-6">
+                        <h1 class="h3 mb-2">Dr. Nguyen Van A</h1>
+                        <p class="h5 mb-3">Cardiologist</p>
+                        <div class="d-flex align-items-center gap-4">
+                            <div>
+                                <i class="fa-solid fa-id-card me-1"></i>
+                                Doctor ID: DOC001
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-calendar me-1"></i>
+                                Since 2010
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <div class="d-flex gap-2">
+                            <a href="profile-edit.html" class="btn btn-light btn-sm">Edit Profile</a>
+                            <a href="change-password.html" class="btn btn-outline-light btn-sm">Change Password</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-8">
+                    <div class="card section-card p-4 mb-4">
+                        <h5 class="mb-3"><i class="fa-solid fa-user me-2 text-primary"></i>Personal Information</h5>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <strong>Full Name:</strong><br>
+                                <span class="text-muted">Dr. Nguyen Van A</span>
+                            </div>
+                            <div class="col-md-6">
+                                <strong>Date of Birth:</strong><br>
+                                <span class="text-muted">March 15, 1980</span>
+                            </div>
+                            <div class="col-md-6">
+                                <strong>Gender:</strong><br>
+                                <span class="text-muted">Male</span>
+                            </div>
+                            <div class="col-md-6">
+                                <strong>Phone:</strong><br>
+                                <span class="text-muted">+84 901 234 567</span>
+                            </div>
+                            <div class="col-md-6">
+                                <strong>Email:</strong><br>
+                                <span class="text-muted">dr.nguyen@healhub.com</span>
+                            </div>
+                            <div class="col-md-6">
+                                <strong>Employee ID:</strong><br>
+                                <span class="text-muted">DOC001</span>
+                            </div>
+                            <div class="col-12">
+                                <strong>Address:</strong><br>
+                                <span class="text-muted">123 Medical Street, District 1, Ho Chi Minh City</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card section-card p-4 mb-4">
+                        <h5 class="mb-3"><i class="fa-solid fa-graduation-cap me-2 text-primary"></i>Professional Information</h5>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <strong>Specialty:</strong><br>
+                                <span class="text-muted">Cardiology</span>
+                            </div>
+                            <div class="col-md-6">
+                                <strong>License Number:</strong><br>
+                                <span class="text-muted">CARD-2020-001</span>
+                            </div>
+                            <div class="col-md-6">
+                                <strong>Years of Experience:</strong><br>
+                                <span class="text-muted">15 years</span>
+                            </div>
+                            <div class="col-md-6">
+                                <strong>Department:</strong><br>
+                                <span class="text-muted">Cardiology Department</span>
+                            </div>
+                            <div class="col-md-6">
+                                <strong>Office Location:</strong><br>
+                                <span class="text-muted">Floor 2, Room 201</span>
+                            </div>
+                            <div class="col-md-6">
+                                <strong>Status:</strong><br>
+                                <span class="badge bg-success">Active</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card section-card p-4 mb-4">
+                        <h5 class="mb-3"><i class="fa-solid fa-graduation-cap me-2 text-primary"></i>Education & Qualifications</h5>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fa-solid fa-check text-success me-2"></i>MD - Ho Chi Minh City University of Medicine and Pharmacy (2005)</li>
+                            <li class="mb-2"><i class="fa-solid fa-check text-success me-2"></i>Specialization in Cardiology - National Heart Institute (2010)</li>
+                            <li class="mb-2"><i class="fa-solid fa-check text-success me-2"></i>Fellowship in Interventional Cardiology - Singapore General Hospital (2015)</li>
+                            <li class="mb-2"><i class="fa-solid fa-check text-success me-2"></i>Board Certified in Cardiovascular Medicine</li>
+                            <li class="mb-0"><i class="fa-solid fa-check text-success me-2"></i>Member of Vietnam Cardiology Association</li>
+                        </ul>
+                    </div>
+
+                    <div class="card section-card p-4">
+                        <h5 class="mb-3"><i class="fa-solid fa-clock me-2 text-primary"></i>Schedule Information</h5>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <strong>Working Hours:</strong><br>
+                                <span class="text-muted">Monday - Friday: 8:00 AM - 5:00 PM</span>
+                            </div>
+                            <div class="col-md-6">
+                                <strong>Consultation Duration:</strong><br>
+                                <span class="text-muted">45 minutes per patient</span>
+                            </div>
+                            <div class="col-md-6">
+                                <strong>Next Available:</strong><br>
+                                <span class="text-muted">October 15, 2025 at 2:00 PM</span>
+                            </div>
+                            <div class="col-md-6">
+                                <strong>Patients Today:</strong><br>
+                                <span class="text-muted">8 patients scheduled</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card p-4 mb-4">
+                        <h5 class="mb-3">Quick Actions</h5>
+                        <div class="d-grid gap-2">
+                            <a href="profile-edit.html" class="btn btn-warning">
+                                <i class="fa-solid fa-edit me-2"></i>Edit Profile
+                            </a>
+                            <a href="change-password.html" class="btn btn-outline-primary">
+                                <i class="fa-solid fa-key me-2"></i>Change Password
+                            </a>
+                            <a href="patient-records-list.html" class="btn btn-outline-success">
+                                <i class="fa-solid fa-users me-2"></i>View Patients
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="card p-4 mb-4">
+                        <h5 class="mb-3">Statistics</h5>
+                        <div class="mb-2">
+                            <div class="d-flex justify-content-between">
+                                <span>Total Patients:</span>
+                                <strong>156</strong>
+                            </div>
+                        </div>
+                        <div class="mb-2">
+                            <div class="d-flex justify-content-between">
+                                <span>This Month:</span>
+                                <strong>23</strong>
+                            </div>
+                        </div>
+                        <div class="mb-2">
+                            <div class="d-flex justify-content-between">
+                                <span>Prescriptions:</span>
+                                <strong>89</strong>
+                            </div>
+                        </div>
+                        <div class="mb-0">
+                            <div class="d-flex justify-content-between">
+                                <span>Lab Requests:</span>
+                                <strong>45</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card p-4">
+                        <h5 class="mb-3">Contact Information</h5>
+                        <div class="mb-2">
+                            <i class="fa-solid fa-phone me-2 text-muted"></i>
+                            <span>+84 28 1234 5678</span>
+                        </div>
+                        <div class="mb-2">
+                            <i class="fa-solid fa-envelope me-2 text-muted"></i>
+                            <span>dr.nguyen@healhub.com</span>
+                        </div>
+                        <div class="mb-0">
+                            <i class="fa-solid fa-map-marker-alt me-2 text-muted"></i>
+                            <span>Floor 2, Room 201</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <script src="../assets/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>

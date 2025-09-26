@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Doctor Dashboard - HealHub</title>
+        <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <style>
+            body { background-color: #f6f7fb; }
+            .container-wide { max-width: 1200px; }
+            .card { border-radius: 1rem; box-shadow: 0 2px 12px #0001; }
+            .dashboard-summary { display: flex; gap: 1.5rem; margin-bottom: 2rem; flex-wrap: wrap; }
+            .summary-card { flex: 1 1 200px; background: #fff; border-radius: 1rem; box-shadow: 0 2px 12px #0001; padding: 1.2rem 1rem; display: flex; align-items: center; gap: 1rem; min-width: 220px; }
+            .summary-icon { font-size: 1.8rem; opacity: 0.9; }
+            .summary-label { color: #6c757d; font-size: 0.98em; }
+            .summary-value { font-size: 1.4rem; font-weight: 600; }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-light bg-white border-bottom sticky-top shadow-sm">
+            <div class="container-fluid">
+                <a class="navbar-brand fw-bold text-primary" href="doctor-dashboard.html"><i class="fa-solid fa-heart-pulse me-2"></i>HealHub Doctor</a>
+                <div class="d-flex align-items-center gap-2">
+                    <a class="btn btn-outline-primary btn-sm" href="patient-records-list.html"><i class="fa-solid fa-users me-1"></i>Patients</a>
+                    <a class="btn btn-outline-primary btn-sm" href="prescription-list.html"><i class="fa-solid fa-pills me-1"></i>Prescriptions</a>
+                    <a class="btn btn-outline-primary btn-sm" href="lab-request-list.html"><i class="fa-solid fa-vials me-1"></i>Lab Requests</a>
+                    <a class="btn btn-outline-secondary btn-sm" href="profile-view.html"><i class="fa-solid fa-user me-1"></i>Profile</a>
+                    <a class="btn btn-outline-danger btn-sm" href="../auth/login.html"><i class="fa-solid fa-arrow-right-from-bracket me-1"></i>Logout</a>
+                </div>
+            </div>
+        </nav>
+        <main class="container container-wide py-3 py-lg-4">
+            <h1 class="h3 mb-4"><i class="fa-solid fa-house-medical me-2 text-primary"></i>Doctor Dashboard</h1>
+            
+            <div class="dashboard-summary">
+                <div class="summary-card">
+                    <span class="summary-icon text-primary"><i class="fa-solid fa-users"></i></span>
+                    <div>
+                        <div class="summary-label">Total Patients</div>
+                        <div class="summary-value">156</div>
+                    </div>
+                </div>
+                <div class="summary-card">
+                    <span class="summary-icon text-success"><i class="fa-solid fa-pills"></i></span>
+                    <div>
+                        <div class="summary-label">Prescriptions</div>
+                        <div class="summary-value">89</div>
+                    </div>
+                </div>
+                <div class="summary-card">
+                    <span class="summary-icon text-info"><i class="fa-solid fa-vials"></i></span>
+                    <div>
+                        <div class="summary-label">Lab Requests</div>
+                        <div class="summary-value">45</div>
+                    </div>
+                </div>
+                <div class="summary-card">
+                    <span class="summary-icon text-warning"><i class="fa-solid fa-calendar"></i></span>
+                    <div>
+                        <div class="summary-label">Today's Appointments</div>
+                        <div class="summary-value">8</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-3">
+                <div class="col-12 col-xl-6">
+                    <div class="card shadow-sm border-0">
+                        <div class="card-header bg-white d-flex justify-content-between align-items-center">
+                            <span class="fw-semibold"><i class="fa-solid fa-users me-1 text-primary"></i>Recent Patients</span>
+                            <a class="btn btn-sm btn-outline-primary" href="patient-records-list.html">View All</a>
+                        </div>
+                        <div class="card-body p-0">
+                            <div class="table-responsive">
+                                <table class="table align-middle mb-0">
+                                    <thead>
+                                        <tr><th>Patient</th><th>Last Visit</th><th>Status</th></tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div>
+                                                    <div class="fw-bold">Nguyen Van A</div>
+                                                    <small class="text-muted">HS00124</small>
+                                                </div>
+                                            </td>
+                                            <td>Sep 25, 2025</td>
+                                            <td><span class="badge bg-success">Active</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div>
+                                                    <div class="fw-bold">Tran Thi B</div>
+                                                    <small class="text-muted">HS00125</small>
+                                                </div>
+                                            </td>
+                                            <td>Sep 20, 2025</td>
+                                            <td><span class="badge bg-success">Active</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div>
+                                                    <div class="fw-bold">Le Van C</div>
+                                                    <small class="text-muted">HS00126</small>
+                                                </div>
+                                            </td>
+                                            <td>Sep 15, 2025</td>
+                                            <td><span class="badge bg-warning">Follow-up</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-xl-6">
+                    <div class="card shadow-sm border-0">
+                        <div class="card-header bg-white d-flex justify-content-between align-items-center">
+                            <span class="fw-semibold"><i class="fa-solid fa-calendar me-1 text-success"></i>Today's Schedule</span>
+                            <a class="btn btn-sm btn-outline-primary" href="#">View Calendar</a>
+                        </div>
+                        <div class="card-body">
+                            <div class="list-group list-group-flush">
+                                <div class="list-group-item d-flex justify-content-between align-items-center px-0">
+                                    <div>
+                                        <div class="fw-bold">9:00 AM</div>
+                                        <small class="text-muted">Nguyen Van A - Follow-up</small>
+                                    </div>
+                                    <span class="badge bg-primary">Upcoming</span>
+                                </div>
+                                <div class="list-group-item d-flex justify-content-between align-items-center px-0">
+                                    <div>
+                                        <div class="fw-bold">10:30 AM</div>
+                                        <small class="text-muted">Tran Thi B - Consultation</small>
+                                    </div>
+                                    <span class="badge bg-success">Completed</span>
+                                </div>
+                                <div class="list-group-item d-flex justify-content-between align-items-center px-0">
+                                    <div>
+                                        <div class="fw-bold">2:00 PM</div>
+                                        <small class="text-muted">Le Van C - Check-up</small>
+                                    </div>
+                                    <span class="badge bg-warning">In Progress</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-3 mt-3">
+                <div class="col-12">
+                    <div class="card shadow-sm border-0">
+                        <div class="card-header bg-white">
+                            <span class="fw-semibold"><i class="fa-solid fa-bolt me-1 text-warning"></i>Quick Actions</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="row g-3">
+                                <div class="col-md-3">
+                                    <a href="create-patient-record.html" class="btn btn-primary w-100">
+                                        <i class="fa-solid fa-user-plus me-2"></i>New Patient
+                                    </a>
+                                </div>
+                                <div class="col-md-3">
+                                    <a href="create-prescription.html" class="btn btn-success w-100">
+                                        <i class="fa-solid fa-pills me-2"></i>New Prescription
+                                    </a>
+                                </div>
+                                <div class="col-md-3">
+                                    <a href="send-lab-request.html" class="btn btn-info w-100">
+                                        <i class="fa-solid fa-vials me-2"></i>Lab Request
+                                    </a>
+                                </div>
+                                <div class="col-md-3">
+                                    <a href="profile-view.html" class="btn btn-outline-secondary w-100">
+                                        <i class="fa-solid fa-user me-2"></i>My Profile
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <script src="../assets/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>

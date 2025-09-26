@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Send Lab Request - HealHub Doctor</title>
+        <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <style>
+            body { background-color: #f6f7fb; }
+            .container-wide { max-width: 1000px; }
+            .card { border-radius: 1rem; box-shadow: 0 2px 12px #0001; }
+            .form-section { border-bottom: 1px solid #e9ecef; padding-bottom: 2rem; margin-bottom: 2rem; }
+            .form-section:last-child { border-bottom: none; margin-bottom: 0; }
+            .test-item { border: 1px solid #dee2e6; border-radius: 0.5rem; padding: 1rem; margin-bottom: 1rem; }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-light bg-white border-bottom sticky-top shadow-sm">
+            <div class="container-fluid">
+                <a class="navbar-brand fw-bold text-primary" href="doctor-dashboard.html"><i class="fa-solid fa-heart-pulse me-2"></i>HealHub Doctor</a>
+                <div class="d-flex align-items-center gap-2">
+                    <a class="btn btn-outline-primary btn-sm" href="patient-records-list.html"><i class="fa-solid fa-users me-1"></i>Patients</a>
+                    <a class="btn btn-outline-primary btn-sm" href="prescription-list.html"><i class="fa-solid fa-pills me-1"></i>Prescriptions</a>
+                    <a class="btn btn-outline-primary btn-sm" href="lab-request-list.html"><i class="fa-solid fa-vials me-1"></i>Lab Requests</a>
+                    <a class="btn btn-outline-secondary btn-sm" href="profile-view.html"><i class="fa-solid fa-user me-1"></i>Profile</a>
+                    <a class="btn btn-outline-danger btn-sm" href="../auth/login.html"><i class="fa-solid fa-arrow-right-from-bracket me-1"></i>Logout</a>
+                </div>
+            </div>
+        </nav>
+        <main class="container container-wide py-4">
+            <div class="card p-4 mb-4">
+                <h1 class="h3 mb-4"><i class="fa-solid fa-vials me-2 text-primary"></i>Send Lab Request</h1>
+                
+                <form>
+                    <div class="form-section">
+                        <h5 class="mb-3 text-primary"><i class="fa-solid fa-user me-2"></i>Patient Information</h5>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Patient *</label>
+                                <select class="form-select" required>
+                                    <option value="">Select Patient</option>
+                                    <option value="1" selected>Nguyen Van A (HS00124)</option>
+                                    <option value="2">Tran Thi B (HS00125)</option>
+                                    <option value="3">Le Van C (HS00126)</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Request Date *</label>
+                                <input type="date" class="form-control" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Requesting Doctor *</label>
+                                <input type="text" class="form-control" value="Dr. Nguyen Van A" readonly>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Request ID</label>
+                                <input type="text" class="form-control" value="LR2025001" readonly>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h5 class="mb-3 text-primary"><i class="fa-solid fa-flask me-2"></i>Laboratory Tests</h5>
+                        <div id="tests-container">
+                            <div class="test-item">
+                                <div class="row g-3">
+                                    <div class="col-md-4">
+                                        <label class="form-label">Test Type *</label>
+                                        <select class="form-select" required>
+                                            <option value="">Select Test Type</option>
+                                            <option value="blood-test" selected>Blood Test</option>
+                                            <option value="urine-test">Urine Test</option>
+                                            <option value="imaging">Imaging</option>
+                                            <option value="biopsy">Biopsy</option>
+                                            <option value="culture">Culture</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label">Specific Test *</label>
+                                        <select class="form-select" required>
+                                            <option value="">Select Test</option>
+                                            <option value="cbc" selected>Complete Blood Count (CBC)</option>
+                                            <option value="lipid-panel">Lipid Panel</option>
+                                            <option value="liver-function">Liver Function Test</option>
+                                            <option value="kidney-function">Kidney Function Test</option>
+                                            <option value="thyroid">Thyroid Function Test</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label">Priority *</label>
+                                        <select class="form-select" required>
+                                            <option value="">Select Priority</option>
+                                            <option value="routine">Routine</option>
+                                            <option value="urgent" selected>Urgent</option>
+                                            <option value="stat">STAT (Immediate)</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-12">
+                                        <label class="form-label">Clinical Indication *</label>
+                                        <textarea class="form-control" rows="2" placeholder="Describe the clinical indication for this test..." required>Routine follow-up for hypertension management. Monitor blood cell counts and overall health status.</textarea>
+                                    </div>
+                                </div>
+                                <div class="mt-2">
+                                    <button type="button" class="btn btn-outline-danger btn-sm" onclick="removeTest(this)">
+                                        <i class="fa-solid fa-trash me-1"></i>Remove
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-3">
+                            <button type="button" class="btn btn-outline-primary" onclick="addTest()">
+                                <i class="fa-solid fa-plus me-1"></i>Add Another Test
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h5 class="mb-3 text-primary"><i class="fa-solid fa-clipboard-list me-2"></i>Request Details</h5>
+                        <div class="row g-3">
+                            <div class="col-12">
+                                <label class="form-label">Clinical History *</label>
+                                <textarea class="form-control" rows="3" placeholder="Provide relevant clinical history..." required>Patient with essential hypertension, well-controlled on Lisinopril. No recent symptoms. Routine monitoring.</textarea>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label">Special Instructions</label>
+                                <textarea class="form-control" rows="3" placeholder="Any special instructions for the laboratory...">Patient should fast for 12 hours before blood draw. Please note any abnormalities for immediate notification.</textarea>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Expected Completion Date</label>
+                                <input type="date" class="form-control">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Preferred Lab Location</label>
+                                <select class="form-select">
+                                    <option value="">Select Location</option>
+                                    <option value="main-lab" selected>Main Laboratory</option>
+                                    <option value="satellite-lab">Satellite Laboratory</option>
+                                    <option value="external-lab">External Laboratory</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h5 class="mb-3 text-primary"><i class="fa-solid fa-bell me-2"></i>Notification Preferences</h5>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Notify When Results Available</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="notify-email" checked>
+                                    <label class="form-check-label" for="notify-email">Email</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="notify-sms">
+                                    <label class="form-check-label" for="notify-sms">SMS</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="notify-call">
+                                    <label class="form-check-label" for="notify-call">Phone Call</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Urgent Results</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="urgent-email" checked>
+                                    <label class="form-check-label" for="urgent-email">Email</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="urgent-sms" checked>
+                                    <label class="form-check-label" for="urgent-sms">SMS</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="urgent-call" checked>
+                                    <label class="form-check-label" for="urgent-call">Phone Call</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-between">
+                        <a href="lab-request-list.html" class="btn btn-outline-secondary">Cancel</a>
+                        <button type="submit" class="btn btn-primary">Send Lab Request</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+        <script src="../assets/js/bootstrap.bundle.min.js"></script>
+        <script>
+            let testCount = 1;
+
+            function addTest() {
+                testCount++;
+                const container = document.getElementById('tests-container');
+                const newTest = document.createElement('div');
+                newTest.className = 'test-item';
+                newTest.innerHTML = `
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <label class="form-label">Test Type *</label>
+                            <select class="form-select" required>
+                                <option value="">Select Test Type</option>
+                                <option value="blood-test">Blood Test</option>
+                                <option value="urine-test">Urine Test</option>
+                                <option value="imaging">Imaging</option>
+                                <option value="biopsy">Biopsy</option>
+                                <option value="culture">Culture</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Specific Test *</label>
+                            <select class="form-select" required>
+                                <option value="">Select Test</option>
+                                <option value="cbc">Complete Blood Count (CBC)</option>
+                                <option value="lipid-panel">Lipid Panel</option>
+                                <option value="liver-function">Liver Function Test</option>
+                                <option value="kidney-function">Kidney Function Test</option>
+                                <option value="thyroid">Thyroid Function Test</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Priority *</label>
+                            <select class="form-select" required>
+                                <option value="">Select Priority</option>
+                                <option value="routine">Routine</option>
+                                <option value="urgent">Urgent</option>
+                                <option value="stat">STAT (Immediate)</option>
+                            </select>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label">Clinical Indication *</label>
+                            <textarea class="form-control" rows="2" placeholder="Describe the clinical indication for this test..." required></textarea>
+                        </div>
+                    </div>
+                    <div class="mt-2">
+                        <button type="button" class="btn btn-outline-danger btn-sm" onclick="removeTest(this)">
+                            <i class="fa-solid fa-trash me-1"></i>Remove
+                        </button>
+                    </div>
+                `;
+                container.appendChild(newTest);
+            }
+
+            function removeTest(button) {
+                if (testCount > 1) {
+                    button.closest('.test-item').remove();
+                    testCount--;
+                } else {
+                    alert('At least one test is required.');
+                }
+            }
+        </script>
+    </body>
+</html>
