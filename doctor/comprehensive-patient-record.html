@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Comprehensive Patient Record - HealHub</title>
+        <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <style>
+            body { background-color: #f6f7fb; }
+            .container-wide { max-width: 1400px; }
+            .card { border-radius: 1rem; box-shadow: 0 2px 12px #0001; }
+            .patient-header { background: linear-gradient(135deg, #28a745 0%, #20c997 100%); color: white; }
+            .section-card { border-left: 4px solid #007bff; margin-bottom: 1.5rem; }
+            .vital-card { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; }
+            .diagnosis-card { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; }
+            .prescription-card { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white; }
+            .lab-card { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); color: white; }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-light bg-white border-bottom sticky-top shadow-sm">
+            <div class="container-fluid">
+                <a class="navbar-brand fw-bold text-primary" href="doctor-dashboard.html"><i class="fa-solid fa-heart-pulse me-2"></i>HealHub Doctor</a>
+                <div class="d-flex align-items-center gap-2">
+                    <a class="btn btn-outline-secondary btn-sm" href="profile-view.html"><i class="fa-solid fa-user me-1"></i>Profile</a>
+                    <a class="btn btn-outline-danger btn-sm" href="../auth/login.html"><i class="fa-solid fa-arrow-right-from-bracket me-1"></i>Logout</a>
+                </div>
+            </div>
+        </nav>
+        <main class="container container-wide py-4">
+            <!-- Patient Header -->
+            <div class="card patient-header">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col-md-8">
+                            <h1 class="h3 mb-2">Nguyen Van A</h1>
+                            <p class="mb-1">Patient ID: HS00124 | DOB: January 15, 1985 | Male</p>
+                            <p class="mb-0">Phone: +84 123 456 789 | Email: nguyenvana@email.com</p>
+                        </div>
+                        <div class="col-md-4 text-end">
+                            <span class="badge bg-light text-dark p-2 mb-2">Active Patient</span>
+                            <div class="d-flex gap-2 justify-content-end">
+                                <a href="update-patient-record.html?id=1" class="btn btn-light btn-sm">Update Record</a>
+                                <a href="patient-records-list.html" class="btn btn-outline-light btn-sm">Back to List</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-4 mt-3">
+                <!-- Left Column - Patient Info & Vitals -->
+                <div class="col-md-4">
+                    <!-- Patient Information -->
+                    <div class="card section-card">
+                        <div class="card-header bg-white">
+                            <h5 class="mb-0"><i class="fa-solid fa-user me-2 text-primary"></i>Patient Information</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold">Address</label>
+                                <p class="form-control-plaintext">123 Le Loi Street, District 1, Ho Chi Minh City</p>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold">Emergency Contact</label>
+                                <p class="form-control-plaintext">Tran Thi B (Wife) - +84 987 654 321</p>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold">Insurance</label>
+                                <p class="form-control-plaintext">Social Insurance - ID: 123456789</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Vital Signs -->
+                    <div class="card vital-card">
+                        <div class="card-header">
+                            <h5 class="mb-0"><i class="fa-solid fa-heartbeat me-2"></i>Vital Signs</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row g-2">
+                                <div class="col-6">
+                                    <div class="text-center">
+                                        <div class="h4 mb-0">120/80</div>
+                                        <small>Blood Pressure</small>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="text-center">
+                                        <div class="h4 mb-0">72</div>
+                                        <small>Heart Rate (bpm)</small>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="text-center">
+                                        <div class="h4 mb-0">98.6°F</div>
+                                        <small>Temperature</small>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="text-center">
+                                        <div class="h4 mb-0">18</div>
+                                        <small>Respiratory Rate</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column - Medical Information -->
+                <div class="col-md-8">
+                    <!-- Current Diagnosis -->
+                    <div class="card diagnosis-card">
+                        <div class="card-header">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h5 class="mb-0"><i class="fa-solid fa-stethoscope me-2"></i>Current Diagnosis</h5>
+                                <a href="update-patient-record.html?id=1" class="btn btn-light btn-sm">Update</a>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">Primary Diagnosis</label>
+                                    <p class="form-control-plaintext">Hypertension, Stage 1</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">Secondary Diagnosis</label>
+                                    <p class="form-control-plaintext">Type 2 Diabetes Mellitus</p>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label fw-semibold">Clinical Notes</label>
+                                    <p class="form-control-plaintext">Patient presents with elevated blood pressure readings over the past 3 months. Blood glucose levels are slightly elevated. Recommended lifestyle modifications and medication management.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Current Prescription -->
+                    <div class="card prescription-card">
+                        <div class="card-header">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h5 class="mb-0"><i class="fa-solid fa-pills me-2"></i>Current Prescription</h5>
+                                <div class="d-flex gap-2">
+                                    <a href="create-prescription.html" class="btn btn-light btn-sm">Add New</a>
+                                    <a href="update-prescription.html?id=1" class="btn btn-light btn-sm">Update</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-light table-sm">
+                                    <thead>
+                                        <tr>
+                                            <th>Medication</th>
+                                            <th>Dosage</th>
+                                            <th>Frequency</th>
+                                            <th>Duration</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Lisinopril</td>
+                                            <td>10mg</td>
+                                            <td>Once daily</td>
+                                            <td>30 days</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Metformin</td>
+                                            <td>500mg</td>
+                                            <td>Twice daily</td>
+                                            <td>30 days</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Aspirin</td>
+                                            <td>81mg</td>
+                                            <td>Once daily</td>
+                                            <td>30 days</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Lab Requests -->
+                    <div class="card lab-card">
+                        <div class="card-header">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h5 class="mb-0"><i class="fa-solid fa-vials me-2"></i>Lab Requests</h5>
+                                <div class="d-flex gap-2">
+                                    <a href="send-lab-request.html" class="btn btn-light btn-sm">Send New</a>
+                                    <a href="update-lab-request.html?id=1" class="btn btn-light btn-sm">Update</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="card bg-light">
+                                        <div class="card-body">
+                                            <h6 class="card-title">Blood Work - Pending</h6>
+                                            <p class="card-text small">Complete Blood Count (CBC)<br>Lipid Panel<br>HbA1c</p>
+                                            <small class="text-muted">Requested: Oct 15, 2025</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card bg-light">
+                                        <div class="card-body">
+                                            <h6 class="card-title">Urine Analysis - Completed</h6>
+                                            <p class="card-text small">Microalbumin<br>Creatinine<br>Glucose</p>
+                                            <small class="text-muted">Completed: Oct 10, 2025</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Medical History -->
+                    <div class="card section-card">
+                        <div class="card-header bg-white">
+                            <h5 class="mb-0"><i class="fa-solid fa-history me-2 text-info"></i>Medical History</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">Allergies</label>
+                                    <p class="form-control-plaintext">Penicillin, Sulfa drugs</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">Family History</label>
+                                    <p class="form-control-plaintext">Father: Hypertension, Mother: Diabetes</p>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label fw-semibold">Previous Surgeries</label>
+                                    <p class="form-control-plaintext">Appendectomy (2010), Cataract surgery (2020)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <script src="../assets/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>

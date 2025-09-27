@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Edit Lab Request - HealHub</title>
+        <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <style>
+            body { background-color: #f6f7fb; }
+            .container-wide { max-width: 1000px; }
+            .card { border-radius: 1rem; box-shadow: 0 2px 12px #0001; }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-light bg-white border-bottom sticky-top shadow-sm">
+            <div class="container-fluid">
+                <a class="navbar-brand fw-bold text-primary" href="doctor-dashboard.html"><i class="fa-solid fa-heart-pulse me-2"></i>HealHub Doctor</a>
+                <div class="d-flex align-items-center gap-2">
+                    <a class="btn btn-outline-secondary btn-sm" href="profile-view.html"><i class="fa-solid fa-user me-1"></i>Profile</a>
+                    <a class="btn btn-outline-danger btn-sm" href="../auth/login.html"><i class="fa-solid fa-arrow-right-from-bracket me-1"></i>Logout</a>
+                </div>
+            </div>
+        </nav>
+        <main class="container container-wide py-4">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h1 class="h4 mb-0"><i class="fa-solid fa-edit me-2"></i>Edit Lab Request</h1>
+                </div>
+                <div class="card-body">
+                    <form>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Patient</label>
+                                <input type="text" class="form-control" value="Nguyen Van A (HS00124)" readonly>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Request ID</label>
+                                <input type="text" class="form-control" value="LR2025001" readonly>
+                            </div>
+                        </div>
+
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Priority *</label>
+                                <select class="form-select" required>
+                                    <option value="low">Low</option>
+                                    <option value="normal">Normal</option>
+                                    <option value="high" selected>High</option>
+                                    <option value="urgent">Urgent</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Expected Completion</label>
+                                <input type="date" class="form-control" value="2025-09-27">
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Requested Tests *</label>
+                            <div class="row g-2">
+                                <div class="col-md-6">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="cbc" checked>
+                                        <label class="form-check-label" for="cbc">Complete Blood Count (CBC)</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="lipid" checked>
+                                        <label class="form-check-label" for="lipid">Lipid Panel</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="hba1c" checked>
+                                        <label class="form-check-label" for="hba1c">HbA1c</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="liver">
+                                        <label class="form-check-label" for="liver">Liver Function Tests</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="kidney">
+                                        <label class="form-check-label" for="kidney">Kidney Function Tests</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="thyroid">
+                                        <label class="form-check-label" for="thyroid">Thyroid Function Tests</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Clinical Notes *</label>
+                            <textarea class="form-control" rows="4" placeholder="Please provide clinical justification for the requested tests...">Patient presents with elevated blood pressure and blood glucose levels. Request comprehensive metabolic panel to assess cardiovascular risk factors and diabetes management.</textarea>
+                        </div>
+
+                        <div class="d-flex justify-content-end">
+                            <button type="submit" class="btn btn-primary">Update Lab Request</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+        <script src="../assets/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>

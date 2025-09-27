@@ -1,129 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Patient Registration - HealHub</title>
-        <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-        <style>
-            body { background-color: #f6f7fb; }
-            .container-narrow { max-width: 800px; }
-            .card { border-radius: 1rem; box-shadow: 0 2px 12px #0001; }
-            .form-section { border-bottom: 1px solid #e9ecef; padding-bottom: 2rem; margin-bottom: 2rem; }
-            .form-section:last-child { border-bottom: none; margin-bottom: 0; }
-        </style>
-    </head>
-    <body>
-        <nav class="navbar navbar-light bg-white border-bottom sticky-top shadow-sm">
-            <div class="container-fluid">
-                <a class="navbar-brand fw-bold text-primary" href="index.html"><i class="fa-solid fa-heart-pulse me-2"></i>HealHub</a>
-                <div class="d-flex align-items-center gap-2">
-                    <a class="btn btn-outline-primary btn-sm" href="doctor-list.html"><i class="fa-solid fa-user-doctor me-1"></i>Find Doctors</a>
-                    <a class="btn btn-outline-secondary btn-sm" href="doctor-search.html"><i class="fa-solid fa-search me-1"></i>Search</a>
-                    <a class="btn btn-primary btn-sm" href="patient-registration.html"><i class="fa-solid fa-user-plus me-1"></i>Register</a>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Patient Registration - HealHub</title>
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        body {
+            background-color: #f6f7fb;
+        }
+
+        .container-narrow {
+            max-width: 800px;
+        }
+
+        .card {
+            border-radius: 1rem;
+            box-shadow: 0 2px 12px #0001;
+        }
+
+        .form-section {
+            border-bottom: 1px solid #e9ecef;
+            padding-bottom: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .form-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-light bg-white border-bottom sticky-top shadow-sm">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold text-primary" href="index.html"><i
+                    class="fa-solid fa-heart-pulse me-2"></i>HealHub</a>
+
+        </div>
+    </nav>
+    <main class="container container-narrow py-4">
+        <div class="card p-4 mb-4">
+            <h1 class="h3 mb-4"><i class="fa-solid fa-user-plus me-2 text-primary"></i>Patient Registration</h1>
+
+            <form>
+                <div class="form-section">
+                    <h5 class="mb-3 text-primary"><i class="fa-solid fa-id-card me-2"></i>Personal Information</h5>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label">First Name *</label>
+                            <input type="text" class="form-control" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Last Name *</label>
+                            <input type="text" class="form-control" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Date of Birth *</label>
+                            <input type="date" class="form-control" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Gender *</label>
+                            <select class="form-select" required>
+                                <option value="">Select Gender</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </nav>
-        <main class="container container-narrow py-4">
-            <div class="card p-4 mb-4">
-                <h1 class="h3 mb-4"><i class="fa-solid fa-user-plus me-2 text-primary"></i>Patient Registration</h1>
-                
-                <form>
-                    <div class="form-section">
-                        <h5 class="mb-3 text-primary"><i class="fa-solid fa-id-card me-2"></i>Personal Information</h5>
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <label class="form-label">First Name *</label>
-                                <input type="text" class="form-control" required>
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label">Last Name *</label>
-                                <input type="text" class="form-control" required>
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label">Date of Birth *</label>
-                                <input type="date" class="form-control" required>
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label">Gender *</label>
-                                <select class="form-select" required>
-                                    <option value="">Select Gender</option>
-                                    <option value="male">Male</option>
-                                    <option value="female">Female</option>
-                                    <option value="other">Other</option>
-                                </select>
-                            </div>
+
+                <div class="form-section">
+                    <h5 class="mb-3 text-primary"><i class="fa-solid fa-phone me-2"></i>Contact Information</h5>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label">Phone Number *</label>
+                            <input type="tel" class="form-control" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Email Address</label>
+                            <input type="email" class="form-control">
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label">Address *</label>
+                            <textarea class="form-control" rows="3" required></textarea>
                         </div>
                     </div>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                    <a class="btn btn-primary btn-sm" href="patient-registration.html"></i>Register</a>
+                </div>
+            </form>
+        </div>
+    </main>
+    <script src="../assets/js/bootstrap.bundle.min.js"></script>
+</body>
 
-                    <div class="form-section">
-                        <h5 class="mb-3 text-primary"><i class="fa-solid fa-phone me-2"></i>Contact Information</h5>
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <label class="form-label">Phone Number *</label>
-                                <input type="tel" class="form-control" required>
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label">Email Address</label>
-                                <input type="email" class="form-control">
-                            </div>
-                            <div class="col-12">
-                                <label class="form-label">Address *</label>
-                                <textarea class="form-control" rows="3" required></textarea>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-section">
-                        <h5 class="mb-3 text-primary"><i class="fa-solid fa-heart-pulse me-2"></i>Medical Information</h5>
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <label class="form-label">Blood Type</label>
-                                <select class="form-select">
-                                    <option value="">Select Blood Type</option>
-                                    <option value="A+">A+</option>
-                                    <option value="A-">A-</option>
-                                    <option value="B+">B+</option>
-                                    <option value="B-">B-</option>
-                                    <option value="AB+">AB+</option>
-                                    <option value="AB-">AB-</option>
-                                    <option value="O+">O+</option>
-                                    <option value="O-">O-</option>
-                                </select>
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label">Emergency Contact</label>
-                                <input type="text" class="form-control">
-                            </div>
-                            <div class="col-12">
-                                <label class="form-label">Medical History / Allergies</label>
-                                <textarea class="form-control" rows="3" placeholder="Please list any medical conditions, allergies, or medications..."></textarea>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-section">
-                        <h5 class="mb-3 text-primary"><i class="fa-solid fa-shield me-2"></i>Insurance Information</h5>
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <label class="form-label">Insurance Provider</label>
-                                <input type="text" class="form-control">
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label">Policy Number</label>
-                                <input type="text" class="form-control">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="d-flex justify-content-between mt-4">
-                        <a href="index.html" class="btn btn-outline-secondary">Cancel</a>
-                        <button type="submit" class="btn btn-primary">Register Patient</button>
-                    </div>
-                </form>
-            </div>
-        </main>
-        <script src="../assets/js/bootstrap.bundle.min.js"></script>
-    </body>
 </html>
