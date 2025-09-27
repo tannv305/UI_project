@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Delete Patient Prescription - HealHub</title>
+        <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <style>
+            body { background-color: #f6f7fb; }
+            .container-narrow { max-width: 600px; }
+            .card { border-radius: 1rem; box-shadow: 0 2px 12px #0001; }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-light bg-white border-bottom sticky-top shadow-sm">
+            <div class="container-fluid">
+                <a class="navbar-brand fw-bold text-primary" href="doctor-dashboard.html"><i class="fa-solid fa-heart-pulse me-2"></i>HealHub Doctor</a>
+                <div class="d-flex align-items-center gap-2">
+                    <a class="btn btn-outline-secondary btn-sm" href="profile-view.html"><i class="fa-solid fa-user me-1"></i>Profile</a>
+                    <a class="btn btn-outline-danger btn-sm" href="../auth/login.html"><i class="fa-solid fa-arrow-right-from-bracket me-1"></i>Logout</a>
+                </div>
+            </div>
+        </nav>
+        <main class="container container-narrow py-4">
+            <div class="card">
+                <div class="card-header bg-danger text-white">
+                    <h1 class="h4 mb-0"><i class="fa-solid fa-trash me-2"></i>Delete Patient Prescription</h1>
+                </div>
+                <div class="card-body">
+                    <div class="alert alert-warning">
+                        <i class="fa-solid fa-exclamation-triangle me-2"></i>
+                        <strong>Warning:</strong> This action cannot be undone. The prescription will be permanently deleted.
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Prescription Details</label>
+                        <div class="card bg-light">
+                            <div class="card-body">
+                                <h6 class="card-title">PR2025001 - Nguyen Van A (HS00124)</h6>
+                                <p class="card-text mb-1"><strong>Issue Date:</strong> September 25, 2025</p>
+                                <p class="card-text mb-1"><strong>Valid Until:</strong> October 25, 2025</p>
+                                <p class="card-text mb-0"><strong>Status:</strong> <span class="badge bg-success">Active</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Medications in this prescription:</label>
+                        <ul class="list-group">
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Lisinopril 10mg - Once daily
+                                <span class="badge bg-primary rounded-pill">30 days</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Metformin 500mg - Twice daily
+                                <span class="badge bg-primary rounded-pill">30 days</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Aspirin 81mg - Once daily
+                                <span class="badge bg-primary rounded-pill">30 days</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Reason for Deletion *</label>
+                        <select class="form-select" required>
+                            <option value="">Select reason</option>
+                            <option value="patient-request">Patient requested discontinuation</option>
+                            <option value="adverse-reaction">Adverse drug reaction</option>
+                            <option value="treatment-complete">Treatment course completed</option>
+                            <option value="medication-change">Medication changed</option>
+                            <option value="error">Prescription error</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Additional Notes</label>
+                        <textarea class="form-control" rows="3" placeholder="Please provide additional details about the deletion..."></textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="confirm-deletion" required>
+                            <label class="form-check-label" for="confirm-deletion">
+                                I confirm that I want to permanently delete this prescription
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-end">
+                        <button type="submit" class="btn btn-danger">Delete Prescription</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <script src="../assets/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>

@@ -19,18 +19,23 @@
             <div class="container-fluid">
                 <a class="navbar-brand fw-bold text-primary" href="doctor-dashboard.html"><i class="fa-solid fa-heart-pulse me-2"></i>HealHub Doctor</a>
                 <div class="d-flex align-items-center gap-2">
-                    <a class="btn btn-outline-primary btn-sm" href="patient-records-list.html"><i class="fa-solid fa-users me-1"></i>Patients</a>
-                    <a class="btn btn-outline-primary btn-sm" href="prescription-list.html"><i class="fa-solid fa-pills me-1"></i>Prescriptions</a>
-                    <a class="btn btn-outline-primary btn-sm" href="lab-request-list.html"><i class="fa-solid fa-vials me-1"></i>Lab Requests</a>
+                    
                     <a class="btn btn-outline-secondary btn-sm" href="profile-view.html"><i class="fa-solid fa-user me-1"></i>Profile</a>
                     <a class="btn btn-outline-danger btn-sm" href="../auth/login.html"><i class="fa-solid fa-arrow-right-from-bracket me-1"></i>Logout</a>
                 </div>
             </div>
         </nav>
         <main class="container container-wide py-4">
-            <div class="d-flex align-items-center mb-4">
-                <h1 class="h3 mb-0 me-3"><i class="fa-solid fa-users text-primary me-2"></i>Patient Records</h1>
-                <a class="btn btn-primary btn-sm" href="create-patient-record.html"><i class="fa-solid fa-plus me-1"></i>New Patient</a>
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h1 class="h3 mb-0"><i class="fa-solid fa-users text-primary me-2"></i>Manage Patient Record</h1>
+                <div class="d-flex gap-2">
+                    <a href="doctor-dashboard.html" class="btn btn-outline-secondary">
+                        <i class="fa-solid fa-arrow-left me-1"></i>Back to Dashboard
+                    </a>
+                    <a class="btn btn-primary" href="create-patient-record.html">
+                        <i class="fa-solid fa-plus me-1"></i>Create patient record
+                    </a>
+                </div>
             </div>
 
             <div class="row g-4">
@@ -104,86 +109,6 @@
 
                         <div class="text-center mt-4">
                             <button class="btn btn-outline-primary">Load More Patients</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="card p-4">
-                        <h5 class="mb-3">Quick Actions</h5>
-                        <div class="d-grid gap-2">
-                            <a href="create-patient-record.html" class="btn btn-primary">
-                                <i class="fa-solid fa-user-plus me-2"></i>New Patient
-                            </a>
-                            <a href="prescription-list.html" class="btn btn-outline-primary">
-                                <i class="fa-solid fa-pills me-2"></i>Prescriptions
-                            </a>
-                            <a href="lab-request-list.html" class="btn btn-outline-info">
-                                <i class="fa-solid fa-vials me-2"></i>Lab Requests
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="card p-4 mt-3">
-                        <h5 class="mb-3">Patient Summary</h5>
-                        <div class="mb-2">
-                            <div class="d-flex justify-content-between">
-                                <span>Total Patients:</span>
-                                <strong>156</strong>
-                            </div>
-                        </div>
-                        <div class="mb-2">
-                            <div class="d-flex justify-content-between">
-                                <span>Active:</span>
-                                <strong class="text-success">142</strong>
-                            </div>
-                        </div>
-                        <div class="mb-2">
-                            <div class="d-flex justify-content-between">
-                                <span>Follow-up Required:</span>
-                                <strong class="text-warning">8</strong>
-                            </div>
-                        </div>
-                        <div class="mb-0">
-                            <div class="d-flex justify-content-between">
-                                <span>This Month:</span>
-                                <strong>23</strong>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card p-4 mt-3">
-                        <h5 class="mb-3">Filter Options</h5>
-                        <div class="mb-3">
-                            <label class="form-label small">Age Range</label>
-                            <select class="form-select form-select-sm">
-                                <option>All Ages</option>
-                                <option>0-18</option>
-                                <option>19-35</option>
-                                <option>36-50</option>
-                                <option>51-65</option>
-                                <option>65+</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label small">Gender</label>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="male" checked>
-                                <label class="form-check-label small" for="male">Male</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="female" checked>
-                                <label class="form-check-label small" for="female">Female</label>
-                            </div>
-                        </div>
-                        <div class="mb-0">
-                            <label class="form-label small">Last Visit</label>
-                            <select class="form-select form-select-sm">
-                                <option>All Time</option>
-                                <option>Last 7 days</option>
-                                <option>Last 30 days</option>
-                                <option>Last 3 months</option>
-                            </select>
                         </div>
                     </div>
                 </div>

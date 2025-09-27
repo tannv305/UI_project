@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Appointment List - HealHub</title>
+        <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <style>
+            body { background-color: #f6f7fb; }
+            .container-wide { max-width: 1200px; }
+            .card { border-radius: 1rem; box-shadow: 0 2px 12px #0001; }
+            .table thead th { background-color: #f8f9fa; }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-light bg-white border-bottom sticky-top shadow-sm">
+            <div class="container-fluid">
+                <a class="navbar-brand fw-bold text-primary" href="doctor-dashboard.html"><i class="fa-solid fa-heart-pulse me-2"></i>HealHub Doctor</a>
+                <div class="d-flex align-items-center gap-2">
+                    <a class="btn btn-outline-secondary btn-sm" href="profile-view.html"><i class="fa-solid fa-user me-1"></i>Profile</a>
+                    <a class="btn btn-outline-danger btn-sm" href="../auth/login.html"><i class="fa-solid fa-arrow-right-from-bracket me-1"></i>Logout</a>
+                </div>
+            </div>
+        </nav>
+        <main class="container container-wide py-4">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h1 class="h3 mb-0"><i class="fa-solid fa-calendar me-2 text-primary"></i>Appointment List</h1>
+                <a href="doctor-dashboard.html" class="btn btn-outline-secondary">
+                    <i class="fa-solid fa-arrow-left me-1"></i>Back to Dashboard
+                </a>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Patient</th>
+                                    <th>Date & Time</th>
+                                    <th>Type</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div>
+                                            <div class="fw-bold">Nguyen Van A</div>
+                                            <small class="text-muted">HS00124</small>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div>Oct 15, 2025</div>
+                                        <small class="text-muted">2:00 PM</small>
+                                    </td>
+                                    <td>Consultation</td>
+                                    <td><span class="badge bg-success">Upcoming</span></td>
+                                    <td>
+                                        <a href="appointment-detail.html?id=1" class="btn btn-sm btn-outline-primary">Appointment</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div>
+                                            <div class="fw-bold">Tran Thi B</div>
+                                            <small class="text-muted">HS00125</small>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div>Oct 16, 2025</div>
+                                        <small class="text-muted">10:30 AM</small>
+                                    </td>
+                                    <td>Follow-up</td>
+                                    <td><span class="badge bg-warning">Pending</span></td>
+                                    <td>
+                                        <a href="appointment-detail.html?id=2" class="btn btn-sm btn-outline-primary">Appointment</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div>
+                                            <div class="fw-bold">Le Van C</div>
+                                            <small class="text-muted">HS00126</small>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div>Oct 17, 2025</div>
+                                        <small class="text-muted">3:30 PM</small>
+                                    </td>
+                                    <td>Check-up</td>
+                                    <td><span class="badge bg-info">Scheduled</span></td>
+                                    <td>
+                                        <a href="appointment-detail.html?id=3" class="btn btn-sm btn-outline-primary">Appointment</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <script src="../assets/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>

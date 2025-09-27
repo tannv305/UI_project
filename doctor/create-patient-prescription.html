@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Create Patient Prescription - HealHub</title>
+        <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <style>
+            body { background-color: #f6f7fb; }
+            .container-wide { max-width: 1000px; }
+            .card { border-radius: 1rem; box-shadow: 0 2px 12px #0001; }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-light bg-white border-bottom sticky-top shadow-sm">
+            <div class="container-fluid">
+                <a class="navbar-brand fw-bold text-primary" href="doctor-dashboard.html"><i class="fa-solid fa-heart-pulse me-2"></i>HealHub Doctor</a>
+                <div class="d-flex align-items-center gap-2">
+                    <a class="btn btn-outline-secondary btn-sm" href="profile-view.html"><i class="fa-solid fa-user me-1"></i>Profile</a>
+                    <a class="btn btn-outline-danger btn-sm" href="../auth/login.html"><i class="fa-solid fa-arrow-right-from-bracket me-1"></i>Logout</a>
+                </div>
+            </div>
+        </nav>
+        <main class="container container-wide py-4">
+            <div class="card">
+                <div class="card-header bg-success text-white">
+                    <h1 class="h4 mb-0"><i class="fa-solid fa-plus me-2"></i>Create Patient Prescription</h1>
+                </div>
+                <div class="card-body">
+                    <form>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Patient *</label>
+                                <select class="form-select" required>
+                                    <option value="">Select Patient</option>
+                                    <option value="hs00124" selected>Nguyen Van A (HS00124)</option>
+                                    <option value="hs00125">Tran Thi B (HS00125)</option>
+                                    <option value="hs00126">Le Van C (HS00126)</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Valid Until *</label>
+                                <input type="date" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Medications *</label>
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Medication</th>
+                                            <th>Dosage</th>
+                                            <th>Frequency</th>
+                                            <th>Duration</th>
+                                            <th>Instructions</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="medications-table">
+                                        <tr>
+                                            <td>
+                                                <select class="form-select" required>
+                                                    <option value="">Select medication</option>
+                                                    <option value="lisinopril">Lisinopril</option>
+                                                    <option value="metformin">Metformin</option>
+                                                    <option value="aspirin">Aspirin</option>
+                                                    <option value="amlodipine">Amlodipine</option>
+                                                    <option value="simvastatin">Simvastatin</option>
+                                                </select>
+                                            </td>
+                                            <td><input type="text" class="form-control" placeholder="e.g., 10mg" required></td>
+                                            <td>
+                                                <select class="form-select" required>
+                                                    <option value="">Select frequency</option>
+                                                    <option value="once-daily">Once daily</option>
+                                                    <option value="twice-daily">Twice daily</option>
+                                                    <option value="three-times">Three times daily</option>
+                                                    <option value="as-needed">As needed</option>
+                                                </select>
+                                            </td>
+                                            <td><input type="text" class="form-control" placeholder="e.g., 30 days" required></td>
+                                            <td><input type="text" class="form-control" placeholder="e.g., Take with food"></td>
+                                            <td><button type="button" class="btn btn-sm btn-outline-danger" onclick="removeMedication(this)">Remove</button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <button type="button" class="btn btn-outline-primary btn-sm mt-2" onclick="addMedication()">
+                                <i class="fa-solid fa-plus me-1"></i>Add Medication
+                            </button>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Clinical Notes *</label>
+                            <textarea class="form-control" rows="4" placeholder="Please provide clinical justification for the prescription..." required></textarea>
+                        </div>
+
+                    
+
+                        <div class="d-flex justify-content-end">
+                            <button type="submit" class="btn btn-success">Create Prescription</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+        <script src="../assets/js/bootstrap.bundle.min.js"></script>
+        <script>
+            function addMedication() {
+                const table = document.getElementById('medications-table');
+                const newRow = table.insertRow();
+                newRow.innerHTML = `
+                    <td>
+                        <select class="form-select" required>
+                            <option value="">Select medication</option>
+                            <option value="lisinopril">Lisinopril</option>
+                            <option value="metformin">Metformin</option>
+                            <option value="aspirin">Aspirin</option>
+                            <option value="amlodipine">Amlodipine</option>
+                            <option value="simvastatin">Simvastatin</option>
+                        </select>
+                    </td>
+                    <td><input type="text" class="form-control" placeholder="e.g., 10mg" required></td>
+                    <td>
+                        <select class="form-select" required>
+                            <option value="">Select frequency</option>
+                            <option value="once-daily">Once daily</option>
+                            <option value="twice-daily">Twice daily</option>
+                            <option value="three-times">Three times daily</option>
+                            <option value="as-needed">As needed</option>
+                        </select>
+                    </td>
+                    <td><input type="text" class="form-control" placeholder="e.g., 30 days" required></td>
+                    <td><input type="text" class="form-control" placeholder="e.g., Take with food"></td>
+                    <td><button type="button" class="btn btn-sm btn-outline-danger" onclick="removeMedication(this)">Remove</button></td>
+                `;
+            }
+            
+            function removeMedication(button) {
+                button.closest('tr').remove();
+            }
+        </script>
+    </body>
+</html>

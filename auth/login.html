@@ -1,115 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Login</title>
-        <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-        <style>
-            body { 
-                background-color: #f6f7fb; 
-                min-height: 100vh;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-            .login-container { 
-                max-width: 400px; 
-                width: 100%;
-            }
-            .card { border-radius: 1rem; box-shadow: 0 2px 12px #0001; }
-        </style>
-    </head>
-    <body>
-        <main class="login-container">
-            <div class="card p-4">
-                <h1 class="h4 mb-3 text-center"><i class="fa-solid fa-user-lock me-2 text-primary"></i>Login</h1>
-                <form id="loginForm">
-                    <div class="mb-3">
-                        <label for="username" class="form-label">Username</label>
-                        <input type="text" class="form-control" id="username" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="password" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="password" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="role" class="form-label">Role</label>
-                        <select class="form-select" id="role" required>
-                            <option value="">Select Role</option>
-                            <option value="receptionist">Receptionist</option>
-                            <option value="doctor">Doctor</option>
-                            <option value="patient">Patient</option>
-                            <option value="admin">Admin</option>
-                            <option value="technician">Technician</option>
-                        </select>
-                    </div>
-                    <button type="submit" class="btn btn-primary w-100">Login</button>
-                </form>
-                <div class="text-center mt-3">
-                    <a href="forget-password.html">Forgot Password?</a>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login</title>
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        body {
+            background-color: #f6f7fb;
+        }
+
+        .container-narrow {
+            max-width: 400px;
+        }
+
+        .card {
+            border-radius: 1rem;
+            box-shadow: 0 2px 12px #0001;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-light bg-white border-bottom sticky-top shadow-sm">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold text-primary" href="doctor-dashboard.html"><i
+                    class="fa-solid fa-heart-pulse me-2"></i>HealHub Doctor</a>
+        </div>
+    </nav>
+    <main class="container container-narrow py-4">
+
+
+        <div class="card p-4 mb-4">
+            <h1 class="h4 mb-3 text-center"><i class="fa-solid fa-user-lock me-2 text-primary"></i>Login</h1>
+            <form>
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" class="form-control" id="username" required>
                 </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" required>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Login</button>
+            </form>
+            <div class="text-center mt-3">
+                <a href="forget-password.html">Forget Password?</a>
             </div>
-        </main>
-        <script src="../assets/js/bootstrap.bundle.min.js"></script>
-        <script>
-            // Login form handling
-            document.getElementById('loginForm').addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                const username = document.getElementById('username').value;
-                const password = document.getElementById('password').value;
-                const role = document.getElementById('role').value;
-                
-                if (!username || !password || !role) {
-                    alert('Please fill in all fields');
-                    return;
-                }
-                
-                // Simple login validation (temporary)
-                if (username === 'admin' && password === 'admin') {
-                    // Redirect based on role
-                    switch(role) {
-                        case 'receptionist':
-                            window.location.href = '../receptionist/receptionist-dashboard.html';
-                            break;
-                        case 'doctor':
-                            window.location.href = '../doctor/doctor-dashboard.html';
-                            break;
-                        case 'patient':
-                            window.location.href = '../patient/patient-dashboard.html';
-                            break;
-                        case 'admin':
-                            window.location.href = '../admin/admin-dashboard.html';
-                            break;
-                        case 'technician':
-                            window.location.href = '../technician/technician-dashboard.html';
-                            break;
-                        default:
-                            alert('Invalid role selected');
-                    }
-                } else {
-                    alert('Invalid username or password. Use: admin/admin');
-                }
-            });
+        </div>
+    </main>
+    <script src="../assets/js/bootstrap.bundle.min.js"></script>
+</body>
 
-            // Quick login buttons for testing
-            document.addEventListener('DOMContentLoaded', function() {
-                // Add quick login info
-                const quickLoginInfo = document.createElement('div');
-                quickLoginInfo.className = 'alert alert-info mt-3';
-                quickLoginInfo.innerHTML = `
-                    <small><strong>Quick Login for Testing:</strong><br>
-                    Username: <code>admin</code><br>
-                    Password: <code>admin</code><br>
-                    Select any role to test different dashboards</small>
-                `;
-                document.querySelector('.card').appendChild(quickLoginInfo);
-            });
-        </script>
-    </body>
 </html>
-
-
-
