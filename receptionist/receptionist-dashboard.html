@@ -74,22 +74,22 @@
                         <div class="card-body">
                             <div class="row g-3">
                                 <div class="col-md-6">
-                                    <a href="manage-schuedule-appointment.html#schedule-new" class="btn btn-primary w-100 quick-action-btn">
+                                    <a href="manage-schuedule-appointment.html?tab=schedule-new" class="btn btn-primary w-100 quick-action-btn">
                                         <i class="fa-solid fa-calendar-plus me-2"></i>Schedule New
                                     </a>
                                 </div>
                                 <div class="col-md-6">
-                                    <a href="manage-schuedule-appointment.html#appointment-list" class="btn btn-outline-primary w-100 quick-action-btn">
+                                    <a href="manage-schuedule-appointment.html?tab=appointment-list" class="btn btn-outline-primary w-100 quick-action-btn">
                                         <i class="fa-solid fa-list me-2"></i>View Appointments
                                     </a>
                                 </div>
                                 <div class="col-md-6">
-                                    <a href="manage-profile-for-receptionist.html" class="btn btn-outline-secondary w-100 quick-action-btn">
+                                    <a href="manage-profile-for-receptionist.html?tab=view-profile" class="btn btn-outline-secondary w-100 quick-action-btn">
                                         <i class="fa-solid fa-user me-2"></i>Manage Profile
                                     </a>
                                 </div>
                                 <div class="col-md-6">
-                                    <a href="manage-schuedule-appointment.html#edit-appointment" class="btn btn-outline-info w-100 quick-action-btn">
+                                    <a href="manage-schuedule-appointment.html?tab=edit-appointment" class="btn btn-outline-info w-100 quick-action-btn">
                                         <i class="fa-solid fa-edit me-2"></i>Edit Appointment
                                     </a>
                                 </div>
@@ -304,21 +304,22 @@
 
             // Handle quick action navigation with tab switching
             document.addEventListener('DOMContentLoaded', function() {
-                // Check if we're coming from dashboard with hash
-                const hash = window.location.hash;
-                if (hash) {
+                // Check if we're coming from dashboard with URL parameter
+                const urlParams = new URLSearchParams(window.location.search);
+                const tab = urlParams.get('tab');
+                if (tab) {
                     // If coming from dashboard, switch to appropriate tab
                     setTimeout(() => {
-                        switch(hash) {
-                            case '#schedule-new':
+                        switch(tab) {
+                            case 'schedule-new':
                                 const scheduleNewTab = document.getElementById('schedule-new-tab');
                                 if (scheduleNewTab) scheduleNewTab.click();
                                 break;
-                            case '#appointment-list':
+                            case 'appointment-list':
                                 const appointmentListTab = document.getElementById('appointment-list-tab');
                                 if (appointmentListTab) appointmentListTab.click();
                                 break;
-                            case '#edit-appointment':
+                            case 'edit-appointment':
                                 const editAppointmentTab = document.getElementById('edit-appointment-tab');
                                 if (editAppointmentTab) editAppointmentTab.click();
                                 break;

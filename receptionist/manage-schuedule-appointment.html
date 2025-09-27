@@ -30,10 +30,19 @@
         </nav>
 
         <main class="container container-wide py-3 py-lg-4">
+            <!-- Breadcrumb -->
+            <nav aria-label="breadcrumb" class="mb-3">
+                <ol class="breadcrumb" id="schedule-breadcrumb">
+                    <li class="breadcrumb-item"><a href="receptionist-dashboard.html">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a href="manage-schuedule-appointment.html">Manage Schedule</a></li>
+                    <li class="breadcrumb-item active" aria-current="page" id="current-schedule-tab-breadcrumb">Appointment List</li>
+                </ol>
+            </nav>
+            
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <h1 class="h3 mb-0"><i class="fa-solid fa-calendar-check me-2 text-primary"></i>Manage Schedule Appointment</h1>
                 <div class="d-flex gap-2">
-                    <a href="manage-profile-for-receptionist.html" class="btn btn-outline-secondary">
+                    <a href="manage-profile-for-receptionist.html?tab=view-profile" class="btn btn-outline-secondary">
                         <i class="fa-solid fa-user me-2"></i>Manage Profile
                     </a>
                 </div>
@@ -674,20 +683,21 @@
                 document.getElementById('appointment-date').setAttribute('min', today);
                 document.getElementById('edit-appointment-date').setAttribute('min', today);
                 
-                // Handle tab switching from dashboard quick actions
-                const hash = window.location.hash;
-                if (hash) {
+                // Handle tab switching from dashboard quick actions using URL parameters
+                const urlParams = new URLSearchParams(window.location.search);
+                const tab = urlParams.get('tab');
+                if (tab) {
                     setTimeout(() => {
-                        switch(hash) {
-                            case '#schedule-new':
+                        switch(tab) {
+                            case 'schedule-new':
                                 const scheduleNewTab = document.getElementById('schedule-new-tab');
                                 if (scheduleNewTab) scheduleNewTab.click();
                                 break;
-                            case '#appointment-list':
+                            case 'appointment-list':
                                 const appointmentListTab = document.getElementById('appointment-list-tab');
                                 if (appointmentListTab) appointmentListTab.click();
                                 break;
-                            case '#edit-appointment':
+                            case 'edit-appointment':
                                 const editAppointmentTab = document.getElementById('edit-appointment-tab');
                                 if (editAppointmentTab) editAppointmentTab.click();
                                 break;
@@ -695,6 +705,35 @@
                     }, 100);
                 }
             });
+
+            // Update URL when tab is clicked
+            function updateURL(tabName) {
+                const url = new URL(window.location);
+                url.searchParams.set('tab', tabName);
+                window.history.pushState({}, '', url);
+            }
+
+            // Add click listeners to tabs
+            document.getElementById('appointment-list-tab').addEventListener('click', () => {
+                updateURL('appointment-list');
+                updateBreadcrumb('Appointment List');
+            });
+            document.getElementById('schedule-new-tab').addEventListener('click', () => {
+                updateURL('schedule-new');
+                updateBreadcrumb('Schedule New');
+            });
+            document.getElementById('edit-appointment-tab').addEventListener('click', () => {
+                updateURL('edit-appointment');
+                updateBreadcrumb('Edit Appointment');
+            });
+
+            // Update breadcrumb function
+            function updateBreadcrumb(tabName) {
+                const breadcrumb = document.getElementById('current-schedule-tab-breadcrumb');
+                if (breadcrumb) {
+                    breadcrumb.textContent = tabName;
+                }
+            }
         </script>
     </body>
 </html>
