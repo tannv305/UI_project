@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Manage Schedule Appointment - Receptionist</title>
+        <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <style>
+            body { background-color: #f6f7fb; }
+            .container-wide { max-width: 1400px; }
+            .card { border-radius: 1rem; box-shadow: 0 2px 12px #0001; }
+            .nav-pills .nav-link { border-radius: 0.5rem; margin-right: 0.5rem; }
+            .nav-pills .nav-link.active { background-color: #0d6efd; }
+            .appointment-card { transition: transform 0.2s; }
+            .appointment-card:hover { transform: translateY(-2px); }
+            .status-badge { font-size: 0.75rem; }
+            .filter-section { background: #f8f9fa; border-radius: 0.5rem; padding: 1rem; }
+            .table-responsive { border-radius: 0.5rem; }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-light bg-white border-bottom sticky-top shadow-sm">
+            <div class="container-fluid">
+                <a class="navbar-brand fw-bold text-primary" href="receptionist-dashboard.html"><i class="fa-solid fa-heart-pulse me-2"></i>HealHub Receptionist</a>
+                <div class="d-flex align-items-center gap-2">
+                    <a class="btn btn-outline-danger btn-sm" href="../auth/login.html"><i class="fa-solid fa-arrow-right-from-bracket me-1"></i>Logout</a>
+                </div>
+            </div>
+        </nav>
+
+        <main class="container container-wide py-3 py-lg-4">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h1 class="h3 mb-0"><i class="fa-solid fa-calendar-check me-2 text-primary"></i>Manage Schedule Appointment</h1>
+                <div class="d-flex gap-2">
+                    <a href="manage-profile-for-receptionist.html" class="btn btn-outline-secondary">
+                        <i class="fa-solid fa-user me-2"></i>Manage Profile
+                    </a>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-12">
+                    <div class="card shadow-sm border-0">
+                        <div class="card-header bg-white">
+                            <ul class="nav nav-pills" id="appointment-tabs" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active" id="appointment-list-tab" data-bs-toggle="pill" data-bs-target="#appointment-list" type="button" role="tab">
+                                        <i class="fa-solid fa-list me-2"></i>Appointment List
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="schedule-new-tab" data-bs-toggle="pill" data-bs-target="#schedule-new" type="button" role="tab">
+                                        <i class="fa-solid fa-calendar-plus me-2"></i>Schedule New
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="edit-appointment-tab" data-bs-toggle="pill" data-bs-target="#edit-appointment" type="button" role="tab">
+                                        <i class="fa-solid fa-edit me-2"></i>Edit Appointment
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-body">
+                            <div class="tab-content" id="appointment-tabContent">
+                                <!-- Appointment List Tab -->
+                                <div class="tab-pane fade show active" id="appointment-list" role="tabpanel">
+                                    <!-- Filter Section -->
+                                    <div class="filter-section mb-4">
+                                        <div class="row g-3">
+                                            <div class="col-md-3">
+                                                <label for="date-filter" class="form-label">Date Range</label>
+                                                <input type="date" class="form-control" id="date-filter">
+                                            </div>
+                                            <div class="col-md-3">
+                                                <label for="status-filter" class="form-label">Status</label>
+                                                <select class="form-select" id="status-filter">
+                                                    <option value="">All Status</option>
+                                                    <option value="scheduled">Scheduled</option>
+                                                    <option value="completed">Completed</option>
+                                                    <option value="cancelled">Cancelled</option>
+                                                    <option value="no-show">No Show</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <label for="doctor-filter" class="form-label">Doctor</label>
+                                                <select class="form-select" id="doctor-filter">
+                                                    <option value="">All Doctors</option>
+                                                    <option value="dr001">Dr. Nguyen Van A</option>
+                                                    <option value="dr002">Dr. Tran Thi B</option>
+                                                    <option value="dr003">Dr. Le Van C</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <label for="search-patient" class="form-label">Search Patient</label>
+                                                <input type="text" class="form-control" id="search-patient" placeholder="Patient name or ID">
+                                            </div>
+                                        </div>
+                                        <div class="row mt-3">
+                                            <div class="col-12">
+                                                <button class="btn btn-primary me-2" onclick="applyFilters()">
+                                                    <i class="fa-solid fa-filter me-1"></i>Apply Filters
+                                                </button>
+                                                <button class="btn btn-outline-secondary" onclick="clearFilters()">
+                                                    <i class="fa-solid fa-times me-1"></i>Clear
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Appointments Table -->
+                                    <div class="table-responsive">
+                                        <table class="table table-hover align-middle">
+                                            <thead class="table-light">
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>Patient</th>
+                                                    <th>Doctor</th>
+                                                    <th>Date & Time</th>
+                                                    <th>Type</th>
+                                                    <th>Status</th>
+                                                    <th>Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><span class="badge bg-primary">APT001</span></td>
+                                                    <td>
+                                                        <div>
+                                                            <div class="fw-bold">Nguyen Van A</div>
+                                                            <small class="text-muted">HS00124</small>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div>
+                                                            <div class="fw-bold">Dr. Nguyen Van A</div>
+                                                            <small class="text-muted">Cardiology</small>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div>
+                                                            <div class="fw-bold">Oct 15, 2025</div>
+                                                            <small class="text-muted">2:00 PM</small>
+                                                        </div>
+                                                    </td>
+                                                    <td>Consultation</td>
+                                                    <td><span class="badge bg-success status-badge">Scheduled</span></td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-outline-primary" onclick="viewAppointmentDetail('APT001')">
+                                                            <i class="fa-solid fa-eye"></i>
+                                                        </button>
+                                                        <button class="btn btn-sm btn-outline-warning" onclick="editAppointment('APT001')">
+                                                            <i class="fa-solid fa-edit"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td><span class="badge bg-primary">APT002</span></td>
+                                                    <td>
+                                                        <div>
+                                                            <div class="fw-bold">Tran Thi B</div>
+                                                            <small class="text-muted">HS00125</small>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div>
+                                                            <div class="fw-bold">Dr. Tran Thi B</div>
+                                                            <small class="text-muted">Dermatology</small>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div>
+                                                            <div class="fw-bold">Oct 16, 2025</div>
+                                                            <small class="text-muted">10:30 AM</small>
+                                                        </div>
+                                                    </td>
+                                                    <td>Follow-up</td>
+                                                    <td><span class="badge bg-warning status-badge">Pending</span></td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-outline-primary" onclick="viewAppointmentDetail('APT002')">
+                                                            <i class="fa-solid fa-eye"></i>
+                                                        </button>
+                                                        <button class="btn btn-sm btn-outline-warning" onclick="editAppointment('APT002')">
+                                                            <i class="fa-solid fa-edit"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td><span class="badge bg-primary">APT003</span></td>
+                                                    <td>
+                                                        <div>
+                                                            <div class="fw-bold">Le Van C</div>
+                                                            <small class="text-muted">HS00126</small>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div>
+                                                            <div class="fw-bold">Dr. Le Van C</div>
+                                                            <small class="text-muted">Orthopedics</small>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div>
+                                                            <div class="fw-bold">Oct 17, 2025</div>
+                                                            <small class="text-muted">3:15 PM</small>
+                                                        </div>
+                                                    </td>
+                                                    <td>Check-up</td>
+                                                    <td><span class="badge bg-success status-badge">Completed</span></td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-outline-primary" onclick="viewAppointmentDetail('APT003')">
+                                                            <i class="fa-solid fa-eye"></i>
+                                                        </button>
+                                                        <button class="btn btn-sm btn-outline-warning" onclick="editAppointment('APT003')">
+                                                            <i class="fa-solid fa-edit"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <!-- Schedule New Appointment Tab -->
+                                <div class="tab-pane fade" id="schedule-new" role="tabpanel">
+                                    <div class="row justify-content-center">
+                                        <div class="col-md-8">
+                                            <h6 class="fw-bold mb-4"><i class="fa-solid fa-calendar-plus me-2 text-success"></i>Schedule New Appointment</h6>
+                                            <form id="schedule-form">
+                                                <div class="row g-3">
+                                                    <div class="col-md-6">
+                                                        <label for="patient-search" class="form-label">Patient <span class="text-danger">*</span></label>
+                                                        <div class="input-group">
+                                                            <input type="text" class="form-control" id="patient-search" placeholder="Search patient by name or ID" required>
+                                                            <button class="btn btn-outline-secondary" type="button" onclick="searchPatient()">
+                                                                <i class="fa-solid fa-search"></i>
+                                                            </button>
+                                                        </div>
+                                                        <div class="form-text">Enter patient name or ID to search</div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <label for="appointment-type" class="form-label">Appointment Type <span class="text-danger">*</span></label>
+                                                        <select class="form-select" id="appointment-type" required>
+                                                            <option value="">Select type</option>
+                                                            <option value="consultation">Consultation</option>
+                                                            <option value="follow-up">Follow-up</option>
+                                                            <option value="check-up">Check-up</option>
+                                                            <option value="emergency">Emergency</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <label for="doctor-select" class="form-label">Doctor <span class="text-danger">*</span></label>
+                                                        <select class="form-select" id="doctor-select" required>
+                                                            <option value="">Select doctor</option>
+                                                            <option value="dr001">Dr. Nguyen Van A - Cardiology</option>
+                                                            <option value="dr002">Dr. Tran Thi B - Dermatology</option>
+                                                            <option value="dr003">Dr. Le Van C - Orthopedics</option>
+                                                            <option value="dr004">Dr. Pham Van D - Neurology</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <label for="appointment-date" class="form-label">Date <span class="text-danger">*</span></label>
+                                                        <input type="date" class="form-control" id="appointment-date" required>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <label for="appointment-time" class="form-label">Time <span class="text-danger">*</span></label>
+                                                        <select class="form-select" id="appointment-time" required>
+                                                            <option value="">Select time</option>
+                                                            <option value="09:00">9:00 AM</option>
+                                                            <option value="09:30">9:30 AM</option>
+                                                            <option value="10:00">10:00 AM</option>
+                                                            <option value="10:30">10:30 AM</option>
+                                                            <option value="11:00">11:00 AM</option>
+                                                            <option value="14:00">2:00 PM</option>
+                                                            <option value="14:30">2:30 PM</option>
+                                                            <option value="15:00">3:00 PM</option>
+                                                            <option value="15:30">3:30 PM</option>
+                                                            <option value="16:00">4:00 PM</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <label for="duration" class="form-label">Duration</label>
+                                                        <select class="form-select" id="duration">
+                                                            <option value="30">30 minutes</option>
+                                                            <option value="45">45 minutes</option>
+                                                            <option value="60" selected>60 minutes</option>
+                                                            <option value="90">90 minutes</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <label for="notes" class="form-label">Notes</label>
+                                                        <textarea class="form-control" id="notes" rows="3" placeholder="Additional notes for the appointment"></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
+                                                    <button type="button" class="btn btn-outline-secondary me-md-2" onclick="clearScheduleForm()">Cancel</button>
+                                                    <button type="submit" class="btn btn-success">
+                                                        <i class="fa-solid fa-calendar-plus me-2"></i>Schedule Appointment
+                                                    </button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Edit Appointment Tab -->
+                                <div class="tab-pane fade" id="edit-appointment" role="tabpanel">
+                                    <div class="row justify-content-center">
+                                        <div class="col-md-8">
+                                            <h6 class="fw-bold mb-4"><i class="fa-solid fa-edit me-2 text-warning"></i>Edit Appointment</h6>
+                                            
+                                            <!-- Search Appointment to Edit -->
+                                            <div class="card mb-4">
+                                                <div class="card-header">
+                                                    <h6 class="mb-0"><i class="fa-solid fa-search me-2 text-info"></i>Search Appointment to Edit</h6>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="row g-3">
+                                                        <div class="col-md-6">
+                                                            <label for="search-appointment-id" class="form-label">Appointment ID</label>
+                                                            <input type="text" class="form-control" id="search-appointment-id" placeholder="Enter appointment ID">
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <label for="search-patient-name" class="form-label">Patient Name</label>
+                                                            <input type="text" class="form-control" id="search-patient-name" placeholder="Enter patient name">
+                                                        </div>
+                                                    </div>
+                                                    <div class="mt-3">
+                                                        <button class="btn btn-primary" onclick="searchAppointmentToEdit()">
+                                                            <i class="fa-solid fa-search me-1"></i>Search
+                                                        </button>
+                                                        <button class="btn btn-outline-secondary ms-2" onclick="clearSearchEdit()">
+                                                            <i class="fa-solid fa-times me-1"></i>Clear
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Edit Form (Hidden by default) -->
+                                            <div id="edit-appointment-form" style="display: none;">
+                                                <div class="card">
+                                                    <div class="card-header">
+                                                        <h6 class="mb-0"><i class="fa-solid fa-edit me-2 text-warning"></i>Edit Appointment Details</h6>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <form id="edit-form">
+                                                            <div class="row g-3">
+                                                                <div class="col-md-6">
+                                                                    <label for="edit-appointment-id" class="form-label">Appointment ID</label>
+                                                                    <input type="text" class="form-control" id="edit-appointment-id" readonly>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <label for="edit-patient-name" class="form-label">Patient</label>
+                                                                    <input type="text" class="form-control" id="edit-patient-name" readonly>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <label for="edit-appointment-type" class="form-label">Appointment Type <span class="text-danger">*</span></label>
+                                                                    <select class="form-select" id="edit-appointment-type" required>
+                                                                        <option value="">Select type</option>
+                                                                        <option value="consultation">Consultation</option>
+                                                                        <option value="follow-up">Follow-up</option>
+                                                                        <option value="check-up">Check-up</option>
+                                                                        <option value="emergency">Emergency</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <label for="edit-doctor-select" class="form-label">Doctor <span class="text-danger">*</span></label>
+                                                                    <select class="form-select" id="edit-doctor-select" required>
+                                                                        <option value="">Select doctor</option>
+                                                                        <option value="dr001">Dr. Nguyen Van A - Cardiology</option>
+                                                                        <option value="dr002">Dr. Tran Thi B - Dermatology</option>
+                                                                        <option value="dr003">Dr. Le Van C - Orthopedics</option>
+                                                                        <option value="dr004">Dr. Pham Van D - Neurology</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <label for="edit-appointment-date" class="form-label">Date <span class="text-danger">*</span></label>
+                                                                    <input type="date" class="form-control" id="edit-appointment-date" required>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <label for="edit-appointment-time" class="form-label">Time <span class="text-danger">*</span></label>
+                                                                    <select class="form-select" id="edit-appointment-time" required>
+                                                                        <option value="">Select time</option>
+                                                                        <option value="09:00">9:00 AM</option>
+                                                                        <option value="09:30">9:30 AM</option>
+                                                                        <option value="10:00">10:00 AM</option>
+                                                                        <option value="10:30">10:30 AM</option>
+                                                                        <option value="11:00">11:00 AM</option>
+                                                                        <option value="14:00">2:00 PM</option>
+                                                                        <option value="14:30">2:30 PM</option>
+                                                                        <option value="15:00">3:00 PM</option>
+                                                                        <option value="15:30">3:30 PM</option>
+                                                                        <option value="16:00">4:00 PM</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <label for="edit-duration" class="form-label">Duration</label>
+                                                                    <select class="form-select" id="edit-duration">
+                                                                        <option value="30">30 minutes</option>
+                                                                        <option value="45">45 minutes</option>
+                                                                        <option value="60">60 minutes</option>
+                                                                        <option value="90">90 minutes</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <label for="edit-status" class="form-label">Status</label>
+                                                                    <select class="form-select" id="edit-status">
+                                                                        <option value="scheduled">Scheduled</option>
+                                                                        <option value="completed">Completed</option>
+                                                                        <option value="cancelled">Cancelled</option>
+                                                                        <option value="no-show">No Show</option>
+                                                                        <option value="pending">Pending</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="col-12">
+                                                                    <label for="edit-notes" class="form-label">Notes</label>
+                                                                    <textarea class="form-control" id="edit-notes" rows="3" placeholder="Additional notes for the appointment"></textarea>
+                                                                </div>
+                                                            </div>
+                                                            <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
+                                                                <button type="button" class="btn btn-outline-secondary me-md-2" onclick="cancelEdit()">Cancel</button>
+                                                                <button type="submit" class="btn btn-warning">
+                                                                    <i class="fa-solid fa-save me-2"></i>Update Appointment
+                                                                </button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Appointment Detail Modal -->
+        <div class="modal fade" id="appointmentDetailModal" tabindex="-1">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title"><i class="fa-solid fa-calendar-check me-2 text-primary"></i>Appointment Details</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6 class="fw-bold mb-3">Patient Information</h6>
+                                <div class="mb-2"><strong>Name:</strong> Nguyen Van A</div>
+                                <div class="mb-2"><strong>ID:</strong> HS00124</div>
+                                <div class="mb-2"><strong>Phone:</strong> +84 123 456 789</div>
+                                <div class="mb-2"><strong>Email:</strong> nguyenvana@email.com</div>
+                            </div>
+                            <div class="col-md-6">
+                                <h6 class="fw-bold mb-3">Appointment Information</h6>
+                                <div class="mb-2"><strong>Date:</strong> October 15, 2025</div>
+                                <div class="mb-2"><strong>Time:</strong> 2:00 PM</div>
+                                <div class="mb-2"><strong>Doctor:</strong> Dr. Nguyen Van A</div>
+                                <div class="mb-2"><strong>Type:</strong> Consultation</div>
+                                <div class="mb-2"><strong>Status:</strong> <span class="badge bg-success">Scheduled</span></div>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-12">
+                                <h6 class="fw-bold mb-2">Notes</h6>
+                                <p class="text-muted">Patient requested follow-up consultation for heart condition. Previous appointment was on September 20, 2025.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-warning">
+                            <i class="fa-solid fa-edit me-1"></i>Edit Appointment
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="../assets/js/bootstrap.bundle.min.js"></script>
+        <script>
+            // Filter functions
+            function applyFilters() {
+                const dateFilter = document.getElementById('date-filter').value;
+                const statusFilter = document.getElementById('status-filter').value;
+                const doctorFilter = document.getElementById('doctor-filter').value;
+                const searchPatient = document.getElementById('search-patient').value;
+                
+                console.log('Applying filters:', { dateFilter, statusFilter, doctorFilter, searchPatient });
+                // Implement filter logic here
+                alert('Filters applied successfully!');
+            }
+
+            function clearFilters() {
+                document.getElementById('date-filter').value = '';
+                document.getElementById('status-filter').value = '';
+                document.getElementById('doctor-filter').value = '';
+                document.getElementById('search-patient').value = '';
+                alert('Filters cleared!');
+            }
+
+            // Appointment detail functions
+            function viewAppointmentDetail(appointmentId) {
+                const modal = new bootstrap.Modal(document.getElementById('appointmentDetailModal'));
+                modal.show();
+            }
+
+            function editAppointment(appointmentId) {
+                // Switch to edit tab and populate form
+                const editTab = document.getElementById('edit-appointment-tab');
+                const editTabPane = document.getElementById('edit-appointment');
+                
+                // Activate edit tab
+                editTab.click();
+                
+                // Simulate loading appointment data
+                setTimeout(() => {
+                    loadAppointmentForEdit(appointmentId);
+                }, 100);
+            }
+
+            // Load appointment data for editing
+            function loadAppointmentForEdit(appointmentId) {
+                // Simulate loading appointment data
+                const appointmentData = {
+                    'APT001': {
+                        id: 'APT001',
+                        patient: 'Nguyen Van A',
+                        type: 'consultation',
+                        doctor: 'dr001',
+                        date: '2025-10-15',
+                        time: '14:00',
+                        duration: '60',
+                        status: 'scheduled',
+                        notes: 'Patient requested follow-up consultation for heart condition.'
+                    },
+                    'APT002': {
+                        id: 'APT002',
+                        patient: 'Tran Thi B',
+                        type: 'follow-up',
+                        doctor: 'dr002',
+                        date: '2025-10-16',
+                        time: '10:30',
+                        duration: '45',
+                        status: 'pending',
+                        notes: 'Follow-up appointment for skin condition.'
+                    },
+                    'APT003': {
+                        id: 'APT003',
+                        patient: 'Le Van C',
+                        type: 'check-up',
+                        doctor: 'dr003',
+                        date: '2025-10-17',
+                        time: '15:15',
+                        duration: '60',
+                        status: 'completed',
+                        notes: 'Regular check-up appointment.'
+                    }
+                };
+
+                const data = appointmentData[appointmentId];
+                if (data) {
+                    // Populate form fields
+                    document.getElementById('edit-appointment-id').value = data.id;
+                    document.getElementById('edit-patient-name').value = data.patient;
+                    document.getElementById('edit-appointment-type').value = data.type;
+                    document.getElementById('edit-doctor-select').value = data.doctor;
+                    document.getElementById('edit-appointment-date').value = data.date;
+                    document.getElementById('edit-appointment-time').value = data.time;
+                    document.getElementById('edit-duration').value = data.duration;
+                    document.getElementById('edit-status').value = data.status;
+                    document.getElementById('edit-notes').value = data.notes;
+                    
+                    // Show edit form
+                    document.getElementById('edit-appointment-form').style.display = 'block';
+                } else {
+                    alert('Appointment not found!');
+                }
+            }
+
+            // Search appointment to edit
+            function searchAppointmentToEdit() {
+                const appointmentId = document.getElementById('search-appointment-id').value;
+                const patientName = document.getElementById('search-patient-name').value;
+                
+                if (!appointmentId && !patientName) {
+                    alert('Please enter appointment ID or patient name to search');
+                    return;
+                }
+                
+                // Simulate search
+                if (appointmentId) {
+                    loadAppointmentForEdit(appointmentId);
+                } else {
+                    // Search by patient name (simplified)
+                    alert('Searching by patient name: ' + patientName);
+                    // In real implementation, you would search the database
+                }
+            }
+
+            // Clear search fields
+            function clearSearchEdit() {
+                document.getElementById('search-appointment-id').value = '';
+                document.getElementById('search-patient-name').value = '';
+                document.getElementById('edit-appointment-form').style.display = 'none';
+            }
+
+            // Cancel edit
+            function cancelEdit() {
+                document.getElementById('edit-appointment-form').style.display = 'none';
+                document.getElementById('edit-form').reset();
+            }
+
+            // Patient search function
+            function searchPatient() {
+                const searchTerm = document.getElementById('patient-search').value;
+                if (searchTerm.trim() === '') {
+                    alert('Please enter patient name or ID to search');
+                    return;
+                }
+                alert('Searching for patient: ' + searchTerm);
+                // Implement patient search logic
+            }
+
+            // Schedule form functions
+            function clearScheduleForm() {
+                document.getElementById('schedule-form').reset();
+            }
+
+            // Form submission
+            document.getElementById('schedule-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const patient = document.getElementById('patient-search').value;
+                const type = document.getElementById('appointment-type').value;
+                const doctor = document.getElementById('doctor-select').value;
+                const date = document.getElementById('appointment-date').value;
+                const time = document.getElementById('appointment-time').value;
+                
+                if (!patient || !type || !doctor || !date || !time) {
+                    alert('Please fill in all required fields');
+                    return;
+                }
+                
+                alert('Appointment scheduled successfully!');
+                clearScheduleForm();
+            });
+
+            // Edit form submission
+            document.getElementById('edit-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const type = document.getElementById('edit-appointment-type').value;
+                const doctor = document.getElementById('edit-doctor-select').value;
+                const date = document.getElementById('edit-appointment-date').value;
+                const time = document.getElementById('edit-appointment-time').value;
+                
+                if (!type || !doctor || !date || !time) {
+                    alert('Please fill in all required fields');
+                    return;
+                }
+                
+                alert('Appointment updated successfully!');
+                document.getElementById('edit-appointment-form').style.display = 'none';
+                document.getElementById('edit-form').reset();
+            });
+
+            // Set minimum date to today
+            document.addEventListener('DOMContentLoaded', function() {
+                const today = new Date().toISOString().split('T')[0];
+                document.getElementById('appointment-date').setAttribute('min', today);
+                document.getElementById('edit-appointment-date').setAttribute('min', today);
+                
+                // Handle tab switching from dashboard quick actions
+                const hash = window.location.hash;
+                if (hash) {
+                    setTimeout(() => {
+                        switch(hash) {
+                            case '#schedule-new':
+                                const scheduleNewTab = document.getElementById('schedule-new-tab');
+                                if (scheduleNewTab) scheduleNewTab.click();
+                                break;
+                            case '#appointment-list':
+                                const appointmentListTab = document.getElementById('appointment-list-tab');
+                                if (appointmentListTab) appointmentListTab.click();
+                                break;
+                            case '#edit-appointment':
+                                const editAppointmentTab = document.getElementById('edit-appointment-tab');
+                                if (editAppointmentTab) editAppointmentTab.click();
+                                break;
+                        }
+                    }, 100);
+                }
+            });
+        </script>
+    </body>
+</html>

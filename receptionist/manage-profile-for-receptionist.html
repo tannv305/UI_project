@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Manage Profile - Receptionist</title>
+        <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <style>
+            body { background-color: #f6f7fb; }
+            .container-wide { max-width: 1200px; }
+            .card { border-radius: 1rem; box-shadow: 0 2px 12px #0001; }
+            .profile-avatar { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; }
+            .nav-pills .nav-link { border-radius: 0.5rem; margin-right: 0.5rem; }
+            .nav-pills .nav-link.active { background-color: #0d6efd; }
+            .form-control:focus { border-color: #0d6efd; box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25); }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-light bg-white border-bottom sticky-top shadow-sm">
+            <div class="container-fluid">
+                <a class="navbar-brand fw-bold text-primary" href="receptionist-dashboard.html"><i class="fa-solid fa-heart-pulse me-2"></i>HealHub Receptionist</a>
+                <div class="d-flex align-items-center gap-2">
+                    <a class="btn btn-outline-danger btn-sm" href="../auth/login.html"><i class="fa-solid fa-arrow-right-from-bracket me-1"></i>Logout</a>
+                </div>
+            </div>
+        </nav>
+
+        <main class="container container-wide py-3 py-lg-4">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h1 class="h3 mb-0"><i class="fa-solid fa-user-cog me-2 text-primary"></i>Manage Profile</h1>
+                <div class="d-flex gap-2">
+                    <a href="manage-schuedule-appointment.html" class="btn btn-outline-primary">
+                        <i class="fa-solid fa-calendar-plus me-2"></i>Manage Schedule
+                    </a>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-12">
+                    <div class="card shadow-sm border-0">
+                        <div class="card-header bg-white">
+                            <ul class="nav nav-pills" id="profile-tabs" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active" id="view-profile-tab" data-bs-toggle="pill" data-bs-target="#view-profile" type="button" role="tab">
+                                        <i class="fa-solid fa-eye me-2"></i>View Profile
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="change-password-tab" data-bs-toggle="pill" data-bs-target="#change-password" type="button" role="tab">
+                                        <i class="fa-solid fa-key me-2"></i>Change Password
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="edit-profile-tab" data-bs-toggle="pill" data-bs-target="#edit-profile" type="button" role="tab">
+                                        <i class="fa-solid fa-edit me-2"></i>Edit Profile
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-body">
+                            <div class="tab-content" id="profile-tabContent">
+                                <!-- View Profile Tab -->
+                                <div class="tab-pane fade show active" id="view-profile" role="tabpanel">
+                                    <div class="row">
+                                        <div class="col-md-4 text-center mb-4">
+                                            <img src="https://via.placeholder.com/120x120/0d6efd/ffffff?text=LT" alt="Profile" class="profile-avatar mb-3">
+                                            <h5 class="mb-1">Nguyen Thi Mai</h5>
+                                            <p class="text-muted">Receptionist</p>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <h6 class="fw-bold mb-3"><i class="fa-solid fa-info-circle me-2 text-primary"></i>Personal Information</h6>
+                                            <div class="row mb-3">
+                                                <div class="col-sm-4"><strong>Full Name:</strong></div>
+                                                <div class="col-sm-8">Nguyen Thi Mai</div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <div class="col-sm-4"><strong>Email:</strong></div>
+                                                <div class="col-sm-8">mai.nguyen@healhub.com</div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <div class="col-sm-4"><strong>Phone:</strong></div>
+                                                <div class="col-sm-8">+84 123 456 789</div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <div class="col-sm-4"><strong>Address:</strong></div>
+                                                <div class="col-sm-8">123 Le Loi Street, District 1, Ho Chi Minh City</div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <div class="col-sm-4"><strong>Date of Birth:</strong></div>
+                                                <div class="col-sm-8">March 15, 1990</div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <div class="col-sm-4"><strong>Employee ID:</strong></div>
+                                                <div class="col-sm-8">LT001</div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <div class="col-sm-4"><strong>Department:</strong></div>
+                                                <div class="col-sm-8">Reception</div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <div class="col-sm-4"><strong>Start Date:</strong></div>
+                                                <div class="col-sm-8">January 10, 2020</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Change Password Tab -->
+                                <div class="tab-pane fade" id="change-password" role="tabpanel">
+                                    <div class="row justify-content-center">
+                                        <div class="col-md-6">
+                                            <h6 class="fw-bold mb-4"><i class="fa-solid fa-key me-2 text-warning"></i>Change Password</h6>
+                                            <form>
+                                                <div class="mb-3">
+                                                    <label for="current-password" class="form-label">Current Password</label>
+                                                    <input type="password" class="form-control" id="current-password" required>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="new-password" class="form-label">New Password</label>
+                                                    <input type="password" class="form-control" id="new-password" required>
+                                                    <div class="form-text">Password must be at least 8 characters long.</div>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="confirm-password" class="form-label">Confirm New Password</label>
+                                                    <input type="password" class="form-control" id="confirm-password" required>
+                                                </div>
+                                                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                                    <button type="button" class="btn btn-outline-secondary me-md-2">Cancel</button>
+                                                    <button type="submit" class="btn btn-warning">
+                                                        <i class="fa-solid fa-key me-2"></i>Change Password
+                                                    </button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Edit Profile Tab -->
+                                <div class="tab-pane fade" id="edit-profile" role="tabpanel">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h6 class="fw-bold mb-4"><i class="fa-solid fa-edit me-2 text-success"></i>Edit Personal Information</h6>
+                                            <form>
+                                                <div class="mb-3">
+                                                    <label for="edit-fullname" class="form-label">Full Name</label>
+                                                    <input type="text" class="form-control" id="edit-fullname" value="Nguyen Thi Mai" required>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="edit-email" class="form-label">Email</label>
+                                                    <input type="email" class="form-control" id="edit-email" value="mai.nguyen@healhub.com" required>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="edit-phone" class="form-label">Phone</label>
+                                                    <input type="tel" class="form-control" id="edit-phone" value="+84 123 456 789" required>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="edit-address" class="form-label">Address</label>
+                                                    <textarea class="form-control" id="edit-address" rows="3" required>123 Le Loi Street, District 1, Ho Chi Minh City</textarea>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="edit-dob" class="form-label">Date of Birth</label>
+                                                    <input type="date" class="form-control" id="edit-dob" value="1990-03-15" required>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h6 class="fw-bold mb-4"><i class="fa-solid fa-camera me-2 text-info"></i>Profile Picture</h6>
+                                            <div class="text-center mb-3">
+                                                <img src="https://via.placeholder.com/120x120/0d6efd/ffffff?text=LT" alt="Profile" class="profile-avatar mb-3">
+                                                <div>
+                                                    <button type="button" class="btn btn-outline-primary btn-sm">
+                                                        <i class="fa-solid fa-upload me-1"></i>Upload New Photo
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="alert alert-info">
+                                                <i class="fa-solid fa-info-circle me-2"></i>
+                                                <small>Supported formats: JPG, PNG. Maximum size: 2MB.</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
+                                        <button type="button" class="btn btn-outline-secondary me-md-2">Cancel</button>
+                                        <button type="button" class="btn btn-success">
+                                            <i class="fa-solid fa-save me-2"></i>Save Changes
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <script src="../assets/js/bootstrap.bundle.min.js"></script>
+        <script>
+            // Form validation and interactions
+            document.addEventListener('DOMContentLoaded', function() {
+                // Change password form validation
+                const changePasswordForm = document.querySelector('#change-password form');
+                if (changePasswordForm) {
+                    changePasswordForm.addEventListener('submit', function(e) {
+                        e.preventDefault();
+                        const newPassword = document.getElementById('new-password').value;
+                        const confirmPassword = document.getElementById('confirm-password').value;
+                        
+                        if (newPassword !== confirmPassword) {
+                            alert('New passwords do not match!');
+                            return;
+                        }
+                        
+                        if (newPassword.length < 8) {
+                            alert('Password must be at least 8 characters long!');
+                            return;
+                        }
+                        
+                        // Simulate password change
+                        alert('Password changed successfully!');
+                        changePasswordForm.reset();
+                    });
+                }
+
+                // Edit profile form validation
+                const editProfileForm = document.querySelector('#edit-profile form');
+                if (editProfileForm) {
+                    const saveButton = document.querySelector('#edit-profile .btn-success');
+                    if (saveButton) {
+                        saveButton.addEventListener('click', function() {
+                            // Simulate profile update
+                            alert('Profile updated successfully!');
+                        });
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>
