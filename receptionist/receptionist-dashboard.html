@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Receptionist Dashboard - HealHub</title>
+        <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <style>
+            body { background-color: #f6f7fb; }
+            .container-wide { max-width: 1200px; }
+            .card { border-radius: 1rem; box-shadow: 0 2px 12px #0001; }
+            .dashboard-summary { display: flex; gap: 1.5rem; margin-bottom: 2rem; flex-wrap: wrap; }
+            .summary-card { flex: 1 1 200px; background: #fff; border-radius: 1rem; box-shadow: 0 2px 12px #0001; padding: 1.2rem 1rem; display: flex; align-items: center; gap: 1rem; min-width: 220px; }
+            .summary-icon { font-size: 1.8rem; opacity: 0.9; }
+            .summary-label { color: #6c757d; font-size: 0.98em; }
+            .summary-value { font-size: 1.4rem; font-weight: 600; }
+            .quick-action-btn { transition: transform 0.2s; }
+            .quick-action-btn:hover { transform: translateY(-2px); }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-light bg-white border-bottom sticky-top shadow-sm">
+            <div class="container-fluid">
+                <a class="navbar-brand fw-bold text-primary" href="receptionist-dashboard.html"><i class="fa-solid fa-heart-pulse me-2"></i>HealHub Receptionist</a>
+                <div class="d-flex align-items-center gap-2">
+                    <a class="btn btn-outline-danger btn-sm" href="../auth/login.html"><i class="fa-solid fa-arrow-right-from-bracket me-1"></i>Logout</a>
+                </div>
+            </div>
+        </nav>
+
+        <main class="container container-wide py-3 py-lg-4">
+            <h1 class="h3 mb-4"><i class="fa-solid fa-house-medical me-2 text-primary"></i>Receptionist Dashboard</h1>
+            
+            <!-- Summary Cards -->
+            <div class="dashboard-summary">
+                <div class="summary-card">
+                    <span class="summary-icon text-primary"><i class="fa-solid fa-calendar"></i></span>
+                    <div>
+                        <div class="summary-label">Today's Appointments</div>
+                        <div class="summary-value">12</div>
+                    </div>
+                </div>
+                <div class="summary-card">
+                    <span class="summary-icon text-success"><i class="fa-solid fa-calendar-check"></i></span>
+                    <div>
+                        <div class="summary-label">Completed Today</div>
+                        <div class="summary-value">8</div>
+                    </div>
+                </div>
+                <div class="summary-card">
+                    <span class="summary-icon text-warning"><i class="fa-solid fa-clock"></i></span>
+                    <div>
+                        <div class="summary-label">Pending</div>
+                        <div class="summary-value">4</div>
+                    </div>
+                </div>
+                <div class="summary-card">
+                    <span class="summary-icon text-info"><i class="fa-solid fa-calendar-plus"></i></span>
+                    <div>
+                        <div class="summary-label">New This Week</div>
+                        <div class="summary-value">28</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-3">
+                <!-- Quick Actions -->
+                <div class="col-12 col-xl-6">
+                    <div class="card shadow-sm border-0">
+                        <div class="card-header bg-white">
+                            <span class="fw-semibold"><i class="fa-solid fa-bolt me-1 text-warning"></i>Quick Actions</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <a href="manage-schuedule-appointment.html?tab=schedule-new" class="btn btn-primary w-100 quick-action-btn">
+                                        <i class="fa-solid fa-calendar-plus me-2"></i>Schedule New
+                                    </a>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="manage-schuedule-appointment.html?tab=appointment-list" class="btn btn-outline-primary w-100 quick-action-btn">
+                                        <i class="fa-solid fa-list me-2"></i>View Appointments
+                                    </a>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="manage-profile-for-receptionist.html?tab=view-profile" class="btn btn-outline-secondary w-100 quick-action-btn">
+                                        <i class="fa-solid fa-user me-2"></i>Manage Profile
+                                    </a>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="manage-schuedule-appointment.html?tab=edit-appointment" class="btn btn-outline-info w-100 quick-action-btn">
+                                        <i class="fa-solid fa-edit me-2"></i>Edit Appointment
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Today's Schedule -->
+                <div class="col-12 col-xl-6">
+                    <div class="card shadow-sm border-0">
+                        <div class="card-header bg-white d-flex justify-content-between align-items-center">
+                            <span class="fw-semibold"><i class="fa-solid fa-calendar me-1 text-primary"></i>Today's Schedule</span>
+                            <a class="btn btn-sm btn-outline-primary" href="manage-schuedule-appointment.html">View All</a>
+                        </div>
+                        <div class="card-body p-0">
+                            <div class="list-group list-group-flush">
+                                <div class="list-group-item d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <div class="fw-bold">9:00 AM</div>
+                                        <small class="text-muted">Nguyen Van A - Dr. Nguyen Van A</small>
+                                    </div>
+                                    <span class="badge bg-success">Completed</span>
+                                </div>
+                                <div class="list-group-item d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <div class="fw-bold">10:30 AM</div>
+                                        <small class="text-muted">Tran Thi B - Dr. Tran Thi B</small>
+                                    </div>
+                                    <span class="badge bg-primary">Upcoming</span>
+                                </div>
+                                <div class="list-group-item d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <div class="fw-bold">2:00 PM</div>
+                                        <small class="text-muted">Le Van C - Dr. Le Van C</small>
+                                    </div>
+                                    <span class="badge bg-warning">In Progress</span>
+                                </div>
+                                <div class="list-group-item d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <div class="fw-bold">3:30 PM</div>
+                                        <small class="text-muted">Pham Van D - Dr. Pham Van D</small>
+                                    </div>
+                                    <span class="badge bg-secondary">Pending</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Appointments -->
+            <div class="row g-3 mt-3">
+                <div class="col-12">
+                    <div class="card shadow-sm border-0">
+                        <div class="card-header bg-white d-flex justify-content-between align-items-center">
+                            <span class="fw-semibold"><i class="fa-solid fa-clock me-1 text-info"></i>Recent Appointments</span>
+                            <a class="btn btn-sm btn-outline-primary" href="manage-schuedule-appointment.html">Manage All</a>
+                        </div>
+                        <div class="card-body p-0">
+                            <div class="table-responsive">
+                                <table class="table align-middle mb-0">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Patient</th>
+                                            <th>Doctor</th>
+                                            <th>Date & Time</th>
+                                            <th>Type</th>
+                                            <th>Status</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><span class="badge bg-primary">APT001</span></td>
+                                            <td>
+                                                <div>
+                                                    <div class="fw-bold">Nguyen Van A</div>
+                                                    <small class="text-muted">HS00124</small>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>
+                                                    <div class="fw-bold">Dr. Nguyen Van A</div>
+                                                    <small class="text-muted">Cardiology</small>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>
+                                                    <div class="fw-bold">Oct 15, 2025</div>
+                                                    <small class="text-muted">2:00 PM</small>
+                                                </div>
+                                            </td>
+                                            <td>Consultation</td>
+                                            <td><span class="badge bg-success">Scheduled</span></td>
+                                            <td>
+                                                <button class="btn btn-sm btn-outline-primary" onclick="viewAppointmentDetail('APT001')">
+                                                    <i class="fa-solid fa-eye"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-outline-warning" onclick="editAppointment('APT001')">
+                                                    <i class="fa-solid fa-edit"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="badge bg-primary">APT002</span></td>
+                                            <td>
+                                                <div>
+                                                    <div class="fw-bold">Tran Thi B</div>
+                                                    <small class="text-muted">HS00125</small>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>
+                                                    <div class="fw-bold">Dr. Tran Thi B</div>
+                                                    <small class="text-muted">Dermatology</small>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>
+                                                    <div class="fw-bold">Oct 16, 2025</div>
+                                                    <small class="text-muted">10:30 AM</small>
+                                                </div>
+                                            </td>
+                                            <td>Follow-up</td>
+                                            <td><span class="badge bg-warning">Pending</span></td>
+                                            <td>
+                                                <button class="btn btn-sm btn-outline-primary" onclick="viewAppointmentDetail('APT002')">
+                                                    <i class="fa-solid fa-eye"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-outline-warning" onclick="editAppointment('APT002')">
+                                                    <i class="fa-solid fa-edit"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Appointment Detail Modal -->
+        <div class="modal fade" id="appointmentDetailModal" tabindex="-1">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title"><i class="fa-solid fa-calendar-check me-2 text-primary"></i>Appointment Details</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6 class="fw-bold mb-3">Patient Information</h6>
+                                <div class="mb-2"><strong>Name:</strong> Nguyen Van A</div>
+                                <div class="mb-2"><strong>ID:</strong> HS00124</div>
+                                <div class="mb-2"><strong>Phone:</strong> +84 123 456 789</div>
+                                <div class="mb-2"><strong>Email:</strong> nguyenvana@email.com</div>
+                            </div>
+                            <div class="col-md-6">
+                                <h6 class="fw-bold mb-3">Appointment Information</h6>
+                                <div class="mb-2"><strong>Date:</strong> October 15, 2025</div>
+                                <div class="mb-2"><strong>Time:</strong> 2:00 PM</div>
+                                <div class="mb-2"><strong>Doctor:</strong> Dr. Nguyen Van A</div>
+                                <div class="mb-2"><strong>Type:</strong> Consultation</div>
+                                <div class="mb-2"><strong>Status:</strong> <span class="badge bg-success">Scheduled</span></div>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-12">
+                                <h6 class="fw-bold mb-2">Notes</h6>
+                                <p class="text-muted">Patient requested follow-up consultation for heart condition. Previous appointment was on September 20, 2025.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-warning" onclick="editAppointmentFromModal()">
+                            <i class="fa-solid fa-edit me-1"></i>Edit Appointment
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="../assets/js/bootstrap.bundle.min.js"></script>
+        <script>
+            // View appointment detail
+            function viewAppointmentDetail(appointmentId) {
+                const modal = new bootstrap.Modal(document.getElementById('appointmentDetailModal'));
+                modal.show();
+            }
+
+            // Edit appointment
+            function editAppointment(appointmentId) {
+                // Redirect to manage schedule page with edit tab
+                window.location.href = 'manage-schuedule-appointment.html#edit';
+            }
+
+            // Edit appointment from modal
+            function editAppointmentFromModal() {
+                // Close modal and redirect to edit page
+                const modal = bootstrap.Modal.getInstance(document.getElementById('appointmentDetailModal'));
+                modal.hide();
+                setTimeout(() => {
+                    window.location.href = 'manage-schuedule-appointment.html#edit';
+                }, 300);
+            }
+
+            // Handle quick action navigation with tab switching
+            document.addEventListener('DOMContentLoaded', function() {
+                // Check if we're coming from dashboard with URL parameter
+                const urlParams = new URLSearchParams(window.location.search);
+                const tab = urlParams.get('tab');
+                if (tab) {
+                    // If coming from dashboard, switch to appropriate tab
+                    setTimeout(() => {
+                        switch(tab) {
+                            case 'schedule-new':
+                                const scheduleNewTab = document.getElementById('schedule-new-tab');
+                                if (scheduleNewTab) scheduleNewTab.click();
+                                break;
+                            case 'appointment-list':
+                                const appointmentListTab = document.getElementById('appointment-list-tab');
+                                if (appointmentListTab) appointmentListTab.click();
+                                break;
+                            case 'edit-appointment':
+                                const editAppointmentTab = document.getElementById('edit-appointment-tab');
+                                if (editAppointmentTab) editAppointmentTab.click();
+                                break;
+                        }
+                    }, 100);
+                }
+            });
+
+            // Auto-refresh dashboard data every 5 minutes
+            setInterval(() => {
+                console.log('Dashboard data refreshed');
+                // In real implementation, you would fetch updated data from server
+            }, 300000);
+        </script>
+    </body>
+</html>
