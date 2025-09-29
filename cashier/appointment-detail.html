@@ -17,10 +17,10 @@
     <body>
         <nav class="navbar navbar-light bg-white border-bottom sticky-top shadow-sm">
             <div class="container-fluid">
-                <a class="navbar-brand fw-bold text-primary" href="doctor-dashboard.html"><i class="fa-solid fa-heart-pulse me-2"></i>HealHub Doctor</a>
+                <a class="navbar-brand fw-bold text-primary" href="cashier-dashboard.html"><i class="fa-solid fa-cash-register me-2"></i>HealHub Cashier</a>
                 <div class="d-flex align-items-center gap-2">
-                    <a class="btn btn-outline-secondary btn-sm" href="profile-view.html"><i class="fa-solid fa-user me-1"></i>Profile</a>
-                    <a class="btn btn-outline-danger btn-sm" href="../auth/login.html"><i class="fa-solid fa-arrow-right-from-bracket me-1"></i>Logout</a>
+               <a class="btn btn-outline-secondary btn-sm" href="profile-management.html"><i class="fa-solid fa-user me-1"></i>Profile</a>
+                    <a class="btn btn-outline-danger btn-sm" href="logout.html"><i class="fa-solid fa-arrow-right-from-bracket me-1"></i>Logout</a>
                 </div>
             </div>
         </nav>
@@ -28,11 +28,11 @@
             <div class="card appointment-header">
                 <div class="card-body d-flex justify-content-between align-items-center">
                     <div>
-                        <h1 class="h4 mb-2">Appointment Detail</h1>
-                        <p class="mb-0">Nguyen Van A (HS00124) • October 15, 2025 at 2:00 PM</p>
+                        <h1 class="h4 mb-2">Cardiology Consultation</h1>
+                        <p class="mb-0">Patient: Nguyen Van A (HS00124) • Doctor: Dr. Le Van C • October 15, 2025 at 2:00 PM</p>
                     </div>
                     <div class="text-end">
-                        <span class="badge bg-light text-dark p-2">Upcoming</span>
+                        <span class="badge bg-light text-dark p-2">Confirmed</span>
                     </div>
                 </div>
             </div>
@@ -67,7 +67,33 @@
 
                     <div class="card section-card mt-3">
                         <div class="card-header bg-white">
-                            <h5 class="mb-0"><i class="fa-solid fa-clipboard-list me-2 text-success"></i>Appointment Details</h5>
+                            <h5 class="mb-0"><i class="fa-solid fa-user-doctor me-2 text-success"></i>Doctor Information</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">Doctor Name</label>
+                                    <p class="form-control-plaintext">Dr. Le Van C</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">Specialty</label>
+                                    <p class="form-control-plaintext">Cardiologist</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">Room</label>
+                                    <p class="form-control-plaintext">Room 201</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">Phone</label>
+                                    <p class="form-control-plaintext">+84 987 654 321</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card section-card mt-3">
+                        <div class="card-header bg-white">
+                            <h5 class="mb-0"><i class="fa-solid fa-clipboard-list me-2 text-info"></i>Appointment Details</h5>
                         </div>
                         <div class="card-body">
                             <div class="row g-3">
@@ -88,6 +114,7 @@
                     </div>
                 </div>
 
+                
             </div>
         </main>
         <script src="../assets/js/bootstrap.bundle.min.js"></script>

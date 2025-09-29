@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Doctor List – HealHub Admin</title>
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <style>
+    body { background-color: #f6f7fb; }
+    .container-wide { max-width: 1100px; }
+    .card { border-radius: 1rem; box-shadow: 0 2px 12px #0001; }
+    .table th { background-color: #f8f9fa; }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-light bg-white border-bottom sticky-top shadow-sm">
+    <div class="container-fluid">
+      <a class="navbar-brand fw-bold text-primary" href="admin-dashboard.html">
+        <i class="fa-solid fa-user-shield me-2"></i>HealHub Admin
+      </a>
+      <div class="d-flex align-items-center gap-2">
+        <a class="btn btn-outline-primary btn-sm" href="doctor-add.html">
+          <i class="fa-solid fa-user-plus me-1"></i>Add Doctor</a>
+        <a class="btn btn-outline-secondary btn-sm" href="logout.html">
+          <i class="fa-solid fa-arrow-right-from-bracket me-1"></i>Logout</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container container-wide py-4">
+    <div class="card p-4">
+      <h1 class="h4 mb-3"><i class="fa-solid fa-user-doctor me-2 text-primary"></i>Doctor List</h1>
+
+      <div class="table-responsive">
+        <table class="table table-bordered align-middle">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Doctor ID</th>
+              <th>Full Name</th>
+              <th>Specialty</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>DR001</td>
+              <td>Dr. Tran Van A</td>
+              <td>Cardiology</td>
+              <td>tranvana@healhub.com</td>
+              <td>+84 912 345 678</td>
+              <td><span class="badge bg-success">Active</span></td>
+              <td>
+                <a href="doctor-view.html?id=DR001" class="btn btn-sm btn-primary"><i class="fa-solid fa-eye"></i></a>
+                <a href="doctor-edit.html?id=DR001" class="btn btn-sm btn-warning"><i class="fa-solid fa-pen"></i></a>
+                <a href="#" class="btn btn-sm btn-danger"><i class="fa-solid fa-trash"></i></a>
+              </td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>DR002</td>
+              <td>Dr. Le Thi B</td>
+              <td>Pediatrics</td>
+              <td>lethib@healhub.com</td>
+              <td>+84 987 654 321</td>
+              <td><span class="badge bg-secondary">Inactive</span></td>
+              <td>
+                <a href="doctor-view.html?id=DR002" class="btn btn-sm btn-primary"><i class="fa-solid fa-eye"></i></a>
+                <a href="doctor-edit.html?id=DR002" class="btn btn-sm btn-warning"><i class="fa-solid fa-pen"></i></a>
+                <a href="#" class="btn btn-sm btn-danger"><i class="fa-solid fa-trash"></i></a>
+              </td>
+            </tr>
+            <!-- add more doctor rows here -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <script src="../assets/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

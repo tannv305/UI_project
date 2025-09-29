@@ -19,9 +19,6 @@
             <div class="container-fluid">
                 <a class="navbar-brand fw-bold text-primary" href="patient-dashboard.html"><i class="fa-solid fa-heart-pulse me-2"></i>HealHub Patient</a>
                 <div class="d-flex align-items-center gap-2">
-                    <a class="btn btn-outline-primary btn-sm" href="appointment-list.html"><i class="fa-solid fa-calendar me-1"></i>Appointments</a>
-                    <a class="btn btn-outline-primary btn-sm" href="medical-record-list.html"><i class="fa-solid fa-file-medical me-1"></i>Medical Records</a>
-                    <a class="btn btn-outline-primary btn-sm" href="feedback-management.html"><i class="fa-solid fa-comments me-1"></i>Feedback</a>
                     <a class="btn btn-outline-danger btn-sm" href="../auth/login.html"><i class="fa-solid fa-arrow-right-from-bracket me-1"></i>Logout</a>
                 </div>
             </div>
@@ -77,47 +74,10 @@
                         <textarea class="form-control" rows="5" placeholder="Please share your experience in detail..." required></textarea>
                     </div>
 
-                    <div class="mb-4">
-                        <label class="form-label">What went well?</label>
-                        <textarea class="form-control" rows="3" placeholder="Tell us about the positive aspects of your experience..."></textarea>
-                    </div>
-
-                    <div class="mb-4">
-                        <label class="form-label">What could be improved?</label>
-                        <textarea class="form-control" rows="3" placeholder="Share suggestions for improvement..."></textarea>
-                    </div>
-
-                    <div class="mb-4">
-                        <label class="form-label">Would you recommend this service to others?</label>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="recommend" id="recommend-yes" value="yes">
-                            <label class="form-check-label" for="recommend-yes">Yes, definitely</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="recommend" id="recommend-maybe" value="maybe">
-                            <label class="form-check-label" for="recommend-maybe">Maybe</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="recommend" id="recommend-no" value="no">
-                            <label class="form-check-label" for="recommend-no">No, probably not</label>
-                        </div>
-                    </div>
-
-                    <div class="mb-4">
-                        <label class="form-label">Contact Information (Optional)</label>
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <input type="text" class="form-control" placeholder="Your name">
-                            </div>
-                            <div class="col-md-6">
-                                <input type="email" class="form-control" placeholder="Email address">
-                            </div>
-                        </div>
-                        <small class="text-muted">We may contact you for follow-up questions about your feedback.</small>
-                    </div>
+                    
 
                     <div class="d-flex justify-content-between">
-                        <a href="feedback-management.html" class="btn btn-outline-secondary">Cancel</a>
+
                         <button type="submit" class="btn btn-primary">Submit Feedback</button>
                     </div>
                 </form>

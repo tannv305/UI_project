@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Cashier Dashboard - HealHub</title>
+        <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <style>
+            body { background-color: #f6f7fb; }
+            .container-wide { max-width: 1200px; }
+            .card { border-radius: 1rem; box-shadow: 0 2px 12px #0001; }
+            .dashboard-summary { display: flex; gap: 1.5rem; margin-bottom: 2rem; flex-wrap: wrap; }
+            .summary-card { flex: 1 1 200px; background: #fff; border-radius: 1rem; box-shadow: 0 2px 12px #0001; padding: 1.2rem 1rem; display: flex; align-items: center; gap: 1rem; min-width: 220px; }
+            .summary-icon { font-size: 1.8rem; opacity: 0.9; }
+            .summary-label { color: #6c757d; font-size: 0.98em; }
+            .summary-value { font-size: 1.4rem; font-weight: 600; }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-light bg-white border-bottom sticky-top shadow-sm">
+            <div class="container-fluid">
+                <a class="navbar-brand fw-bold text-primary" href="cashier-dashboard.html"><i class="fa-solid fa-cash-register me-2"></i>HealHub Cashier</a>
+                <div class="d-flex align-items-center gap-2">
+                    <a class="btn btn-outline-primary btn-sm" href="appointment-management.html"><i class="fa-solid fa-calendar me-1"></i>Appointments</a>
+                    <a class="btn btn-outline-primary btn-sm" href="payment-management.html"><i class="fa-solid fa-credit-card me-1"></i>Payments</a>
+                    <a class="btn btn-outline-secondary btn-sm" href="profile-management.html"><i class="fa-solid fa-user me-1"></i>Profile</a>
+                    <a class="btn btn-outline-danger btn-sm" href="logout.html"><i class="fa-solid fa-arrow-right-from-bracket me-1"></i>Logout</a>
+                </div>
+            </div>
+        </nav>
+        <main class="container container-wide py-3 py-lg-4">
+            <h1 class="h3 mb-4"><i class="fa-solid fa-house-medical me-2 text-primary"></i>Cashier Dashboard</h1>
+            
+            <!-- Main Action Cards according to Screen Flow -->
+            <div class="row g-4 mb-4">
+                <div class="col-md-6">
+                    <div class="card h-100 shadow-sm border-0">
+                        <div class="card-body text-center p-4">
+                            <div class="mb-3">
+                                <i class="fa-solid fa-calendar-check text-primary" style="font-size: 3rem;"></i>
+                            </div>
+                            <h5 class="card-title">View Appointment</h5>
+                            <p class="card-text text-muted">Manage patient appointments</p>
+                            <a href="appointment-management.html" class="btn btn-primary w-100">View Appointment</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100 shadow-sm border-0">
+                        <div class="card-body text-center p-4">
+                            <div class="mb-3">
+                                <i class="fa-solid fa-credit-card text-success" style="font-size: 3rem;"></i>
+                            </div>
+                            <h5 class="card-title">Manage Payment</h5>
+                            <p class="card-text text-muted">Handle payments and billing</p>
+                            <a href="payment-management.html" class="btn btn-success w-100">Manage Payment</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Stats -->
+            <div class="dashboard-summary">
+                <div class="summary-card">
+                    <span class="summary-icon text-primary"><i class="fa-solid fa-calendar"></i></span>
+                    <div>
+                        <div class="summary-label">Today's Appointments</div>
+                        <div class="summary-value">24</div>
+                    </div>
+                </div>
+                <div class="summary-card">
+                    <span class="summary-icon text-success"><i class="fa-solid fa-credit-card"></i></span>
+                    <div>
+                        <div class="summary-label">Pending Payments</div>
+                        <div class="summary-value">12</div>
+                    </div>
+                </div>
+                <div class="summary-card">
+                    <span class="summary-icon text-info"><i class="fa-solid fa-receipt"></i></span>
+                    <div>
+                        <div class="summary-label">Bills Generated</div>
+                        <div class="summary-value">18</div>
+                    </div>
+                </div>
+                <div class="summary-card">
+                    <span class="summary-icon text-warning"><i class="fa-solid fa-dollar-sign"></i></span>
+                    <div>
+                        <div class="summary-label">Today's Revenue</div>
+                        <div class="summary-value">$2,450</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <script src="../assets/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>

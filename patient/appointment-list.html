@@ -22,10 +22,7 @@
             <div class="container-fluid">
                 <a class="navbar-brand fw-bold text-primary" href="patient-dashboard.html"><i class="fa-solid fa-heart-pulse me-2"></i>HealHub Patient</a>
                 <div class="d-flex align-items-center gap-2">
-                    <a class="btn btn-outline-primary btn-sm" href="appointment-list.html"><i class="fa-solid fa-calendar me-1"></i>Appointments</a>
-                    <a class="btn btn-outline-primary btn-sm" href="medical-record-list.html"><i class="fa-solid fa-file-medical me-1"></i>Medical Records</a>
-                    <a class="btn btn-outline-primary btn-sm" href="feedback-management.html"><i class="fa-solid fa-comments me-1"></i>Feedback</a>
-                    <a class="btn btn-outline-danger btn-sm" href="../auth/login.html"><i class="fa-solid fa-arrow-right-from-bracket me-1"></i>Logout</a>
+                <a class="btn btn-outline-danger btn-sm" href="../auth/login.html"><i class="fa-solid fa-arrow-right-from-bracket me-1"></i>Logout</a>
                 </div>
             </div>
         </nav>
@@ -36,7 +33,7 @@
             </div>
 
             <div class="row g-4">
-                <div class="col-md-8">
+                <div class="col-md-12">
                     <div class="card p-4">
                         <div class="d-flex justify-content-between align-items-center mb-3">
                             <h5 class="mb-0">Appointment History</h5>
@@ -152,78 +149,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-4">
-                    <div class="card p-4">
-                        <h5 class="mb-3">Quick Actions</h5>
-                        <div class="d-grid gap-2">
-                            <a href="make-appointment.html" class="btn btn-primary">
-                                <i class="fa-solid fa-calendar-plus me-2"></i>Book New Appointment
-                            </a>
-                            <a href="doctor-list.html" class="btn btn-outline-primary">
-                                <i class="fa-solid fa-user-doctor me-2"></i>Find Doctors
-                            </a>
-                            <a href="doctor-search.html" class="btn btn-outline-secondary">
-                                <i class="fa-solid fa-search me-2"></i>Search Doctors
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="card p-4 mt-3">
-                        <h5 class="mb-3">Appointment Summary</h5>
-                        <div class="mb-2">
-                            <div class="d-flex justify-content-between">
-                                <span>Upcoming:</span>
-                                <strong class="text-success">1</strong>
-                            </div>
-                        </div>
-                        <div class="mb-2">
-                            <div class="d-flex justify-content-between">
-                                <span>Completed:</span>
-                                <strong class="text-secondary">3</strong>
-                            </div>
-                        </div>
-                        <div class="mb-2">
-                            <div class="d-flex justify-content-between">
-                                <span>Cancelled:</span>
-                                <strong class="text-danger">1</strong>
-                            </div>
-                        </div>
-                        <div class="mb-0">
-                            <div class="d-flex justify-content-between">
-                                <span>Next Appointment:</span>
-                                <strong>Oct 15, 2025</strong>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card p-4 mt-3">
-                        <h5 class="mb-3">Filter Options</h5>
-                        <div class="mb-3">
-                            <label class="form-label small">Status</label>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="status-upcoming" checked>
-                                <label class="form-check-label small" for="status-upcoming">Upcoming</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="status-completed" checked>
-                                <label class="form-check-label small" for="status-completed">Completed</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="status-cancelled">
-                                <label class="form-check-label small" for="status-cancelled">Cancelled</label>
-                            </div>
-                        </div>
-                        <div class="mb-0">
-                            <label class="form-label small">Date Range</label>
-                            <select class="form-select form-select-sm">
-                                <option>All Time</option>
-                                <option>Next 30 days</option>
-                                <option>Next 3 months</option>
-                                <option>This year</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
+        
             </div>
         </main>
         <script src="../assets/js/bootstrap.bundle.min.js"></script>
